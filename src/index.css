@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+
+.home-bg{
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  background: linear-gradient(135deg, #0f172a, #1e3a8a, #0f172a);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+
+}
+ .box{
+  background: radial-gradient(circle at center, #364c84, #728ccd); 
+ }
+
+ .drop-down ul li ul li  {
+  transform: translateX(0);
+ }
+ .drop-down ul li ul li:hover  {
+  transform: translateX(10px);
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  }
+
+.data div {
+  background: linear-gradient(to right, #fda4af, #ffb6b9, #ffe0e9);
+
+  
+}
+.icon{
+  background: linear-gradient(to right, #fda4af, #fbcfe8, #ffe4e6);
+  color: #fda4af;
+  border-radius: 20%;
+  padding: 10px;
+  margin-right: 10px;
+}
+.feature-box , .courses-div {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
+  background: radial-gradient(circle at center, #a3bde9, #d1dff7);
+
+}
+
+  
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }}
+  
+  
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+  
+}
+.embla__slide , .cards {
+  flex: 0 0 25%;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(to right, #fda4af, #ffb6b9, #ffe0e9);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+
+}
+.logo span{
+opacity: 0.8;
+}
+ .logo span:hover{
+  opacity: 1;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fda4af;
+  transition: all 0.3s ease-in-out;}
+
+
+.testimonials{
+  background: linear-gradient( #fda4af, #ffb6b9, #ffe0e9);
+box-shadow:
+  0 4px 6px rgba(0, 0, 0, 0.3),
+  0 12px 24px rgba(0, 0, 0, 0.4);
+
+
+
+
+
+
+
+
+
+}
+
+

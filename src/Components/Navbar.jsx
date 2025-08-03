@@ -2,6 +2,7 @@ import React from 'react'
 import { FaAngleDown } from "react-icons/fa";
 import { GiNestBirds } from 'react-icons/gi';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 const Navbar = () => {
 
   const [isOpen, setIsOpen] = useState(false)
@@ -21,8 +22,8 @@ const Navbar = () => {
         </div>
 
         <ul class="flex justify-center gap-3 font-['Comic_Relief'] items-center h-full text-lg ">
-          <li className="cursor-pointer hover:bg-[#95b1ee] hover:rounded-full transition-all hover:text-[#fffdf5] py-2 px-5 ">Home</li>
-          <li className="cursor-pointer  hover:bg-[#95b1ee] active:bg-[#95b1ee] hover:rounded-full transition-all hover:text-[#fffdf5] py-2 px-5 flex justify-center  gap-1 items-center course-button  "  onClick={toggleDropdown} >Courses <span><FaAngleDown           className={`transition-transform duration-300 mt-1 ${isOpen ? 'rotate-180' : ''}`}/></span>
+       <Link to="/">  <li className="cursor-pointer hover:bg-[#95b1ee] hover:rounded-full transition-all hover:text-[#fffdf5] py-2 px-5 ">Home</li></Link> 
+        <Link to="/courses"> <li className="cursor-pointer  hover:bg-[#95b1ee] active:bg-[#95b1ee] hover:rounded-full transition-all hover:text-[#fffdf5] py-2 px-5 flex justify-center  gap-1 items-center course-button  "  onClick={toggleDropdown} >Courses <span><FaAngleDown className={`transition-transform duration-300 mt-1 ${isOpen ? 'rotate-180' : ''}`}/></span>
           {isOpen && (
           <div className="grid drop-down z-40  grid-cols-2 gap-3 px-8 py-6 shadow-2xl lg:left-[10rem]  font-['Roboto'] top-[3.9rem]  text-[#364c84] bg-[#fffdf5] rounded-sm mt-3 absolute">
         <ul>
@@ -196,6 +197,7 @@ Test Preparation
       </div>
           )}
           </li>
+          </Link> 
           <li className="cursor-pointer hover:bg-[#95b1ee] hover:rounded-full transition-all hover:text-[#fffdf5] py-2 px-5 ">About</li>
           <li className="cursor-pointer hover:bg-[#95b1ee] hover:rounded-full transition-all hover:text-[#fffdf5] py-2 px-5 ">Teach</li>
         </ul>

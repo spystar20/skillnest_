@@ -1,74 +1,23 @@
-//  const  featureCourses = [
-//     {
-//       img: 'https://i.pinimg.com/736x/eb/e8/f2/ebe8f272e71472bca58429b5a578c01d.jpg',
-//       instructor_name: 'choi woo shik',
-//       instructor_img: "https://i.pinimg.com/736x/28/cc/05/28cc0589ea825e42cc56945e5cc40ad9.jpg",
-//       course_name: 'Resume Building & LinkedIn Optimization',
-//       course_desc: '  Learn how to craft a professional resume and  LinkedIn profile for  NGOs, and the private sector.',
-//       rating: '4.8',
-//       view: '9k rating',
-//     }
-//     ,
 
-//     {
-//       img: 'https://i.pinimg.com/736x/1a/52/68/1a52684e39935324d102eb11e03eb3cb.jpg',
-//       instructor_name: 'seo ye ji',
-//       instructor_img: "https://i.pinimg.com/736x/fa/6f/b1/fa6fb1633beb5f62bd496b8161e5f1e0.jpg",
-//       course_name: 'Crypto, Blockchain & the Future of the Interne',
-//       course_desc: 'Understand the evolving world of cryptocurrencies, blockchain technology,  and global finance',
-//       rating: '4.9',
-//       view: '13k rating'
-//     },
-//     {
-//       img: 'https://i.pinimg.com/736x/4c/1d/08/4c1d08a4944075a883c31a0eec66fc5e.jpg',
-//       instructor_name: 'kim seon ho',
-//       instructor_img: "https://i.pinimg.com/736x/99/ff/30/99ff30b1f4549a457412ecfbe14a4baa.jpg",
-//       course_name: 'Focus, Habits & Time Management for Students',
-//       course_desc: 'High emotional hook — improves study skills and life skills.',
-//       rating: '4.3',
-//       view: '10k rating'
-//     },
-//     {
-//       img: 'https://i.pinimg.com/736x/04/be/d3/04bed3b5e20f285abe7ee410d7ec0b4e.jpg',
-//       instructor_name: 'henry golding',
-//       instructor_img: "https://i.pinimg.com/736x/7c/29/9a/7c299a9abf064b2178e019e4eeadf733.jpg",
-//       course_name: 'Interview Preparation & DAF Handling',
-//       course_desc: 'The UPSC Personality Test is not just a Q&A round—its an evaluation of your personality, presence, and purpose.',
-//       rating: '4.9',
-//       view: '13k rating'
-//     }
-
-//   ]
 
 const featureCourses = [
   {
-    img: 'https://i.pinimg.com/736x/4c/1d/08/4c1d08a4944075a883c31a0eec66fc5e.jpg',
+    img: 'https://i.pinimg.com/1200x/fa/35/25/fa35252a5aabc99afec76c8ca2399573.jpg',
     instructor_name: 'Kim Seon Ho',
-    instructor_img: 'https://i.pinimg.com/736x/99/ff/30/99ff30b1f4549a457412ecfbe14a4baa.jpg',
+    instructor_img: 'https://i.pinimg.com/1200x/d6/75/f8/d675f805d61bd937951f047cd8d87208.jpg',
     course_name: 'Focus, Habits & Time Management for Students',
     course_desc: 'High emotional hook — improves study skills and life skills.',
     rating: '4.3',
     view: '10k ratings',
     category: 'Productivity',
     price: 'Free',
-    duration: '2.5 hours'
+    duration: '2.5 hours',
+    chapters:'12'
   },
-  {
-    img: 'https://i.pinimg.com/736x/d2/6b/5a/d26b5a6f6509fc9e84c8c21ee0c1bd1a.jpg',
-    instructor_name: 'Lee Min Ho',
-    instructor_img: 'https://i.pinimg.com/736x/51/00/0d/51000d7f9a2b8dfdd9c127e2a7f8e1a2.jpg',
-    course_name: 'Master Web Development: HTML, CSS, JS',
-    course_desc: 'Become a front-end developer by building real websites.',
-    rating: '4.8',
-    view: '21k ratings',
-    category: 'Web Development',
-    price: 'Paid',
-    duration: '8 hours'
-  },
-  {
-    img: 'https://i.pinimg.com/736x/90/e0/d0/90e0d01217eb37911a8c4f3857aa29fc.jpg',
+    {
+    img: 'https://i.pinimg.com/736x/fd/34/37/fd343720993fa1776cd62e3e2dc1a4d1.jpg',
     instructor_name: 'Park Shin Hye',
-    instructor_img: 'https://i.pinimg.com/736x/e9/e5/4a/e9e54aa1a2fc95fbcf20b72c3174a02a.jpg',
+    instructor_img: 'https://i.pinimg.com/1200x/a5/67/4d/a5674de544a8c13dea045c5827732a97.jpg',
     course_name: 'Beginner Korean Language Course',
     course_desc: 'Learn to speak Korean fluently from scratch.',
     rating: '4.6',
@@ -76,11 +25,28 @@ const featureCourses = [
     category: 'Language',
     price: 'Free',
     duration: '6 hours'
+    ,
+    chapters:'7'
   },
   {
-    img: 'https://i.pinimg.com/736x/67/09/c2/6709c28fa4c6e6f3509a2c02f2f8ff4e.jpg',
+    img: 'https://i.pinimg.com/736x/c4/c8/0e/c4c80e2139578753edf83fc5a6dbb7c5.jpg',
+    instructor_name: 'Lee Min Ho',
+    instructor_img: 'https://i.pinimg.com/1200x/1c/9a/b4/1c9ab4368b64a3e47afbacbc52b9f1af.jpg',
+    course_name: 'Master Web Development: HTML, CSS, JS',
+    course_desc: 'Become a front-end developer by building real websites.',
+    rating: '4.8',
+    view: '21k ratings',
+    category: 'Web Development',
+    price: 'Paid',
+    duration: '8 hours'
+    ,
+    chapters:'10'
+  },
+
+  {
+    img: 'https://i.pinimg.com/1200x/8d/3a/b0/8d3ab03d0b30690c73e78e028cd823c0.jpg',
     instructor_name: 'Nam Joo Hyuk',
-    instructor_img: 'https://i.pinimg.com/736x/7b/20/f2/7b20f2dbcefbdb65e826fc5074f7b326.jpg',
+    instructor_img: 'https://i.pinimg.com/736x/10/7a/a8/107aa8d38efc2a54f9be53ac487c3389.jpg',
     course_name: 'Build Mobile Apps with Flutter',
     course_desc: 'Create beautiful, responsive apps for Android and iOS.',
     rating: '4.5',
@@ -88,11 +54,13 @@ const featureCourses = [
     category: 'App Development',
     price: 'Paid',
     duration: '10 hours'
+    ,
+    chapters:'20'
   },
   {
-    img: 'https://i.pinimg.com/736x/c1/74/26/c1742612c7c78d733f86ecaa5f6d489f.jpg',
+    img: 'https://i.pinimg.com/736x/b1/88/2e/b1882e2b4ebd15151ac1c60c87cf26f7.jpg',
     instructor_name: 'IU',
-    instructor_img: 'https://i.pinimg.com/736x/58/31/5c/58315c31ffce3c13ccde5b3f7fc2908d.jpg',
+    instructor_img: 'https://i.pinimg.com/1200x/15/58/e5/1558e54047b1a7bb44eca316e829f8bf.jpg',
     course_name: 'UI/UX Design Essentials with Figma',
     course_desc: 'Design modern interfaces and user experiences with real projects.',
     rating: '4.7',
@@ -100,11 +68,13 @@ const featureCourses = [
     category: 'Design',
     price: 'Free',
     duration: '4 hours'
+    ,
+    chapters:'5'
   },
   {
-    img: 'https://i.pinimg.com/736x/15/4a/2d/154a2df4f86c5362b772e8a1763cb727.jpg',
+    img: 'https://i.pinimg.com/736x/e1/34/fc/e134fc7c5327e0f5784035fc8eece3a9.jpg',
     instructor_name: 'Choi Woo Shik',
-    instructor_img: 'https://i.pinimg.com/736x/9e/8b/f5/9e8bf5c8b4600a5f6e5a6d913e03b14e.jpg',
+    instructor_img: 'https://i.pinimg.com/1200x/c7/7a/4e/c77a4e26911c6b99564aaefc81e6c206.jpg',
     course_name: 'Data Structures & Algorithms in JavaScript',
     course_desc: 'Ace technical interviews by mastering DSA concepts.',
     rating: '4.9',
@@ -112,27 +82,29 @@ const featureCourses = [
     category: 'Web Development',
     price: 'Paid',
     duration: '12 hours'
+    ,
+    chapters:'6'
   }
   ,
   {
-    
-    img: 'https://i.pinimg.com/736x/4c/1d/08/4c1d08a4944075a883c31a0eec66fc5e.jpg',
+    img: 'https://i.pinimg.com/1200x/fa/35/25/fa35252a5aabc99afec76c8ca2399573.jpg',
     instructor_name: 'Kim Seon Ho',
-    instructor_img: 'https://i.pinimg.com/736x/99/ff/30/99ff30b1f4549a457412ecfbe14a4baa.jpg',
+    instructor_img: 'https://i.pinimg.com/1200x/d6/75/f8/d675f805d61bd937951f047cd8d87208.jpg',
     course_name: 'Focus, Habits & Time Management for Students',
     course_desc: 'High emotional hook — improves study skills and life skills.',
-    rating: 4.3,
-    view: '10k rating',
-    category: 'Personal Development',
-    subcategory: 'Productivity',
+    rating: '4.3',
+    view: '10k ratings',
+    category: 'Productivity',
     price: 'Free',
-    duration: '3.5 hours',
+    duration: '2.5 hours'
+    ,
+    chapters:'9'
   },
   {
     
-    img: 'https://i.pinimg.com/736x/e3/84/b5/e384b5d3fcdc1ab68f7f7ec90c77f264.jpg',
-    instructor_name: 'Sarah Kim',
-    instructor_img: 'https://i.pinimg.com/736x/5e/f7/56/5ef756c7cf7a7e0192c190377847a2fa.jpg',
+    img: '  https://i.pinimg.com/736x/c4/c8/0e/c4c80e2139578753edf83fc5a6dbb7c5.jpg ',
+    instructor_name: 'kim dami',
+    instructor_img: 'https://i.pinimg.com/1200x/49/f5/09/49f5092d8973017081de4c026ace3a24.jpg',
     course_name: 'Modern Web Development with React',
     course_desc: 'Master React and build powerful front-end applications.',
     rating: 4.7,
@@ -141,11 +113,12 @@ const featureCourses = [
     subcategory: 'Web Development',
     price: 'Paid',
     duration: '6 hours',
+    chapters:'14'
   },
   {
-    img: 'https://i.pinimg.com/736x/b1/60/13/b160139fc29f0a6225a2cd22d1de6fd9.jpg',
-    instructor_name: 'David Lee',
-    instructor_img: 'https://i.pinimg.com/736x/ce/4a/59/ce4a59d3cddc8eec46d6c98f6b6b4420.jpg',
+    img: 'https://i.pinimg.com/1200x/8d/3a/b0/8d3ab03d0b30690c73e78e028cd823c0.jpg',
+    instructor_name: 'kim jiwon',
+    instructor_img: 'https://i.pinimg.com/736x/40/02/f3/4002f3ba9a31fd19ccedce57c81fb21d.jpg',
     course_name: 'Mobile App Development with Flutter',
     course_desc: 'Build beautiful native apps with Flutter and Dart.',
     rating: 4.5,
@@ -154,12 +127,13 @@ const featureCourses = [
     subcategory: 'App Development',
     price: 'Paid',
     duration: '5 hours',
+    chapters:'4'
   },
   {
 
-    img: 'https://i.pinimg.com/736x/fb/3c/7b/fb3c7b1cf86e00d61b112aa5c4b8a8b0.jpg',
-    instructor_name: 'Emma Choi',
-    instructor_img: 'https://i.pinimg.com/736x/fc/d3/5f/fcd35f0b3eaf019cb20a83013e8711c0.jpg',
+    img: 'https://i.pinimg.com/736x/6e/7a/e4/6e7ae4b935c9b810b79b0bd49c13d9df.jpg',
+    instructor_name: 'park bogum',
+    instructor_img: 'https://i.pinimg.com/736x/fd/3b/ac/fd3bacf2b0cf045731c30796b9fc6105.jpg',
     course_name: 'Graphic Design Essentials',
     course_desc: 'Learn the fundamentals of design theory and tools.',
     rating: 4.2,
@@ -168,12 +142,14 @@ const featureCourses = [
     subcategory: 'Graphic Design',
     price: 'Free',
     duration: '2.5 hours',
+    
+    chapters:'3'
   },
   {
     
-    img: 'https://i.pinimg.com/736x/a7/70/24/a770248b56100d567202f527e56c50e7.jpg',
-    instructor_name: 'Noah Park',
-    instructor_img: 'https://i.pinimg.com/736x/71/61/95/716195a3f27e973e9ec0a4562ac5c066.jpg',
+    img: 'https://i.pinimg.com/736x/11/09/f8/1109f8710d4c2ea968811abd207a19c6.jpg',
+    instructor_name: 'heyri',
+    instructor_img: 'https://i.pinimg.com/736x/89/62/6b/89626bc3962f251636b0894ed87347d7.jpg',
     course_name: 'Python Programming for Beginners',
     course_desc: 'Start coding in Python with real-world projects.',
     rating: 4.6,
@@ -182,12 +158,13 @@ const featureCourses = [
     subcategory: 'Programming Languages',
     price: 'Free',
     duration: '7 hours',
+    chapters:'10'
   },
   {
     
-    img: 'https://i.pinimg.com/736x/b7/d5/58/b7d5583d627b43aeb319b979f524d3fa.jpg',
-    instructor_name: 'Sofia Lim',
-    instructor_img: 'https://i.pinimg.com/736x/d5/1e/2a/d51e2a2e2b9d2c4ff2e3e0b019ad46c3.jpg',
+    img: 'https://i.pinimg.com/736x/55/f1/25/55f125ac6c307ae8e7ad953e48edaa03.jpg',
+    instructor_name: 'kim namjoon',
+    instructor_img: 'https://i.pinimg.com/736x/d6/01/2b/d6012bd9075e8327bbf22b86a5814101.jpg',
     course_name: 'Mastering Public Speaking',
     course_desc: 'Boost confidence and communication in every speech.',
     rating: 4.9,
@@ -196,12 +173,13 @@ const featureCourses = [
     subcategory: 'Communication',
     price: 'Paid',
     duration: '4 hours',
+    chapters:'12'
   },
   {
     
-    img: 'https://i.pinimg.com/736x/89/68/93/8968930d49e9eb4a02e58f9137b889eb.jpg',
-    instructor_name: 'Liam Han',
-    instructor_img: 'https://i.pinimg.com/736x/41/f4/e3/41f4e39327089d4fc55a43eec95d8937.jpg',
+    img: 'https://i.pinimg.com/736x/31/45/be/3145bec948c0a5ad359c443a8ecdd5d8.jpg',
+    instructor_name: 'sejeong',
+    instructor_img: 'https://i.pinimg.com/1200x/c6/a6/e6/c6a6e6721585887cdc3d16b25a378a6f.jpg',
     course_name: 'UI/UX Design for Beginners',
     course_desc: 'Design user-friendly websites and apps.',
     rating: 4.4,
@@ -210,25 +188,13 @@ const featureCourses = [
     subcategory: 'UI/UX',
     price: 'Paid',
     duration: '3 hours',
+    chapters:'1'
   }
 ,
   {
-    img: "https://i.pinimg.com/736x/4c/1d/08/4c1d08a4944075a883c31a0eec66fc5e.jpg",
-    instructor_name: "Kim Seon Ho",
-    instructor_img: "https://i.pinimg.com/736x/99/ff/30/99ff30b1f4549a457412ecfbe14a4baa.jpg",
-    course_name: "Focus, Habits & Time Management for Students",
-    course_desc: "High emotional hook — improves study skills and life skills.",
-    rating: "4.3",
-    view: "10k ratings",
-    category: "Personal Development",
-    subcategory: "Time Management",
-    duration: "3h 20m",
-    price: 799
-  },
-  {
-    img: "https://i.pinimg.com/736x/92/01/3f/92013f306f418b23d0f5b8f77cc2dc65.jpg",
-    instructor_name: "Sarah Lee",
-    instructor_img: "https://i.pinimg.com/736x/91/2f/63/912f63547c5b40d0ae07ec0f9c72f8b1.jpg",
+    img: "https://i.pinimg.com/736x/3a/d2/d3/3ad2d3b37f25aa1c7ca854b6f1e8f7a7.jpg",
+    instructor_name: "park hyung sik",
+    instructor_img: "https://i.pinimg.com/736x/c9/27/24/c92724426f8cb84e6bae7c72a231a4b2.jpg",
     course_name: "Full Stack Web Development Bootcamp",
     course_desc: "Learn HTML, CSS, JS, React, Node, and MongoDB from scratch.",
     rating: "4.7",
@@ -237,11 +203,13 @@ const featureCourses = [
     subcategory: "Web Development",
     duration: "15h 30m",
     price: 1499
+    ,
+    chapters:'20'
   },
   {
-    img: "https://i.pinimg.com/736x/0d/20/1c/0d201ce6613b986cf2cf5cf62c1342c3.jpg",
-    instructor_name: "David Kim",
-    instructor_img: "https://i.pinimg.com/736x/9f/d2/84/9fd284c1de506238d2d84dc0e2de12df.jpg",
+    img: "https://i.pinimg.com/736x/60/ab/f9/60abf9f0c6d7c5904f929f2d636d09c9.jpg",
+    instructor_name: "min yoongi",
+    instructor_img: "https://i.pinimg.com/1200x/4f/38/46/4f38462aa252c2a596a9b73e1d37ed70.jpg",
     course_name: "UI/UX Design Principles",
     course_desc: "Master user experience and modern interface design.",
     rating: "4.5",
@@ -250,11 +218,13 @@ const featureCourses = [
     subcategory: "UI/UX Design",
     duration: "7h 10m",
     price: 999
+,
+    chapters:'12'
   },
   {
-    img: "https://i.pinimg.com/736x/b1/0a/99/b10a99692aa5aa8c9f0193ae3cf802db.jpg",
-    instructor_name: "Emma Park",
-    instructor_img: "https://i.pinimg.com/736x/3c/57/f5/3c57f5f76a6ef4f43a2e2a63d003b6a3.jpg",
+    img: "https://i.pinimg.com/736x/7c/3d/76/7c3d76ca778c3c07f08930d9407df547.jpg",
+    instructor_name: "ji chang wook",
+    instructor_img: "https://i.pinimg.com/736x/e7/dc/b2/e7dcb29de2b194c1c3fe30431ef18f16.jpg",
     course_name: "Digital Marketing Masterclass",
     course_desc: "SEO, Social Media, Branding and everything digital.",
     rating: "4.6",
@@ -263,6 +233,8 @@ const featureCourses = [
     subcategory: "Digital Marketing",
     duration: "10h 45m",
     price: 1299
+    ,
+    chapters:'11'
   }
 ];
 

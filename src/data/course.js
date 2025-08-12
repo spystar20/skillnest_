@@ -202,7 +202,7 @@ const featureCourses = [
     category: "Development",
     subcategory: "Web Development",
     duration: "15h 30m",
-    price: 1499
+    price: 'paid'
     ,
     chapters:'20'
   },
@@ -217,7 +217,7 @@ const featureCourses = [
     category: "Design",
     subcategory: "UI/UX Design",
     duration: "7h 10m",
-    price: 999
+    price: 'paid'
 ,
     chapters:'12'
   },
@@ -232,7 +232,7 @@ const featureCourses = [
     category: "Marketing",
     subcategory: "Digital Marketing",
     duration: "10h 45m",
-    price: 1299
+    price: 'free'
     ,
     chapters:'11'
   }

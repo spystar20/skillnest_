@@ -29,14 +29,47 @@ const Courses = () => {
   const handleLike = () => {
     setLiked(!Liked)
   }
- const [filter , setfilter] = useState('')
- const Update = (e) =>{
-  setfilter(e.target.value)
- }
- const FilteredArray = Course.filter(course => !filter || course.category === filter   
- )
-console.log(FilteredArray)
-  
+  const PriceArr = [{rate:'free'} , {rate:'paid'}]
+  const star = [5,4,3,2,1]
+const [selectCourse , SetselectedCourse] = useState('')
+const [selectSubCategories , setSelectSubCategories] = useState('')
+const [price , setPrice] = useState('')
+const [rating , setRating] = useState('')
+const FilteredArray = Course.filter((course) =>{
+
+return ( (selectCourse === '' || selectCourse === course.category) && (selectSubCategories ==='' || selectSubCategories === course.subcategory) && (price === '' || price.toLowerCase() === course.price.toLowerCase()) && (rating === '' || course.rating >= rating))
+})
+  console.log('price filter state:', price);
+  console.log('course prices:', Course.map(c => c.price));
+
+  const [comingSoon, setComingSoon] = useState(false);
+
+  const handleMainCategoryChange = (category) => {
+    const hasCourses = Course.some(c => c.category === category);
+    if (!hasCourses) {
+      setComingSoon(true);
+      SetselectedCourse(''); 
+    } else {
+      setComingSoon(false);
+      SetselectedCourse(category);
+    }
+  };
+
+  const handleSubCategoryChange = (subcategory) => {
+    const hasCourses = Course.some(c => c.subcategory === subcategory);
+    if (!hasCourses) {
+      setComingSoon(true);
+      setSelectSubCategories('');
+    } else {
+      setComingSoon(false);
+      setSelectSubCategories(subcategory);
+    }
+  };
+
+
+
+
+
   return (
     <div className=' bg-white w-full h-[100vh] font-[Roboto]'>
       <div className='w-full h-[30%] flex flex-col gap-3 justify-center items-center text-white  home-bg'>
@@ -68,11 +101,10 @@ console.log(FilteredArray)
                 return (
 
                   <div key={index}>
-
                     <div onClick={() => toggleCategory(course.category)} className='flex items-center pt-2 hide '>
                       <label>
                         <span className='flex justify-center items-center'>
-                          <input type="checkbox" className='w-3 cursor-pointer border-none h-3 accent-pink-400' name={course.category} onChange={Update} value={filter} id="" />
+                          <input type="checkbox" className='w-3 cursor-pointer border-none h-3 accent-pink-400' name={course.category} checked={selectCourse === course.category} onChange={()=> handleMainCategoryChange(course.category)} value={course.category} id="" />
                           <span className='text-xl px-3 text-wrap capitalize '>{course.category}</span>
                         </span>
                       </label>
@@ -80,14 +112,13 @@ console.log(FilteredArray)
                     </div>
                     {openCategory[course.category] && course.subcategories && (
 
-
                       <div className='pl-4'>
                         {course.subcategories.map((subc, index) => {
                           return (
-                            <div className='flex items-center  py-3 '>
-                              <label htmlFor="development">
+                            <div key={index} className='flex items-center  py-3 '>
+                              <label>
                                 <span className='flex justify-center items-center'>
-                                  <input type="checkbox" className=' border-none  accent-pink-400' name="web development" id="" />
+                                  <input type="checkbox" onChange={() => handleSubCategoryChange(subc)} checked={selectSubCategories === subc} value={subc} className=' border-none  accent-pink-400' name="web development" id="" />
                                   <span className='text-lg font-normal px-3 capitalize'>{subc}</span>
                                 </span>
                               </label>
@@ -108,17 +139,20 @@ console.log(FilteredArray)
           <div className='font-[Outfit]  w-full'>
             <h2 className='text-2xl font-medium py-4 pb-5 flex justify-between items-center  capitalize '>rating<span><MdOutlineKeyboardArrowDown className='text-4xl font-black' /></span></h2>
             <div>
-             
+            
               <div className='pl-4'>
-                <div className='flex items-center  py-3 '>
-                  <label htmlFor="4.5">
+                {star.map((star, index) => { return (
+                <div className='flex items-center  py-3 ' key={index}>
+                  <label >
                     <span className='flex justify-center items-center'>
-                      <input type="radio" className=' border-none  accent-pink-400' name="4.5" id="" />
-                      <span className='text-lg font-normal px-3 capitalize'>4.5 & above</span>
+                      <input type="radio" className=' border-none  accent-pink-400' onChange={(e) => e.target.checked? setRating(Number(e.target.value)):setRating('')} checked={Number(rating) ===star} value={star} name={star} id="" />
+                      <span className='text-lg font-normal px-3 capitalize'>{star} & above</span>
                     </span>
                   </label>
                 </div>
-                <div className='flex items-center  py-3 '>
+                )
+                })}
+                {/* <div className='flex items-center  py-3 '>
                   <label htmlFor="4.0">
                     <span className='flex justify-center items-center'>
                       <input type="radio" className=' border-none  accent-pink-400' name="4.0" id="" />
@@ -133,8 +167,9 @@ console.log(FilteredArray)
                       <span className='text-lg font-normal px-3 capitalize'>3.5 & above</span>
                     </span>
                   </label>
-                </div>
+                </div> */}
               </div>
+              
             </div>
 
           </div>
@@ -142,32 +177,30 @@ console.log(FilteredArray)
           <div className='font-[Outfit]  w-full'>
             <h2 className='text-2xl font-medium py-4 pb-5 flex justify-between items-center  capitalize '>price<span><MdOutlineKeyboardArrowDown className='text-4xl font-black' /></span></h2>
             <div>
-              <div className='pl-4'>
-                <div className='flex items-center  py-1 '>
-                  <label htmlFor="free">
+              {PriceArr.map((arr, index) =>{ return(
+              <div className='pl-4'key={index} >
+                <div  className='flex items-center  py-1 '>
+                  <label>
                     <span className='flex justify-center items-center'>
-                      <input type="checkbox" className=' border-none  accent-pink-400' name="free" id="" />
-                      <span className='text-lg font-normal px-3 capitalize'>free</span>
+                      <input type="checkbox" onChange={(e) => e.target.checked ? setPrice(e.target.value) :setPrice('')} checked={price === arr.rate} value={arr.rate} className=' border-none  accent-pink-400'  id="" />
+                      <span className='text-lg font-normal px-3 capitalize'>{arr.rate}</span>
                     </span>
                   </label>
                 </div>
                 </div>
-              <div className='pl-4'>
-                <div className='flex items-center  py-1 '>
-                  <label htmlFor="paid">
-                    <span className='flex justify-center items-center'>
-                      <input type="checkbox" className=' border-none  accent-pink-400' name="paid" id="" />
-                      <span className='text-lg font-normal px-3 capitalize'>paid</span>
-                    </span>
-                  </label>
-                </div>
-              </div>
+              )})}
+            
             </div>
           </div>
 
         </div>
         {/* courses */}
-        <div className='w-[80%]'>
+        {comingSoon ? (
+          <div className="text-center flex justify-center items-center h-[20vh] w-full text-xl font-[Merienda] font-semibold text-gray-500 py-4">
+            🚀 Courses will be available soon
+          </div>
+        ) : ( 
+ <div className='w-[80%]'>
           <div className='grid grid-cols-3  gap-4 px-5 py-10'>
             {FilteredArray.map((course) => {
               return (
@@ -209,10 +242,11 @@ console.log(FilteredArray)
               )
             })}
           </div>
-        </div>
-
-
+        </div>)}
       </div>
+  
+
+    
 
     </div>
   )

@@ -1,7 +1,7 @@
 
 
 const featureCourses = [
-  {
+  {id :1 ,
     img: 'https://i.pinimg.com/1200x/fa/35/25/fa35252a5aabc99afec76c8ca2399573.jpg',
     instructor_name: 'Kim Seon Ho',
     instructor_img: 'https://i.pinimg.com/1200x/d6/75/f8/d675f805d61bd937951f047cd8d87208.jpg',
@@ -14,7 +14,7 @@ const featureCourses = [
     duration: '2.5 hours',
     chapters:'12'
   },
-    {
+    {id :2 ,
     img: 'https://i.pinimg.com/736x/fd/34/37/fd343720993fa1776cd62e3e2dc1a4d1.jpg',
     instructor_name: 'Park Shin Hye',
     instructor_img: 'https://i.pinimg.com/1200x/a5/67/4d/a5674de544a8c13dea045c5827732a97.jpg',
@@ -28,7 +28,7 @@ const featureCourses = [
     ,
     chapters:'7'
   },
-  {
+  { id :3 ,
     img: 'https://i.pinimg.com/736x/c4/c8/0e/c4c80e2139578753edf83fc5a6dbb7c5.jpg',
     instructor_name: 'Lee Min Ho',
     instructor_img: 'https://i.pinimg.com/1200x/1c/9a/b4/1c9ab4368b64a3e47afbacbc52b9f1af.jpg',
@@ -43,7 +43,7 @@ const featureCourses = [
     chapters:'10'
   },
 
-  {
+  {id :4,
     img: 'https://i.pinimg.com/1200x/8d/3a/b0/8d3ab03d0b30690c73e78e028cd823c0.jpg',
     instructor_name: 'Nam Joo Hyuk',
     instructor_img: 'https://i.pinimg.com/736x/10/7a/a8/107aa8d38efc2a54f9be53ac487c3389.jpg',
@@ -57,7 +57,7 @@ const featureCourses = [
     ,
     chapters:'20'
   },
-  {
+  { id :5 ,
     img: 'https://i.pinimg.com/736x/b1/88/2e/b1882e2b4ebd15151ac1c60c87cf26f7.jpg',
     instructor_name: 'IU',
     instructor_img: 'https://i.pinimg.com/1200x/15/58/e5/1558e54047b1a7bb44eca316e829f8bf.jpg',
@@ -71,7 +71,7 @@ const featureCourses = [
     ,
     chapters:'5'
   },
-  {
+  {id :6 ,
     img: 'https://i.pinimg.com/736x/e1/34/fc/e134fc7c5327e0f5784035fc8eece3a9.jpg',
     instructor_name: 'Choi Woo Shik',
     instructor_img: 'https://i.pinimg.com/1200x/c7/7a/4e/c77a4e26911c6b99564aaefc81e6c206.jpg',
@@ -86,7 +86,7 @@ const featureCourses = [
     chapters:'6'
   }
   ,
-  {
+  { id :7 ,
     img: 'https://i.pinimg.com/1200x/fa/35/25/fa35252a5aabc99afec76c8ca2399573.jpg',
     instructor_name: 'Kim Seon Ho',
     instructor_img: 'https://i.pinimg.com/1200x/d6/75/f8/d675f805d61bd937951f047cd8d87208.jpg',
@@ -101,7 +101,7 @@ const featureCourses = [
     chapters:'9'
   },
   {
-    
+    id :8 ,
     img: '  https://i.pinimg.com/736x/c4/c8/0e/c4c80e2139578753edf83fc5a6dbb7c5.jpg ',
     instructor_name: 'kim dami',
     instructor_img: 'https://i.pinimg.com/1200x/49/f5/09/49f5092d8973017081de4c026ace3a24.jpg',
@@ -115,7 +115,7 @@ const featureCourses = [
     duration: '6 hours',
     chapters:'14'
   },
-  {
+  {id :9 ,
     img: 'https://i.pinimg.com/1200x/8d/3a/b0/8d3ab03d0b30690c73e78e028cd823c0.jpg',
     instructor_name: 'kim jiwon',
     instructor_img: 'https://i.pinimg.com/736x/40/02/f3/4002f3ba9a31fd19ccedce57c81fb21d.jpg',
@@ -130,7 +130,7 @@ const featureCourses = [
     chapters:'4'
   },
   {
-
+id :10 ,
     img: 'https://i.pinimg.com/736x/6e/7a/e4/6e7ae4b935c9b810b79b0bd49c13d9df.jpg',
     instructor_name: 'park bogum',
     instructor_img: 'https://i.pinimg.com/736x/fd/3b/ac/fd3bacf2b0cf045731c30796b9fc6105.jpg',
@@ -146,7 +146,7 @@ const featureCourses = [
     chapters:'3'
   },
   {
-    
+    id :11,
     img: 'https://i.pinimg.com/736x/11/09/f8/1109f8710d4c2ea968811abd207a19c6.jpg',
     instructor_name: 'heyri',
     instructor_img: 'https://i.pinimg.com/736x/89/62/6b/89626bc3962f251636b0894ed87347d7.jpg',
@@ -161,7 +161,7 @@ const featureCourses = [
     chapters:'10'
   },
   {
-    
+    id :12 ,
     img: 'https://i.pinimg.com/736x/55/f1/25/55f125ac6c307ae8e7ad953e48edaa03.jpg',
     instructor_name: 'kim namjoon',
     instructor_img: 'https://i.pinimg.com/736x/d6/01/2b/d6012bd9075e8327bbf22b86a5814101.jpg',
@@ -176,7 +176,7 @@ const featureCourses = [
     chapters:'12'
   },
   {
-    
+    id :13 ,
     img: 'https://i.pinimg.com/736x/31/45/be/3145bec948c0a5ad359c443a8ecdd5d8.jpg',
     instructor_name: 'sejeong',
     instructor_img: 'https://i.pinimg.com/1200x/c6/a6/e6/c6a6e6721585887cdc3d16b25a378a6f.jpg',
@@ -192,6 +192,7 @@ const featureCourses = [
   }
 ,
   {
+    id :14,
     img: "https://i.pinimg.com/736x/3a/d2/d3/3ad2d3b37f25aa1c7ca854b6f1e8f7a7.jpg",
     instructor_name: "park hyung sik",
     instructor_img: "https://i.pinimg.com/736x/c9/27/24/c92724426f8cb84e6bae7c72a231a4b2.jpg",
@@ -207,6 +208,7 @@ const featureCourses = [
     chapters:'20'
   },
   {
+    id :15,
     img: "https://i.pinimg.com/736x/60/ab/f9/60abf9f0c6d7c5904f929f2d636d09c9.jpg",
     instructor_name: "min yoongi",
     instructor_img: "https://i.pinimg.com/1200x/4f/38/46/4f38462aa252c2a596a9b73e1d37ed70.jpg",
@@ -222,6 +224,7 @@ const featureCourses = [
     chapters:'12'
   },
   {
+    id :16,
     img: "https://i.pinimg.com/736x/7c/3d/76/7c3d76ca778c3c07f08930d9407df547.jpg",
     instructor_name: "ji chang wook",
     instructor_img: "https://i.pinimg.com/736x/e7/dc/b2/e7dcb29de2b194c1c3fe30431ef18f16.jpg",

@@ -14,7 +14,8 @@ const Courses = () => {
  
   // toggling courseCategories
   const [openCourseCategories, setOpenCourseCategories] = useState(false)
-  const togglecourseCategory = () => {
+  const togglecourseCategory  = () => {
+ 
     setOpenCourseCategories(!openCourseCategories)
   }
   //  toggling subcategories
@@ -26,9 +27,9 @@ const Courses = () => {
     }))
   }
   //  toggle like
-  const [Liked, setLiked] = useState(true)
-  const handleLike = () => {
-    setLiked(!Liked)
+  const [Liked, setLiked] = useState([])
+  const handleLike = (id) => {
+setLiked((prev) => prev.includes(id) ? prev.filter((courseid) =>  courseid !== id) : [...prev ,id])
   }
   // toggle sort 
   const [showSort ,setShowSort] = useState(false)
@@ -89,10 +90,10 @@ const toggleSort = () =>{
   const handleSort = (type)=>{
     setSortBy(type)
   }
-const sortedArr = Course.sort((a,b)=>{
+const FinalArr = [...FilteredArray].sort((a,b)=>{
   if (sortBy === "price") return a.price - b.price
    if (sortBy === "rating") return b.rating - a.rating
-    if (sortBy === " views") return b.view - b.view 
+    if (sortBy === " views") return b.view - a.view 
 })
 
   return (
@@ -114,13 +115,13 @@ const sortedArr = Course.sort((a,b)=>{
               <li className=' hover:bg-white hover:text-pink-400  text-white p-3 rounded-t-lg  '>
        popular
             </li>
-            <li onClick={handleSort("price")} className=' hover:bg-white hover:text-pink-400  text-white p-3 '>
+            <li onClick={()=>handleSort("price")} className=' hover:bg-white hover:text-pink-400  text-white p-3 '>
               Price
             </li>
-            <li onClick={handleSort("rating")} className='hover:bg-white hover:text-pink-400 text-white p-3 '>
+            <li onClick={()=>handleSort("rating")} className='hover:bg-white hover:text-pink-400 text-white p-3 '>
               rating         
                </li>
-            <li onClick={handleSort("views")} className=' hover:bg-white hover:text-pink-400  text-white p-3 rounded-b-lg '>
+            <li onClick={()=>handleSort("views")} className=' hover:bg-white hover:text-pink-400  text-white p-3 rounded-b-lg '>
               views
             </li>
           </ul>
@@ -188,22 +189,11 @@ const sortedArr = Course.sort((a,b)=>{
                     </div>
                   )
                 })}
-                {/* <div className='flex items-center  py-3 '>
-                  <label htmlFor="4.0">
-                    <span className='flex justify-center items-center'>
+             <span>
                       <input type="radio" className=' border-none  accent-pink-400' name="4.0" id="" />
                       <span className='text-lg font-normal px-3 capitalize'>4.0 & above</span>
                     </span>
-                  </label>
-                </div>
-                <div className='flex items-center  py-3 '>
-                  <label htmlFor="3.5">
-                    <span className='flex justify-center items-center'>
-                      <input type="radio" className=' border-none  accent-pink-400' name="3.0" id="" />
-                      <span className='text-lg font-normal px-3 capitalize'>3.5 & above</span>
-                    </span>
-                  </label>
-                </div> */}
+                
               </div>
 
             </div>
@@ -240,13 +230,13 @@ const sortedArr = Course.sort((a,b)=>{
         ) : (
           <div className='w-[80%]'>
             <div className='grid grid-cols-3  gap-4 px-5 py-10'>
-              {FilteredArray.map((course) => {
+              {FinalArr.map((course) => {
                 return (
                   <div className='flex flex-col cursor-pointer shadow-2xl bg-white  w-full gap-3 rounded-2xl   h-full px-6 py-6'>
                     <div className='grid group '>
                       <div className='col-start-1 row-start-1 z-0'><img src={course.img} className='drop-shadow-xs col-span-1 rounded-2xl' alt="" /></div>
                       <div className='col-start-1 relative invisible group-hover:visible  px-3 py-3 flex  justify-between items-end row-start-1 z-10 bg-black  opacity-65  rounded-2xl'>
-                        <div onClick={handleLike} className='absolute top-0 right-0  m-1 transition-all ease-out '>{Liked ? <CiHeart className='text-4xl text-pink-400' /> : <FaHeart className='text-4xl text-pink-400' />}</div>
+                        <div key={course.id} onClick={()=>handleLike(course.id)} className='absolute top-0 right-0  m-1 transition-all ease-out '>{Liked.includes(course.id) ? <FaHeart className='text-[1.8rem] text-pink-400' /> : <CiHeart className='text-4xl text-pink-400' /> }</div>
                         <div >
                           <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group    font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'><span><FaShoppingCart /></span> <span>add to cart</span></button></div>
                         <div>

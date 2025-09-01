@@ -9,93 +9,26 @@ import { FaEye } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { CiHeart } from 'react-icons/ci';
-
+import { toggleStore } from '../Store/toggleStore';
+import { useCourseStore } from '../Store/CourseFunc';
 const Courses = () => {
- 
-  // toggling courseCategories
-  const [openCourseCategories, setOpenCourseCategories] = useState(false)
-  const togglecourseCategory  = () => {
- 
-    setOpenCourseCategories(!openCourseCategories)
-  }
-  //  toggling subcategories
-  const [openCategory, setopenCategory] = useState(false)
-  const toggleCategory = (name) => {
-    setopenCategory((prev) => ({
-      ...prev,
-      [name]: !prev[name]
-    }))
-  }
-  //  toggle like
-  const [Liked, setLiked] = useState([])
-  const handleLike = (id) => {
-setLiked((prev) => prev.includes(id) ? prev.filter((courseid) =>  courseid !== id) : [...prev ,id])
-  }
-  // toggle sort 
-  const [showSort ,setShowSort] = useState(false)
-const toggleSort = () =>{
-  setShowSort(!showSort)
-}
+
+  const { openCourseCategories, showSort, openSubCategories, Liked, toggle, toggleSubCategories, toggleLike } = toggleStore()
+
+  const { selectCourse, selectSubCategories, price, rating, search, sortBy, handleSearch, handleCategories, handleSubCategories, handleSort, comingSoon } = useCourseStore()
+  
   const PriceArr = [{ rate: 'free' }, { rate: 'paid' }]
   const star = [5, 4, 3, 2, 1]
-  const [selectCourse, SetselectedCourse] = useState('')
-  const [selectSubCategories, setSelectSubCategories] = useState('')
-  const [price, setPrice] = useState('')
-  const [rating, setRating] = useState('')
-  const [search, setSearch] = useState('')
   const FilteredArray = Course.filter((course) => {
     const searchFields = `${course.category}${course.subcategory}${course.instructor_name}${course.course_desc}${course.price}${Number(course.duration)}`.toLowerCase()
     return ((selectCourse === '' || selectCourse === course.category) && (selectSubCategories === '' || selectSubCategories === course.subcategory) && (price === '' || price.toLowerCase() === course.price.toLowerCase()) && (rating === '' || course.rating >= rating) && (search === '' || searchFields.includes(search.toLowerCase()))
     )
   })
-  console.log('price filter state:', price);
-  console.log('course prices:', Course.map(c => c.price));
-  const [comingSoon, setComingSoon] = useState(false);
-  const handleMainCategoryChange = (category) => {
-    const hasCourses = Course.some(c => c.category === category);
-    if (!hasCourses) {
-      setComingSoon(true);
-      SetselectedCourse('');
-    } else {
-      setComingSoon(false);
-      SetselectedCourse(category);
-    }
-  };
-  const handleSubCategoryChange = (subcategory) => {
-    const hasCourses = Course.some(c => c.subcategory === subcategory);
-    if (!hasCourses) {
-      setComingSoon(true);
-      setSelectSubCategories('');
-    } else {
-      setComingSoon(false);
-      setSelectSubCategories(subcategory);
-    }
-  };
-  //  search logic
-  const handleSearch = (search) => {
-    const hasCourses = Course.some((course) => {
-      const searchFields = `${course.category}${course.subcategory}${course.instructor_name}${course.course_desc}${course.price}${Number(course.duration)}`.toLowerCase()
-      return searchFields.includes(search.toLowerCase())
-    })
-    if (!hasCourses) {
-      setComingSoon(true);
-      setSearch('');
-    } else {
-      setComingSoon(false);
-      setSearch(search);
-    }
-  }
-  // sort 
-  const [sortBy , setSortBy ] = useState('')
-  const handleSort = (type)=>{
-    setSortBy(type)
-  }
-const FinalArr = [...FilteredArray].sort((a,b)=>{
-  if (sortBy === "price") return a.price - b.price
-   if (sortBy === "rating") return b.rating - a.rating
-    if (sortBy === " views") return b.view - a.view 
-})
-
+  const FinalArr = [...FilteredArray].sort((a, b) => {
+    if (sortBy === "price") return a.price - b.price
+    if (sortBy === "rating") return b.rating - a.rating
+    if (sortBy === " views") return b.view - a.view
+  })
   return (
     <div className=' bg-white w-full h-[100vh] font-[Roboto]'>
       <div className='w-full h-[30%] flex flex-col gap-3 justify-center items-center text-white  home-bg'>
@@ -108,20 +41,20 @@ const FinalArr = [...FilteredArray].sort((a,b)=>{
           filter
         </button>
         <div className='relative'>
-          <button onClick={ toggleSort} className='text-xl font-normal capitalize border px-10 cursor-pointer rounded-xl py-2  hover:bg-gray-100'>
+          <button onClick={() => toggle("showSort")} className='text-xl font-normal capitalize border px-10 cursor-pointer rounded-xl py-2  hover:bg-gray-100'>
             sort
           </button>
-          <ul  className={`absolute flex flex-col bg-pink-400 shadow-2xl mt-2 capitalize font-semibold text-white rounded-lg  cursor-pointer transition-all ease-out duration-300 w-[9.4vw] z-50 ${showSort ? 'visible translate-y-0' :'invisible -translate-y-6'}`}>
-              <li className=' hover:bg-white hover:text-pink-400  text-white p-3 rounded-t-lg  '>
-       popular
+          <ul className={`absolute flex flex-col bg-pink-400 shadow-2xl mt-2 capitalize font-semibold text-white rounded-lg  cursor-pointer transition-all ease-out duration-300 w-[9.4vw] z-50 ${showSort ? 'visible translate-y-0' : 'invisible -translate-y-6'}`}>
+            <li className=' hover:bg-white hover:text-pink-400  text-white p-3 rounded-t-lg  '>
+              popular
             </li>
-            <li onClick={()=>handleSort("price")} className=' hover:bg-white hover:text-pink-400  text-white p-3 '>
+            <li onClick={() => handleSort("price")} className=' hover:bg-white hover:text-pink-400  text-white p-3 '>
               Price
             </li>
-            <li onClick={()=>handleSort("rating")} className='hover:bg-white hover:text-pink-400 text-white p-3 '>
-              rating         
-               </li>
-            <li onClick={()=>handleSort("views")} className=' hover:bg-white hover:text-pink-400  text-white p-3 rounded-b-lg '>
+            <li onClick={() => handleSort("rating")} className='hover:bg-white hover:text-pink-400 text-white p-3 '>
+              rating
+            </li>
+            <li onClick={() => handleSort("views")} className=' hover:bg-white hover:text-pink-400  text-white p-3 rounded-b-lg '>
               views
             </li>
           </ul>
@@ -135,22 +68,22 @@ const FinalArr = [...FilteredArray].sort((a,b)=>{
       <div className='flex items-start justify-between '>
         <div className='flex flex-col justify-start items-start border-r px-5 mt-1 w-[23%] '>
           <div className=' font-[Outfit] w-full  '>
-            <h2 onClick={togglecourseCategory} className='text-2xl font-medium py-4 pb-5 flex justify-between items-center   '>Categories <span><MdOutlineKeyboardArrowDown className={`text-4xl font-black rotate-0  transition-all cursor-pointer ease-out ${openCourseCategories ? 'rotate-180' : 'rotate-0'}`} /></span></h2>
+            <h2 onClick={() => toggle("openCourseCategories")} className='text-2xl font-medium py-4 pb-5 flex justify-between items-center   '>Categories <span><MdOutlineKeyboardArrowDown className={`text-4xl font-black rotate-0  transition-all cursor-pointer ease-out ${openCourseCategories ? 'rotate-180' : 'rotate-0'}`} /></span></h2>
             {openCourseCategories &&
               courseCategories.map((course, index) => {
                 return (
 
                   <div key={index}>
-                    <div onClick={() => toggleCategory(course.category)} className='flex items-center pt-2 hide '>
+                    <div onClick={() => toggleSubCategories(course.category)} className='flex items-center pt-2 hide '>
                       <label>
                         <span className='flex justify-center items-center'>
-                          <input type="checkbox" className='w-3 cursor-pointer border-none h-3 accent-pink-400' name={course.category} checked={selectCourse === course.category} onChange={() => handleMainCategoryChange(course.category)} value={course.category} id="" />
+                          <input type="checkbox" className='w-3 cursor-pointer border-none h-3 accent-pink-400' name={course.category} checked={selectCourse === course.category} onChange={() => handleCategories(course.category)} value={course.category} id="" />
                           <span className='text-xl px-3 text-wrap capitalize '>{course.category}</span>
                         </span>
                       </label>
                       <span ><MdOutlineKeyboardArrowDown className='text-xl cursor-pointer ' /></span>
                     </div>
-                    {openCategory[course.category] && course.subcategories && (
+                    {openSubCategories[course.category] && course.subcategories && (
 
                       <div className='pl-4'>
                         {course.subcategories.map((subc, index) => {
@@ -158,7 +91,7 @@ const FinalArr = [...FilteredArray].sort((a,b)=>{
                             <div key={index} className='flex items-center  py-3 '>
                               <label>
                                 <span className='flex justify-center items-center'>
-                                  <input type="checkbox" onChange={() => handleSubCategoryChange(subc)} checked={selectSubCategories === subc} value={subc} className=' border-none  accent-pink-400' name="web development" id="" />
+                                  <input type="checkbox" onChange={() => handleSubCategories(subc)} checked={selectSubCategories === subc} value={subc} className=' border-none  accent-pink-400' name="web development" id="" />
                                   <span className='text-lg font-normal px-3 capitalize'>{subc}</span>
                                 </span>
                               </label>
@@ -189,11 +122,11 @@ const FinalArr = [...FilteredArray].sort((a,b)=>{
                     </div>
                   )
                 })}
-             <span>
-                      <input type="radio" className=' border-none  accent-pink-400' name="4.0" id="" />
-                      <span className='text-lg font-normal px-3 capitalize'>4.0 & above</span>
-                    </span>
-                
+                <span>
+                  <input type="radio" className=' border-none  accent-pink-400' name="4.0" id="" />
+                  <span className='text-lg font-normal px-3 capitalize'>4.0 & above</span>
+                </span>
+
               </div>
 
             </div>
@@ -236,7 +169,7 @@ const FinalArr = [...FilteredArray].sort((a,b)=>{
                     <div className='grid group '>
                       <div className='col-start-1 row-start-1 z-0'><img src={course.img} className='drop-shadow-xs col-span-1 rounded-2xl' alt="" /></div>
                       <div className='col-start-1 relative invisible group-hover:visible  px-3 py-3 flex  justify-between items-end row-start-1 z-10 bg-black  opacity-65  rounded-2xl'>
-                        <div key={course.id} onClick={()=>handleLike(course.id)} className='absolute top-0 right-0  m-1 transition-all ease-out '>{Liked.includes(course.id) ? <FaHeart className='text-[1.8rem] text-pink-400' /> : <CiHeart className='text-4xl text-pink-400' /> }</div>
+                        <div key={course.id} onClick={() => toggleLike(course.id)} className='absolute top-0 right-0  m-1 transition-all ease-out '>{Liked.includes(course.id) ? <FaHeart className='text-[1.8rem] text-pink-400' /> : <CiHeart className='text-4xl text-pink-400' />}</div>
                         <div >
                           <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group    font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'><span><FaShoppingCart /></span> <span>add to cart</span></button></div>
                         <div>

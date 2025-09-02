@@ -11,11 +11,13 @@ import { FaHeart } from "react-icons/fa";
 import { CiHeart } from 'react-icons/ci';
 import { toggleStore } from '../Store/toggleStore';
 import { useCourseStore } from '../Store/CourseFunc';
+import Pagination from '@mui/material/Pagination';
+
 const Courses = () => {
 
   const { openCourseCategories, showSort, openSubCategories, Liked, toggle, toggleSubCategories, toggleLike } = toggleStore()
 
-  const { selectCourse, selectSubCategories, price, rating, search, sortBy, handleSearch, handleCategories, handleSubCategories, handleSort, comingSoon } = useCourseStore()
+  const { selectCourse, selectSubCategories, price, rating, search, sortBy, handleSearch, handleCategories, handleSubCategories, handleSort, comingSoon ,setFilter} = useCourseStore()
   
   const PriceArr = [{ rate: 'free' }, { rate: 'paid' }]
   const star = [5, 4, 3, 2, 1]
@@ -29,6 +31,13 @@ const Courses = () => {
     if (sortBy === "rating") return b.rating - a.rating
     if (sortBy === " views") return b.view - a.view
   })
+
+const [page,setPage] = useState(1)
+const itemsPerPage = 6
+ 
+const startIndex = (page - 1)*itemsPerPage
+const endIndex = startIndex + itemsPerPage
+const CurrentCourse = FinalArr.slice(startIndex,endIndex)
   return (
     <div className=' bg-white w-full h-[100vh] font-[Roboto]'>
       <div className='w-full h-[30%] flex flex-col gap-3 justify-center items-center text-white  home-bg'>
@@ -163,7 +172,7 @@ const Courses = () => {
         ) : (
           <div className='w-[80%]'>
             <div className='grid grid-cols-3  gap-4 px-5 py-10'>
-              {FinalArr.map((course) => {
+              {CurrentCourse.map((course) => {
                 return (
                   <div className='flex flex-col cursor-pointer shadow-2xl bg-white  w-full gap-3 rounded-2xl   h-full px-6 py-6'>
                     <div className='grid group '>
@@ -202,7 +211,26 @@ const Courses = () => {
                   </div>
                 )
               })}
+
             </div>
+            <div className='flex justify-center py-6'>
+ <Pagination
+  count={Math.ceil(FinalArr.length/itemsPerPage)}
+  page={page}
+  onChange={(e, value) => setPage(value)}
+  shape="rounded"
+  sx={{
+    "& .MuiPaginationItem-root.Mui-selected": {
+      backgroundColor: "rgb(244 114 182)", // tailwind pink-400
+      color: "white",
+    },
+    "& .MuiPaginationItem-root.Mui-selected:hover": {
+      backgroundColor: "rgb(236 72 153)", // tailwind pink-500 for hover
+    }
+  }}
+/>
+
+</div>
           </div>)}
       </div>
 

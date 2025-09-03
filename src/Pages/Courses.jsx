@@ -17,8 +17,8 @@ const Courses = () => {
 
   const { openCourseCategories, showSort, openSubCategories, Liked, toggle, toggleSubCategories, toggleLike } = toggleStore()
 
-  const { selectCourse, selectSubCategories, price, rating, search, sortBy, handleSearch, handleCategories, handleSubCategories, handleSort, comingSoon ,setFilter} = useCourseStore()
-  
+  const { selectCourse, selectSubCategories, price, rating, search, sortBy, handleSearch, handleCategories, handleSubCategories, handleSort, handleRating, setFilter } = useCourseStore()
+
   const PriceArr = [{ rate: 'free' }, { rate: 'paid' }]
   const star = [5, 4, 3, 2, 1]
   const FilteredArray = Course.filter((course) => {
@@ -31,13 +31,13 @@ const Courses = () => {
     if (sortBy === "rating") return b.rating - a.rating
     if (sortBy === " views") return b.view - a.view
   })
+  const comingSoon = FinalArr.length === 0;
+  const [page, setPage] = useState(1)
+  const itemsPerPage = 6
 
-const [page,setPage] = useState(1)
-const itemsPerPage = 6
- 
-const startIndex = (page - 1)*itemsPerPage
-const endIndex = startIndex + itemsPerPage
-const CurrentCourse = FinalArr.slice(startIndex,endIndex)
+  const startIndex = (page - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
+  const CurrentCourse = FinalArr.slice(startIndex, endIndex)
   return (
     <div className=' bg-white w-full h-[100vh] font-[Roboto]'>
       <div className='w-full h-[30%] flex flex-col gap-3 justify-center items-center text-white  home-bg'>
@@ -69,7 +69,7 @@ const CurrentCourse = FinalArr.slice(startIndex,endIndex)
           </ul>
         </div>
         <div className='w-[85%] border rounded-2xl border-black flex justify-between items-center'>
-          <input value={search} onChange={(e) => handleSearch(e.target.value)} type="text" className='text-xl border-none outline-none placeholder:capitalize placeholder:font-[Roboto] placeholder:text-gray-900 placeholder:font-light px-4 py-2' placeholder='search desired courses' />
+          <input value={search} onChange={(e) => setFilter("search", e.target.value)} type="text" className='text-xl border-none outline-none placeholder:capitalize placeholder:font-[Roboto] placeholder:text-gray-900 placeholder:font-light px-4 py-2' placeholder='search desired courses' />
           <span className='h-11 bg-pink-400 px-4  flex items-center rounded-2xl'><FaSearch className='text-xl scale-100 hover:scale-125 cursor-pointer text-white' /></span>
         </div>
       </div>
@@ -86,21 +86,20 @@ const CurrentCourse = FinalArr.slice(startIndex,endIndex)
                     <div onClick={() => toggleSubCategories(course.category)} className='flex items-center pt-2 hide '>
                       <label>
                         <span className='flex justify-center items-center'>
-                          <input type="checkbox" className='w-3 cursor-pointer border-none h-3 accent-pink-400' name={course.category} checked={selectCourse === course.category} onChange={() => handleCategories(course.category)} value={course.category} id="" />
+                          <input type="checkbox" className='w-3 cursor-pointer border-none h-3 accent-pink-400' name={course.category} checked={selectCourse === course.category} onChange={() => setFilter("selectCourse", course.category)} value={course.category} id="" />
                           <span className='text-xl px-3 text-wrap capitalize '>{course.category}</span>
                         </span>
                       </label>
                       <span ><MdOutlineKeyboardArrowDown className='text-xl cursor-pointer ' /></span>
                     </div>
                     {openSubCategories[course.category] && course.subcategories && (
-
                       <div className='pl-4'>
                         {course.subcategories.map((subc, index) => {
                           return (
                             <div key={index} className='flex items-center  py-3 '>
                               <label>
                                 <span className='flex justify-center items-center'>
-                                  <input type="checkbox" onChange={() => handleSubCategories(subc)} checked={selectSubCategories === subc} value={subc} className=' border-none  accent-pink-400' name="web development" id="" />
+                                  <input type="checkbox" onChange={() => setFilter("selectSubCategories", subc)} checked={selectSubCategories === subc} value={subc} className=' border-none  accent-pink-400' name="web development" id="" />
                                   <span className='text-lg font-normal px-3 capitalize'>{subc}</span>
                                 </span>
                               </label>
@@ -124,17 +123,14 @@ const CurrentCourse = FinalArr.slice(startIndex,endIndex)
                     <div className='flex items-center  py-3 ' key={index}>
                       <label >
                         <span className='flex justify-center items-center'>
-                          <input type="radio" className=' border-none  accent-pink-400' onChange={(e) => e.target.checked ? setRating(Number(e.target.value)) : setRating('')} checked={Number(rating) === star} value={star} name={star} id="" />
+                          <input type="radio" className=' border-none  accent-pink-400' onChange={(e) => setFilter("rating", Number(e.target.value))} checked={Number(rating) === star} value={star} name={star} id="" />
                           <span className='text-lg font-normal px-3 capitalize'>{star} & above</span>
                         </span>
                       </label>
                     </div>
                   )
                 })}
-                <span>
-                  <input type="radio" className=' border-none  accent-pink-400' name="4.0" id="" />
-                  <span className='text-lg font-normal px-3 capitalize'>4.0 & above</span>
-                </span>
+
 
               </div>
 
@@ -151,7 +147,7 @@ const CurrentCourse = FinalArr.slice(startIndex,endIndex)
                     <div className='flex items-center  py-1 '>
                       <label>
                         <span className='flex justify-center items-center'>
-                          <input type="checkbox" onChange={(e) => e.target.checked ? setPrice(e.target.value) : setPrice('')} checked={price === arr.rate} value={arr.rate} className=' border-none  accent-pink-400' id="" />
+                          <input type="checkbox" onChange={(e) => setFilter("price", e.target.value)} checked={price === arr.rate} value={arr.rate} className=' border-none  accent-pink-400' id="" />
                           <span className='text-lg font-normal px-3 capitalize'>{arr.rate}</span>
                         </span>
                       </label>
@@ -214,23 +210,23 @@ const CurrentCourse = FinalArr.slice(startIndex,endIndex)
 
             </div>
             <div className='flex justify-center py-6'>
- <Pagination
-  count={Math.ceil(FinalArr.length/itemsPerPage)}
-  page={page}
-  onChange={(e, value) => setPage(value)}
-  shape="rounded"
-  sx={{
-    "& .MuiPaginationItem-root.Mui-selected": {
-      backgroundColor: "rgb(244 114 182)", // tailwind pink-400
-      color: "white",
-    },
-    "& .MuiPaginationItem-root.Mui-selected:hover": {
-      backgroundColor: "rgb(236 72 153)", // tailwind pink-500 for hover
-    }
-  }}
-/>
+              <Pagination
+                count={Math.ceil(FinalArr.length / itemsPerPage)}
+                page={page}
+                onChange={(e, value) => setPage(value)}
+                shape="rounded"
+                sx={{
+                  "& .MuiPaginationItem-root.Mui-selected": {
+                    backgroundColor: "rgb(244 114 182)", // tailwind pink-400
+                    color: "white",
+                  },
+                  "& .MuiPaginationItem-root.Mui-selected:hover": {
+                    backgroundColor: "rgb(236 72 153)", // tailwind pink-500 for hover
+                  }
+                }}
+              />
 
-</div>
+            </div>
           </div>)}
       </div>
 

@@ -4,6 +4,7 @@ import Home from './Pages/Home'
 import About from './Pages/About'
 import { BrowserRouter , Route ,Router, Routes } from 'react-router-dom'
 import Courses from './Pages/Courses'
+import CourseDetails from './Pages/CourseDetails'
 const App = () => {
   return (
     <div className='bg-[#95b1ee] w-full h-screen'>
@@ -14,6 +15,7 @@ const App = () => {
   <Route path='/' element={<Home/>}/>
   <Route path='/about' element={<About/>}/>
   <Route path='/courses' element={<Courses/>}/>
+   <Route path='/courses/course_details' element={<CourseDetails/>}/>
  </Routes>
     </BrowserRouter>
     </div>

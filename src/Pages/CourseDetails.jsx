@@ -2,13 +2,14 @@ import React from 'react'
 import { CiHeart } from "react-icons/ci";
 import { SiBookstack } from "react-icons/si";
 import { IoTime } from "react-icons/io5";
-import { FaStar, FaMobileAlt, FaEye } from "react-icons/fa";
+import { FaStar, FaMobileAlt, FaEye ,FaPlayCircle } from "react-icons/fa";
 import { MdOndemandVideo, MdOutlineSimCardDownload } from "react-icons/md";
 import { TbWorldCheck } from "react-icons/tb";
 import { GrCertificate } from "react-icons/gr";
 import { PiFileAudioBold } from "react-icons/pi";
 import { LuMessageCircleMore } from "react-icons/lu";
 import { TiArrowSortedDown } from "react-icons/ti";
+
 const CourseDetails = () => {
   return (
     <div className=' bg-white w-full h-[100vh] font-[Roboto]'>
@@ -98,6 +99,20 @@ const CourseDetails = () => {
               </span>
               <span>(4 lessons · 20 mins)</span>
             </div>
+            <ul className='flex flex-col px-6'>
+              <li className='flex justify-between'>
+              <span className='flex items-center gap-2'><span className='text-sm'><FaPlayCircle /></span> What is UI/UX?</span> <span className='text-gray-500'>05:00</span>
+              </li>
+               <li className='flex justify-between'>
+              <span className='flex items-center gap-2'><span className='text-sm'><FaPlayCircle /></span>The difference between UI & UX</span> <span className='text-gray-500'>04:30</span>
+              </li>
+               <li className='flex justify-between'>
+              <span className='flex items-center gap-2'><span className='text-sm'><FaPlayCircle /></span>Why design matters in digital products </span> <span className='text-gray-500'>05:30</span>
+              </li>
+               <li className='flex justify-between'>
+              <span className='flex items-center gap-2'><span className='text-sm'><FaPlayCircle /></span> Tools you’ll need to get started</span> <span className='text-gray-500'>05:00</span>
+              </li>
+            </ul>
           </div>
         </div>
         {/* sidebar */}

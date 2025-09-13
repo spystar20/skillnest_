@@ -5,12 +5,10 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 const Navbar = () => {
 
-  const [isOpen, setIsOpen] = useState(false)
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen); }
+const [open,setopen] = useState(false)
 
   return (
- 
+
     <div className='font-["Roboto"]'>
       <div className="w-full h-[10vh] py-5 font-['Comic_Relief'] flex justify-evenly px-12 items-center bg-[#fffdf5] text-[#364c84] backdrop-blur-sm  bg-opacity-30 rounded-b-lg shadow-sm shadow-[#fffdf5]">
         <div className="flex items-center space-x-2">
@@ -20,15 +18,15 @@ const Navbar = () => {
             <span className="text-[#95b1ee]">nest</span>
           </span>
         </div>
-
         <ul class="flex justify-center gap-3 font-['Comic_Relief'] items-center h-full text-lg ">
        <Link to="/">  <li className="cursor-pointer hover:bg-[#95b1ee] hover:rounded-full transition-all hover:text-[#fffdf5] py-2 px-5 ">Home</li></Link> 
-        <Link to="/courses"> <li className="cursor-pointer  hover:bg-[#95b1ee] active:bg-[#95b1ee] hover:rounded-full transition-all hover:text-[#fffdf5] py-2 px-5 flex justify-center  gap-1 items-center course-button  "  onClick={toggleDropdown} >Courses <span><FaAngleDown className={`transition-transform duration-300 mt-1 ${isOpen ? 'rotate-180' : ''}`}/></span>
-          {isOpen && (
-          <div className="grid drop-down z-40  grid-cols-2 gap-3 px-8 py-6 shadow-2xl lg:left-[10rem]  font-['Roboto'] top-[3.9rem]  text-[#364c84] bg-[#fffdf5] rounded-sm mt-3 absolute">
-        <ul>
-          <li className="group py-3 border-y border-[#364c84]  capitalize flex flex-col gap-2 cursor-pointer w-52"> 
 
+        <Link to="/courses"> <li className="cursor-pointer  hover:bg-[#95b1ee] active:bg-[#95b1ee] hover:rounded-full transition-all hover:text-[#fffdf5] py-2 px-5 flex justify-center  gap-1 items-center course-button  "  onMouseEnter={()=>setopen(true)} >Courses <span><FaAngleDown className={`transition-transform duration-300 mt-1 ${open ? 'rotate-180' : ''}`}/></span>
+          {open && (
+            <div className='relative z-[99999]' onMouseEnter={()=>setopen(true)} onMouseLeave={()=>setopen(false)}>
+          <div onMouseEnter={()=>setopen(true)} onMouseLeave={()=>setopen(false)} className="grid drop-down z-[990099] w-[40vw] grid-cols-2 gap-3 px-8 py-6 shadow-2xl lg:left-[-13rem]  font-['Roboto'] top-[2rem]   text-[#364c84] bg-[#fffdf5] rounded-sm mt-3 absolute">
+        <ul >
+          <li className="group py-3 border-y border-[#364c84]  capitalize flex flex-col gap-2 cursor-pointer w-52"> 
             <div className="text-lg font-semibold flex justify-between items-center">
               Development
               <span className="inline-block w-4">
@@ -194,6 +192,8 @@ Test Preparation
 </ul>
 </li>
         </ul>
+   
+      </div> 
       </div>
           )}
           </li>
@@ -216,5 +216,4 @@ Test Preparation
 </div>
   )
 }
-
 export default Navbar

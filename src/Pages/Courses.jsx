@@ -12,7 +12,7 @@ import { CiHeart } from 'react-icons/ci';
 import { toggleStore } from '../Store/toggleStore';
 import { useCourseStore } from '../Store/CourseFunc';
 import Pagination from '@mui/material/Pagination';
-
+import { Link } from 'react-router-dom';
 const Courses = () => {
 
   const { openCourseCategories, showSort, openSubCategories, Liked, toggle, toggleSubCategories, toggleLike } = toggleStore()
@@ -49,11 +49,11 @@ const Courses = () => {
         <button className='text-xl font-normal capitalize border px-10 cursor-pointer rounded-xl py-2  hover:bg-gray-100'>
           filter
         </button>
-        <div className='relative'>
+        <div>
           <button onClick={() => toggle("showSort")} className='text-xl font-normal capitalize border px-10 cursor-pointer rounded-xl py-2  hover:bg-gray-100'>
             sort
           </button>
-          <ul className={`absolute flex flex-col bg-pink-400 shadow-2xl mt-2 capitalize font-semibold text-white rounded-lg  cursor-pointer transition-all ease-out duration-300 w-[9.4vw] z-50 ${showSort ? 'visible translate-y-0' : 'invisible -translate-y-6'}`}>
+          <ul className={`absolute flex flex-col bg-pink-400 shadow-2xl mt-2 capitalize font-semibold text-white rounded-lg   cursor-pointer transition-all ease-out duration-300 w-[9.4vw] z-50 ${showSort ? 'visible translate-y-0' : 'invisible -translate-y-6'}`}>
             <li className=' hover:bg-white hover:text-pink-400  text-white p-3 rounded-t-lg  '>
               popular
             </li>
@@ -170,11 +170,12 @@ const Courses = () => {
             <div className='grid grid-cols-3  gap-4 px-5 py-10'>
               {CurrentCourse.map((course) => {
                 return (
+                  <Link key={course.id} to={`/courses/${course.course_name}`}>
                   <div className='flex flex-col cursor-pointer shadow-2xl bg-white  w-full gap-3 rounded-2xl   h-full px-6 py-6'>
                     <div className='grid group '>
                       <div className='col-start-1 row-start-1 z-0'><img src={course.img} className='drop-shadow-xs col-span-1 rounded-2xl' alt="" /></div>
                       <div className='col-start-1 relative invisible group-hover:visible  px-3 py-3 flex  justify-between items-end row-start-1 z-10 bg-black  opacity-65  rounded-2xl'>
-                        <div key={course.id} onClick={() => toggleLike(course.id)} className='absolute top-0 right-0  m-1 transition-all ease-out '>{Liked.includes(course.id) ? <FaHeart className='text-[1.8rem] text-pink-400' /> : <CiHeart className='text-4xl text-pink-400' />}</div>
+                        <div key={course.id} onClick={() => toggleLike(course.id)} className='absolute z-10 top-0 right-0  m-1 transition-all ease-out '>{Liked.includes(course.id) ? <FaHeart className='text-[1.8rem] text-pink-400' /> : <CiHeart className='text-4xl text-pink-400' />}</div>
                         <div >
                           <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group    font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'><span><FaShoppingCart /></span> <span>add to cart</span></button></div>
                         <div>
@@ -205,6 +206,7 @@ const Courses = () => {
                     </div>
                     <div className='flex justify-between items-center '><span className='flex items-center gap-2 text-lg capitalize '>< SiBookstack />{course.chapters} chapters</span><span className='flex items-center gap-2 text-lg capitalize '><IoTime />{course.duration}</span></div>
                   </div>
+                  </Link>
                 )
               })}
 

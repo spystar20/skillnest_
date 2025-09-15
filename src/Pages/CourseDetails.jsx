@@ -15,6 +15,7 @@ import { BsTwitterX } from "react-icons/bs";
 import Rating from '@mui/material/Rating';
 import { useParams } from 'react-router-dom';
 import course from '../data/course';
+import { Link } from 'react-router-dom';
 const CourseDetails = () => {
   const tabs = [ {name: "overview",id:1 },{name:"syllabus",id:2},{name:"instructor",id:3},{name:"review",id:4}]
   const {tab,toggletab,toggleModule,syllabus } = usetoggletab()
@@ -238,7 +239,7 @@ const CourseDetails = () => {
             </p>
             </div>
             <div className='flex flex-col gap-2'>
-              <button className='px-5 py-2 capitalize text-lg font-semibold  rounded-xl bg-gradient-to-r from-pink-500 to-pink-400 w-full hover:scale-95 scale-100 text-white ease-out '>enroll now</button>
+             <Link to={`/courses/lecture/${courseData.course_name}`}> <button className='px-5 py-2 capitalize text-lg font-semibold  rounded-xl bg-gradient-to-r from-pink-500 to-pink-400 w-full hover:scale-95 scale-100 text-white ease-out '>enroll now</button></Link>
               <button className='  flex gap-2 items-center justify-center px-5 py-2 capitalize text-lg font-semibold  rounded-xl hover:bg-gradient-to-r hover:from-pink-500 hover:to-pink-400 hover:text-white hover:border-0  text-black border-gray-400 border w-full ease-in transition-all ' ><span><CiHeart className='text-2xl ' /></span> add to whishlist</button>
             </div>
           </div>

@@ -16,6 +16,7 @@ import Rating from '@mui/material/Rating';
 import { useParams } from 'react-router-dom';
 import course from '../data/course';
 import { Link } from 'react-router-dom';
+
 const CourseDetails = () => {
   const tabs = [ {name: "overview",id:1 },{name:"syllabus",id:2},{name:"instructor",id:3},{name:"review",id:4}]
   const {tab,toggletab,toggleModule,syllabus } = usetoggletab()

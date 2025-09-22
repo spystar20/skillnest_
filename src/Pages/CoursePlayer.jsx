@@ -9,10 +9,11 @@ import { LiaCertificateSolid } from 'react-icons/lia'
 import { MdOutlinePeopleAlt } from 'react-icons/md'
 import { FaFacebookF  ,FaInstagram} from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
+import { RxCross2 } from "react-icons/rx";
 import Rating from '@mui/material/Rating';
 
 const CoursePlayer = () => {
-   const tabs = [ {name: "overview",id:1 },{name:"syllabus",id:2},{name:"instructor",id:3},{name:"review",id:4}]
+   const tabs = [ {name: "overview",id:1 },{name:"syllabus",id:2},{name:"notes",id:3},{name:"resource",id:4},{name:"instructor",id:5} ,{name:"review", id:6},]
     const {tab,toggletab,toggleModule,syllabus } = usetoggletab()
   const  {course_name} = useParams()
     const courseData = featureCourses.find((c)=> c.course_name==course_name)
@@ -20,69 +21,20 @@ const CoursePlayer = () => {
     <div className='bg-white w-[100%] h-full capitalize font-[Outfit]  py-5 pl-5'>
 <div>
     <div>
-     <div className='flex flex-col gap-2'>
+   
+     <div className='flex  gap-2'>
+      <div className='flex flex-col gap-1' >
         <span className='flex flex-col gap-0'>
         <span className='text-gray-800 normal-case font-semibold text-base'>
      Name of this module 
         </span>
         <h2 className='text-2xl font-semibold'>{courseData.course_name}</h2>
         </span>
-        <div className='flex justify-between gap-6'>
+        <div className='flex flex-col justify-between gap-6'>
    <div className='p-4 w-[60vw] rounded-lg bg-white shadow-lg'><video  src={vid} controls autoPlay> </video></div>
-   <div className='flex flex-col items-start justify-center '>
-  <div className=' shadow-lg rounded-lg rounded-r-none border-gray-200 font-medium p-3 border border-r-0 bg-gray-50 pl-5 w-full'><h2 className='text-2xl inline text-gray-800 '>course content</h2></div>
-      <div  className='p-3 pt-1  flex flex-col gap-1 h-[80vh] overflow-y-scroll'>
-{courseData.syllabus.map((t, i) => {
-  const moduleKey = `module${i + 1}`; 
-  return (
-    <div key={i}>
-      {/* Module header */}
-      <div
-        onClick={() => toggleModule(moduleKey)}
-        className="flex  justify-between items-center py-5 bg-pink-400 px-3 rounded-lg rounded-b-none text-white cursor-pointer"
-      >
-        <span className="flex items-center gap-2 text-lg font-medium">
-          <TiArrowSortedDown
-            className={`transition-transform duration-300 ${
-              syllabus[moduleKey] ? "rotate-180" : "rotate-0"
-            }`}
-          />
-          {t.module}
-        </span>
-        <span>({t.totalTime})</span>
-      </div>
-      {/* Lessons */}
-      {syllabus[moduleKey] && (
-        <div className='bg-pink-400 p-2 rounded-lg rounded-t-none'>
-        <ul className="flex flex-col gap-2 bg-white rounded-lg">
-          {t.lessons.map((lesson, j) => (
-            <li
-              key={j}
-              className="flex justify-between rounded-xl hover:bg-gray-100 transition-all px-6 py-4 w-full"
-            >
-              <span className="flex items-center gap-2">
-                <FaPlayCircle className="text-sm text-pink-500" />
-                {lesson.title}
-              </span>
-              <span className="text-gray-500">{lesson.time}</span>
-            </li>
-          ))}
-        </ul>
-        </div>
-      )}
-    </div>
-  );
-})}
-
-          
-  </div> 
-  </div>
-  </div>
-     </div>
-     
-       <div className='w-[50%] pl-28 font-[Outfit]'>
+  <div className='w-[80%] pl-10 font-[Outfit]'>
           {/* headings */}           
-          <div className='flex flex-row gap-16   text-black text-xl font-semibold '>
+          <div className='flex flex-row gap-8   text-black text-xl font-semibold '>
               {tabs.map((t)=>{return(
             <a key={t.id} onClick={()=>toggletab(t.name)} className={`cursor-pointer capitalize flex hover:text-pink-400 p-2 ${tab === t.name ? " underline-offset-8 underline  text-pink-400" :"text-black "}`}>{t.name}</a>
                  )})}         
@@ -124,7 +76,6 @@ const CoursePlayer = () => {
             </div>
           </div>
       ): tab === "syllabus" ? (
-          
           <div  className='py-10'>
 
 {courseData.syllabus.map((t, i) => {
@@ -249,9 +200,65 @@ const CoursePlayer = () => {
 )})}
      
       </div>) : null}
-     
+     <div>
+
+     </div>
 </div>
         </div>
+  </div>
+  </div>
+
+    <div className='flex flex-col items-start w-[60%] sticky top-0 self-start '>
+  <div className=' shadow-lg rounded-lg rounded-r-none border-gray-200 font-medium p-3.5 border border-r-0 bg-gray-50 pl-5 w-full flex justify-between items-center'><h2 className='text-2xl inline text-gray-800 '>course content</h2> <span><RxCross2  className='text-lg mr-3.5 cursor-pointer hover:bg-gray-300 hover:rounded-full w-5 h-5'/>
+</span></div>
+      <div  className='p-3 pt-1  flex flex-col gap-1  overflow-y-auto'>
+{courseData.syllabus.map((t, i) => {
+  const moduleKey = `module${i + 1}`; 
+  return (
+    <div key={i}>
+      {/* Module header */}
+      <div
+        onClick={() => toggleModule(moduleKey)}
+        className="flex  justify-between items-center py-5 bg-pink-400 px-3 rounded-lg rounded-b-none text-white cursor-pointer"
+      >
+        <span className="flex items-center gap-2 text-lg font-medium">
+          <TiArrowSortedDown
+            className={`transition-transform duration-300 ${
+              syllabus[moduleKey] ? "rotate-180" : "rotate-0"
+            }`}
+          />
+          {t.module}
+        </span>
+        <span>({t.totalTime})</span>
+      </div>
+      {/* Lessons */}
+      {syllabus[moduleKey] && (
+        <div className='bg-pink-400 p-2 rounded-lg rounded-t-none'>
+        <ul className="flex flex-col gap-2 bg-white rounded-lg">
+          {t.lessons.map((lesson, j) => (
+            <li
+              key={j}
+              className="flex justify-between rounded-xl hover:bg-gray-100 transition-all px-6 py-4 w-full"
+            >
+              <span className="flex items-center gap-2">
+                <FaPlayCircle className="text-sm text-pink-500" />
+                {lesson.title}
+              </span>
+              <span className="text-gray-500">{lesson.time}</span>
+            </li>
+          ))}
+        </ul>
+        </div>
+      )}
+    </div>
+  );
+})}
+
+          
+  </div> 
+  </div>
+     </div>
+    
        </div>
   
 </div>

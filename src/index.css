@@ -95,3 +95,9 @@ box-shadow:
   top: 3px;
 }
 
+.ql-container {
+  min-height: 200px;
+    border-radius: 0rem 0rem 1rem 1rem;
+ 
+}
+

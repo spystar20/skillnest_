@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import featureCourses from '../data/course'
 import { useParams } from 'react-router-dom'
 import vid from '../assets/Vid.mp4'
@@ -11,12 +11,33 @@ import { FaFacebookF  ,FaInstagram} from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
 import Rating from '@mui/material/Rating';
+import Quill from 'quill'
+import "quill/dist/quill.snow.css"; // Quill's default styling
+import Theme from 'quill/core/theme'
 
 const CoursePlayer = () => {
    const tabs = [ {name: "overview",id:1 },{name:"syllabus",id:2},{name:"notes",id:3},{name:"resource",id:4},{name:"instructor",id:5} ,{name:"review", id:6},]
     const {tab,toggletab,toggleModule,syllabus } = usetoggletab()
   const  {course_name} = useParams()
     const courseData = featureCourses.find((c)=> c.course_name==course_name)
+    const editorRef = useRef(null)
+    const [quill,setquill] = useState(null)
+    useEffect(()=>{
+      if(editorRef.current && !quill){
+       const q = new Quill(editorRef.current,{
+        theme:"snow",placeholder:"Enter Your Notes here",modules:{
+          toolbar:[
+           [{ header: [1, 2, false] }],
+            ["bold", "italic", "underline", "strike"],
+            [{ list: "ordered" }, { list: "bullet" }],
+            ["link"],
+            ["clean"],
+          ]
+        }
+       })
+       setquill(q)
+      }
+    })
   return (
     <div className='bg-white w-[100%] h-full capitalize font-[Outfit]  py-5 pl-5'>
 <div>
@@ -199,7 +220,12 @@ const CoursePlayer = () => {
       </div> 
 )})}
      
-      </div>) : null}
+      </div>) : tab==="notes"?(
+        
+   <div className='flex flex-col gap-6 '><div className='pt-7  px-3 w-[100%]'>  <div><div ref={editorRef} style={{ minHeight: "200px" }}></div></div></div>
+   <span className='flex gap-7 pr-6 pb-7 justify-end items-center'><button className='text-lg py-1 px-6 rounded-sm capitalize border border-black hover:text-white hover:bg-pink-400 hover:border-0 transition-all transi-'>cancel</button><button className='text-lg py-1 px-6 rounded-sm capitalize   border text-white bg-pink-400  transition-all '>save</button></span>
+   </div>
+      ): null}
      <div>
 
      </div>

@@ -6,14 +6,16 @@ import { FaPlayCircle,FaStar } from 'react-icons/fa'
 import { TiArrowSortedDown } from 'react-icons/ti'
 import { usetoggletab } from '../Store/UseToggleTab'
 import { LiaCertificateSolid } from 'react-icons/lia'
-import { MdOutlinePeopleAlt } from 'react-icons/md'
+import { MdOutlinePeopleAlt ,MdDoubleArrow } from 'react-icons/md'
 import { FaFacebookF  ,FaInstagram} from "react-icons/fa";
-import { BsTwitterX } from "react-icons/bs";
+import {  BsTwitterX } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
+import { CiCirclePlus } from "react-icons/ci";
 import Rating from '@mui/material/Rating';
 import Quill from 'quill'
 import "quill/dist/quill.snow.css"; // Quill's default styling
-import Theme from 'quill/core/theme'
+
+
 
 const CoursePlayer = () => {
    const tabs = [ {name: "overview",id:1 },{name:"syllabus",id:2},{name:"notes",id:3},{name:"resource",id:4},{name:"instructor",id:5} ,{name:"review", id:6},]
@@ -222,10 +224,26 @@ const CoursePlayer = () => {
      
       </div>) : tab==="notes"?(
         
-   <div className='flex flex-col gap-6 '><div className='pt-7  px-3 w-[100%]'>  <div><div ref={editorRef} style={{ minHeight: "200px" }}></div></div></div>
-   <span className='flex gap-7 pr-6 pb-7 justify-end items-center'><button className='text-lg py-1 px-6 rounded-sm capitalize border border-black hover:text-white hover:bg-pink-400 hover:border-0 transition-all transi-'>cancel</button><button className='text-lg py-1 px-6 rounded-sm capitalize   border text-white bg-pink-400  transition-all '>save</button></span>
+   <div className='flex flex-col gap-6 '><div className='pt-7  px-3 w-[100%]'> 
+   <div className='pb-6'>
+    <p className='flex justify-between items-center border py-2 px-5 rounded-lg hover:bg-gray-100'><span className='text-lg text-gray-900 normal-case'>Create new note at <span>00.00</span></span> <span><CiCirclePlus className='text-xl text-bold cursor-pointer bg-gray-800 text-white rounded-full'/>
+</span></p>
    </div>
-      ): null}
+    <div><div ref={editorRef} style={{ minHeight: "200px" }}></div></div></div>
+   <span className='flex gap-7 pr-6 pb-7 justify-end items-center'><button className='text-lg py-1 px-6 rounded-sm capitalize border border-black hover:text-white hover:bg-black transition-all box-content cursor-pointer'>cancel</button><button className='text-lg py-1 px-6 rounded-sm capitalize   border text-white border-pink-400 bg-pink-400 hover:scale-95 scale-100 transition-all '>save</button></span>
+   </div>
+      ): tab==="resource" ?(
+        <div className='py-7 px-4'>
+          <div>
+          <h2 className='text-xl font-medium flex items-center gap-1'><span>
+            <MdDoubleArrow  className=''/></span>Core Resources</h2>
+            <ul>
+              <li><span></span></li>
+            </ul>
+            </div>
+        </div>
+
+      ):null}
      <div>
 
      </div>

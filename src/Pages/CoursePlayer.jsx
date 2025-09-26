@@ -6,12 +6,20 @@ import { FaPlayCircle,FaStar } from 'react-icons/fa'
 import { TiArrowSortedDown } from 'react-icons/ti'
 import { usetoggletab } from '../Store/UseToggleTab'
 import { LiaCertificateSolid } from 'react-icons/lia'
-import { MdOutlinePeopleAlt ,MdDoubleArrow } from 'react-icons/md'
-import { FaFacebookF  ,FaInstagram} from "react-icons/fa";
+import { MdOutlinePeopleAlt,MdOutlineWorkspacePremium  } from 'react-icons/md'
+import { FaFacebookF  ,FaInstagram,FaRegFilePdf ,FaRegFileCode ,FaFolderOpen } from "react-icons/fa";
+import { IoIosLink } from "react-icons/io";
+import { IoDocumentsOutline } from "react-icons/io5";
 import {  BsTwitterX } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
 import { CiCirclePlus } from "react-icons/ci";
 import Rating from '@mui/material/Rating';
+import {IoDocumentAttachOutline } from "react-icons/io5";
+import { FiExternalLink } from "react-icons/fi";
+import { GoRepoTemplate } from "react-icons/go";
+import { IoDocumentTextOutline } from "react-icons/io5";
+import { FiGithub } from "react-icons/fi";
+
 import Quill from 'quill'
 import "quill/dist/quill.snow.css"; // Quill's default styling
 
@@ -144,15 +152,15 @@ const CoursePlayer = () => {
           </div>
       ) : tab === "instructor" ?(
       <div className=' py-5 pl-4'>
-        <div className='flex flex-col pb-3'>
+         <div className='flex flex-col pb-3'>
           <h2 className='text-xl text-black font-semibold'>
           {courseData.instructor_name}
           </h2>
           <span className='text-lg '> ({courseData.instructor.title})</span>
-        </div>
+        </div> 
          <div className='flex items-start   gap-7'>
-          <div className='w-[50%] border rounded-2xl p-4'><img className=' rounded-2xl' src={courseData.instructor_img} alt={courseData.instructor_img} /></div>
-          <div>
+         <div className='w-[50%] border rounded-2xl p-4'><img className=' rounded-2xl' src={courseData.instructor_img} alt={courseData.instructor_img} /></div>
+          <div> 
          <ul className='flex flex-col text-base font-normal w-full gap-1'>
           <li className='flex gap-2 '>
             <span className='flex gap-2 items-center '><FaStar/>{courseData.instructor.rating} </span>
@@ -173,14 +181,14 @@ const CoursePlayer = () => {
          </ul>
           
           </div>
-         </div>
-      <div className='gap-4 flex flex-col py-5'>
-     <div className='flex flex-col gap-1 '>
+         </div> 
+    <div className='gap-4 flex flex-col py-5'>
+     {/* <div className='flex flex-col gap-1 '>
               <h1 className='text-lg font-medium'>About the Instructor:</h1>
               <p className='font-normal '>
             {courseData.instructor.bio}
               </p>
-            </div>
+            </div> */}
             <div className='flex flex-col gap-1 '>
               <h1 className='text-lg font-medium'>Teaching Style :</h1>
               <p className='font-normal '>
@@ -190,7 +198,6 @@ const CoursePlayer = () => {
             <div className='flex flex-col gap-1 '>
               <h2 className='text-lg font-medium'>Highlights:</h2>
               <ul className='flex flex-col list-disc list-outside pl-5'>
-                {/* {courseData.instructor} */}
                 <li>Designed apps & websites for international clients in tech and e-commerce</li>
                 <li>Specialist in wireframing, user flows, and usability testing</li>
                 <li>Featured in multiple design publications and online communities</li>
@@ -199,7 +206,7 @@ const CoursePlayer = () => {
               </ul>
 
             </div>
-      </div>
+      </div>  
 
       </div>
       ) : tab=== "review" ? ( 
@@ -233,12 +240,35 @@ const CoursePlayer = () => {
    <span className='flex gap-7 pr-6 pb-7 justify-end items-center'><button className='text-lg py-1 px-6 rounded-sm capitalize border border-black hover:text-white hover:bg-black transition-all box-content cursor-pointer'>cancel</button><button className='text-lg py-1 px-6 rounded-sm capitalize   border text-white border-pink-400 bg-pink-400 hover:scale-95 scale-100 transition-all '>save</button></span>
    </div>
       ): tab==="resource" ?(
-        <div className='py-7 px-4'>
-          <div>
+        <div className='py-7 px-4 flex  flex-wrap justify-between items-center gap-9'>
+            <div className='flex flex-col gap-4'>
+          <h2 className='text-xl font-medium flex items-center gap-2'><span>
+            <FaFolderOpen  className='text-xl'/></span>Core Resources</h2>
+            <ul className='flex flex-col gap-2 text-gray-800 '>
+              <li><a className='flex group gap-2 hover:text-pink-300 cursor-pointer items-center font-medium hover:underline text-normal transition-all duration-75 ease-in'><span><FaRegFilePdf  className='text-xl group-hover:-translate-y-0.5 '/></span>PDF Notes </a></li>
+                <li><a className='flex group gap-2 hover:text-pink-300 cursor-pointer items-center font-medium hover:underline text-normal transition-all duration-75 ease-in'><span><FaRegFileCode  className='text-xl group-hover:-translate-y-0.5 '/></span>Code Files</a></li>
+                  <li><a className='flex group gap-2 hover:text-pink-300 cursor-pointer items-center font-medium hover:underline text-normal transition-all duration-75 ease-in'><span><IoDocumentAttachOutline className='text-xl group-hover:-translate-y-0.5 '/></span>Assignments & Worksheets</a></li>
+        
+            </ul>
+            </div>
+          <div className='flex flex-col gap-4'>
           <h2 className='text-xl font-medium flex items-center gap-1'><span>
-            <MdDoubleArrow  className=''/></span>Core Resources</h2>
-            <ul>
-              <li><span></span></li>
+            <FiExternalLink className='text-xl'/></span>External Learning Support</h2>
+            <ul className='flex flex-col gap-2 pl-6 text-gray-800'>
+              <li><a className='flex group gap-1 hover:text-pink-300 cursor-pointer items-center font-medium hover:underline text-normal transition-all duration-75 ease-in'><span><FiGithub    className='text-xl group-hover:-translate-y-0.5 '/></span>Github Repo Link </a></li>
+                <li><a className='flex group gap-1 hover:text-pink-300 cursor-pointer items-center font-medium hover:underline text-normal transition-all duration-75 ease-in'><span><IoIosLink
+ className='text-xl group-hover:-translate-y-0.5 '/></span>Reference Links</a></li>
+                  <li><a className='flex group gap-1 hover:text-pink-300 cursor-pointer items-center font-medium hover:underline text-normal transition-all duration-75 ease-in'><span><IoDocumentsOutline   className='text-xl group-hover:-translate-y-0.5 '/></span>Cheat Sheets</a></li>      
+            </ul>
+            </div>
+             <div className='flex flex-col gap-4'>
+          <h2 className='text-xl font-medium flex items-center gap-1'><span>
+            <MdOutlineWorkspacePremium  className='text-xl'/></span>Skill Boosters </h2>
+            <ul className='flex flex-col gap-2 pl-6 text-gray-800'>
+              <li><a className='flex group gap-1 hover:text-pink-300 cursor-pointer items-center font-medium hover:underline text-normal transition-all duration-75 ease-in'><span><GoRepoTemplate    className='text-xl group-hover:-translate-y-0.5 '/></span>Templates & Assets</a></li>
+                <li><a className='flex group gap-1 hover:text-pink-300 cursor-pointer items-center font-medium hover:underline text-normal transition-all duration-75 ease-in'><span><IoDocumentTextOutline className='text-xl group-hover:-translate-y-0.5 '/></span>Case Studies</a></li>
+              
+        
             </ul>
             </div>
         </div>

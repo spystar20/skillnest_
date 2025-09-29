@@ -159,7 +159,7 @@ const CoursePlayer = () => {
           <span className='text-lg '> ({courseData.instructor.title})</span>
         </div> 
          <div className='flex items-start   gap-7'>
-         <div className='w-[50%] border rounded-2xl p-4'><img className=' rounded-2xl' src={courseData.instructor_img} alt={courseData.instructor_img} /></div>
+         <div className='w-[50%] border rounded-2xl p-4'><img className=' rounded-2xl w-[50vw]' src={courseData.instructor_img} alt={courseData.instructor_img} /></div>
           <div> 
          <ul className='flex flex-col text-base font-normal w-full gap-1'>
           <li className='flex gap-2 '>
@@ -183,12 +183,12 @@ const CoursePlayer = () => {
           </div>
          </div> 
     <div className='gap-4 flex flex-col py-5'>
-     {/* <div className='flex flex-col gap-1 '>
+     <div className='flex flex-col gap-1 w-[50vw]'>
               <h1 className='text-lg font-medium'>About the Instructor:</h1>
               <p className='font-normal '>
             {courseData.instructor.bio}
               </p>
-            </div> */}
+            </div>
             <div className='flex flex-col gap-1 '>
               <h1 className='text-lg font-medium'>Teaching Style :</h1>
               <p className='font-normal '>
@@ -254,7 +254,7 @@ const CoursePlayer = () => {
           <div className='flex flex-col gap-4'>
           <h2 className='text-xl font-medium flex items-center gap-1'><span>
             <FiExternalLink className='text-xl'/></span>External Learning Support</h2>
-            <ul className='flex flex-col gap-2 pl-6 text-gray-800'>
+            <ul className='flex flex-col gap-2  text-gray-800'>
               <li><a className='flex group gap-1 hover:text-pink-300 cursor-pointer items-center font-medium hover:underline text-normal transition-all duration-75 ease-in'><span><FiGithub    className='text-xl group-hover:-translate-y-0.5 '/></span>Github Repo Link </a></li>
                 <li><a className='flex group gap-1 hover:text-pink-300 cursor-pointer items-center font-medium hover:underline text-normal transition-all duration-75 ease-in'><span><IoIosLink
  className='text-xl group-hover:-translate-y-0.5 '/></span>Reference Links</a></li>
@@ -264,7 +264,7 @@ const CoursePlayer = () => {
              <div className='flex flex-col gap-4'>
           <h2 className='text-xl font-medium flex items-center gap-1'><span>
             <MdOutlineWorkspacePremium  className='text-xl'/></span>Skill Boosters </h2>
-            <ul className='flex flex-col gap-2 pl-6 text-gray-800'>
+            <ul className='flex flex-col gap-2  text-gray-800'>
               <li><a className='flex group gap-1 hover:text-pink-300 cursor-pointer items-center font-medium hover:underline text-normal transition-all duration-75 ease-in'><span><GoRepoTemplate    className='text-xl group-hover:-translate-y-0.5 '/></span>Templates & Assets</a></li>
                 <li><a className='flex group gap-1 hover:text-pink-300 cursor-pointer items-center font-medium hover:underline text-normal transition-all duration-75 ease-in'><span><IoDocumentTextOutline className='text-xl group-hover:-translate-y-0.5 '/></span>Case Studies</a></li>
               

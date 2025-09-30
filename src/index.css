@@ -101,3 +101,28 @@ box-shadow:
  
 }
 
+.glass-card {
+
+  padding: 2rem;
+  border-radius: 20px;
+
+  /* Gradient background with transparency */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.05)
+  );
+
+  /* Frosted glass effect */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  /* Subtle border */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  /* Soft shadow */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+
+  color: #fff;
+}
+

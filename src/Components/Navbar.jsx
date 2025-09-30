@@ -9,8 +9,8 @@ const [open,setopen] = useState(false)
 
   return (
 
-    <div className='font-["Roboto"]'>
-      <div className="w-full h-[10vh] py-5 font-['Comic_Relief'] flex justify-evenly px-12 items-center bg-[#fffdf5] text-[#364c84] backdrop-blur-sm  bg-opacity-30 rounded-b-lg shadow-sm shadow-[#fffdf5]">
+    <div className='font-["Roboto"] shadow-2xl shadow-black'>
+      <div className="w-full h-[10vh]  py-5 font-['Comic_Relief'] flex justify-evenly px-12 items-center bg-[#fffdf5] text-[#364c84] backdrop-blur-sm  bg-opacity-30 rounded-b-lg shadow-sm shadow-[#fffdf5]">
         <div className="flex items-center space-x-2">
           <GiNestBirds className="text-[#364c84] text-3xl" />
           <span className="text-2xl font-bold">
@@ -206,7 +206,7 @@ Test Preparation
         <div class="flex justify-center text-xl  capitalize   gap-5 items-center h-full">
         <button className="relative inline-block px-6 py-1 font-medium text-[#364c84] group">
   <span className="absolute inset-0 border border-[#364c84] rounded-md transition-all duration-300 group-hover:border-[3px]"></span>
-  <span className="relative z-10">Login</span>
+  <Link to="/login"><span className="relative z-10">Login</span></Link>
 </button>
 
           <button className='  scale-100 hover:scale-95 cursor-pointer bg-pink-400 hover:bg-[#95b1eee4] text-[#fffdf5] rounded-lg py-1 px-5  capitalize font-medium'>sign up</button>

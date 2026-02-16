@@ -9,7 +9,7 @@ import CoursePlayer from './Pages/CoursePlayer'
 import Login from './AuthPages/Login'
 const App = () => {
   return (
-    <div className='bg-[#95b1ee] w-full h-screen'>
+    <div className='home-bg w-full h-screen'>
     
     <BrowserRouter>
      <Navbar/>

@@ -5,217 +5,164 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 const Navbar = () => {
 
-const [open,setopen] = useState(false)
+  const [open, setopen] = useState(false)
 
   return (
 
-    <div className='font-["Roboto"]  shadow-2xl shadow-black'>
-      <div className="w-full h-[10vh]  py-5 font-['Comic_Relief'] flex justify-evenly px-12 items-cente text-white backdrop-blur-lg  bg-opacity-40  ">
-     <div className="flex items-center gap-2">
-  <GiNestBirds className="text-white text-3xl" />
-  <span className="text-2xl font-semibold text-white">
-    SkillNest
-  </span>
-  <span className="w-2 h-2 bg-[#1e3a8a] rounded-full mt-3"></span>
-</div>
+    <div className='font-["Roboto"]  bg-transparent shadow-2xl border-b border-b-white/10 shadow-black'>
+      <div className="w-full py-6 font-heading flex justify-between px-12 items-cente text-white backdrop-blur-lg  bg-opacity-40 relative ">
+        <div className="flex items-center gap-2">
+          <GiNestBirds className="text-white text-4xl" />
+          <span className="text-3xl font-semibold text-white flex gap-0">
+            Skill <span className='font-span capitalize'>nest</span>
+          </span>
+          <span className="w-2 h-2 bg-[#1e3a8a] rounded-full mt-3"></span>
+        </div>
 
 
-        <ul class="flex justify-center gap-3 font-['Comic_Relief'] items-center h-full text-lg ">
-       <Link to="/">  <li className="cursor-pointer hover:bg-[#95b1ee] hover:rounded-full transition-all hover:text-[#fffdf5] py-2 px-5 ">Home</li></Link> 
+        <ul class="flex justify-center gap-3 font-heading  items-center h-full text-lg ">
+          <li className="cursor-pointer hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] rounded-full transition-all duration-300 hover:text-white hover:-translate-y-0.5 py-2 px-5 "><Link to="/">  Home</Link></li>
+          <li
+            className="relative"
+            onMouseEnter={() => setopen(true)}
+            onMouseLeave={() => setopen(false)}
+          >
+            <Link to="/courses">
+              <li className="cursor-pointer px-5 py-2 rounded-full flex items-center gap-1 text-white/80 hover:text-white transition-all duration-300">
+                Courses
+                <FaAngleDown
+                  className={`transition-transform duration-300 mt-[2px] ${open ? "rotate-180" : ""
+                    }`}
+                />
+              </li>
+            </Link>
 
-        <Link to="/courses"> <li className="cursor-pointer  hover:bg-[#95b1ee] active:bg-[#95b1ee] hover:rounded-full transition-all hover:text-[#fffdf5] py-2 px-5 flex justify-center  gap-1 items-center course-button  "  onMouseEnter={()=>setopen(true)} >Courses <span><FaAngleDown className={`transition-transform duration-300 mt-1 ${open ? 'rotate-180' : ''}`}/></span>
-          {open && (
-            <div className='relative z-[99999]' onMouseEnter={()=>setopen(true)} onMouseLeave={()=>setopen(false)}>
-          <div onMouseEnter={()=>setopen(true)} onMouseLeave={()=>setopen(false)} className="grid drop-down z-[990099] w-[40vw] grid-cols-2 gap-3 px-8 py-6 shadow-2xl lg:left-[-13rem]  font-['Roboto'] top-[2rem]   text-[#364c84] bg-[#fffdf5] rounded-sm mt-3 absolute">
-        <ul >
-          <li className="group py-3 border-y border-[#364c84]  capitalize flex flex-col gap-2 cursor-pointer w-52"> 
-            <div className="text-lg font-semibold flex justify-between items-center">
-              Development
-              <span className="inline-block w-4">
-                <FaAngleDown  className="ml-1 mt-1 transition-transform duration-300 group-hover:rotate-180"  />
-              </span>
-          </div>
+            {open && (
+              <div
+                className="
+          absolute top-full left-1/2 -translate-x-1/2
+          w-[45vw]
+          rounded-2xl
+          bg-gradient-to-br from-[#141033] to-[#1d1850]
+          border border-white/10
+          shadow-2xl shadow-black/60
+          p-10
+          grid grid-cols-2 gap-12
+          z-[34444]
+          "
+              >
+                {/* LEFT COLUMN */}
+                <div className="flex flex-col gap-10">
 
-            <ul className="hidden  group-hover:flex flex-col justify-start items-start gap-1 my-2 font-sans transition-all duration-300 w-full">
-              <li className="hover:text-[#95b1ee]">Web Development</li>
-              <li className="hover:text-[#95b1ee]">Mobile Development</li>
-              <li className="hover:text-[#95b1ee]">Game Development</li>
-              <li className="hover:text-[#95b1ee]">Programming Languages</li>
-            </ul>
+                  {/* Development */}
+                  <div className="group">
+                    <h3 className="text-lg font-semibold text-white mb-3">
+                      Development
+                    </h3>
+                    <ul className="flex flex-col gap-2 text-white/60 text-sm">
+                      <li className="hover:text-white transition">Web Development</li>
+                      <li className="hover:text-white transition">Mobile Development</li>
+                      <li className="hover:text-white transition">Game Development</li>
+                      <li className="hover:text-white transition">Programming Languages</li>
+                    </ul>
+                  </div>
 
+                  {/* Business */}
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-3">
+                      Business
+                    </h3>
+                    <ul className="flex flex-col gap-2 text-white/60 text-sm">
+                      <li className="hover:text-white transition">Entrepreneurship</li>
+                      <li className="hover:text-white transition">Marketing</li>
+                      <li className="hover:text-white transition">Finance & Accounting</li>
+                      <li className="hover:text-white transition">Management</li>
+                    </ul>
+                  </div>
+
+                  {/* Design */}
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-3">
+                      Design
+                    </h3>
+                    <ul className="flex flex-col gap-2 text-white/60 text-sm">
+                      <li className="hover:text-white transition">Graphic Design</li>
+                      <li className="hover:text-white transition">UI/UX Design</li>
+                      <li className="hover:text-white transition">Animation</li>
+                      <li className="hover:text-white transition">Interior Design</li>
+                    </ul>
+                  </div>
+
+                </div>
+
+                {/* RIGHT COLUMN */}
+                <div className="flex flex-col gap-10">
+
+                  {/* Data Science */}
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-3">
+                      Data Science
+                    </h3>
+                    <ul className="flex flex-col gap-2 text-white/60 text-sm">
+                      <li className="hover:text-white transition">Machine Learning</li>
+                      <li className="hover:text-white transition">Data Analysis</li>
+                      <li className="hover:text-white transition">AI & Deep Learning</li>
+                      <li className="hover:text-white transition">Statistics</li>
+                    </ul>
+                  </div>
+
+                  {/* Health */}
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-3">
+                      Health & Fitness
+                    </h3>
+                    <ul className="flex flex-col gap-2 text-white/60 text-sm">
+                      <li className="hover:text-white transition">Yoga</li>
+                      <li className="hover:text-white transition">Mental Health</li>
+                      <li className="hover:text-white transition">Nutrition</li>
+                      <li className="hover:text-white transition">Sports Training</li>
+                    </ul>
+                  </div>
+
+                  {/* Language */}
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-3">
+                      Language Learning
+                    </h3>
+                    <ul className="flex flex-col gap-2 text-white/60 text-sm">
+                      <li className="hover:text-white transition">English</li>
+                      <li className="hover:text-white transition">Spanish</li>
+                      <li className="hover:text-white transition">Korean</li>
+                      <li className="hover:text-white transition">Hindi / Regional</li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            )}
           </li>
-          <li className="group py-3 border-y border-[#364c84]  capitalize flex flex-col gap-2 cursor-pointer w-52"> 
-
-            <div className="text-lg font-semibold flex justify-between items-center">
-              Business
-              <span className="inline-block w-4">
-                <FaAngleDown className="ml-1 mt-1 transition-transform duration-300 group-hover:rotate-180" />
-              </span>
-            </div>
-
-            <ul className="hidden  group-hover:flex flex-col justify-start items-start gap-1 my-2 font-sans transition-all duration-300 w-full">
-              <li className="hover:text-[#95b1ee]">Entrepreneurship</li>
-              <li className="hover:text-[#95b1ee]">Marketing</li>
-              <li className="hover:text-[#95b1ee]">Finance & Accounting</li>
-              <li className="hover:text-[#95b1ee]">Management</li>
-            </ul>
-          </li>
-          <li className="group py-3 border-y border-[#364c84]  capitalize flex flex-col gap-2 cursor-pointer w-52"> 
-
-<div className="text-lg font-semibold flex justify-between items-center">
-Design
-  <span className="inline-block w-4">
-    <FaAngleDown className="ml-1 mt-1 transition-transform duration-300 group-hover:rotate-180" />
-  </span>
-</div>
-
-<ul className="hidden  group-hover:flex flex-col justify-start items-start gap-1 my-2 font-sans transition-all duration-300 w-full">
-  <li className="hover:text-[#95b1ee]">Graphic Design</li>
-  <li className="hover:text-[#95b1ee]">UI/UX Design</li>
-  <li className="hover:text-[#95b1ee]">Animation</li>
-  <li className="hover:text-[#95b1ee]">Interior Design</li>
-</ul>
-</li>
-<li className="group py-3 border-y border-[#364c84]  capitalize flex flex-col gap-2 cursor-pointer w-52"> 
-
-<div className="text-lg font-semibold flex justify-between items-center">IT & Software
-  <span className="inline-block w-4">
-    <FaAngleDown className="ml-1 mt-1 transition-transform duration-300 group-hover:rotate-180" />
-  </span>
-</div>
-
-<ul className="hidden  group-hover:flex flex-col justify-start items-start gap-1 my-2 font-sans transition-all duration-300 w-full">
-  <li className="hover:text-[#95b1ee]">Cybersecurity</li>
-  <li className="hover:text-[#95b1ee]">Cloud Computing</li>
-  <li className="hover:text-[#95b1ee]">Network & Security</li>
-  <li className="hover:text-[#95b1ee]">DevOps</li>
-</ul>
-</li>
-<li className="group py-3 border-y border-[#364c84]  capitalize flex flex-col gap-2 cursor-pointer w-52"> 
-
-<div className="text-lg font-semibold flex justify-between items-center">
-Personal Development
-  <span className="inline-block w-4">
-    <FaAngleDown className="ml-1 mt-1 transition-transform duration-300 group-hover:rotate-180" />
-  </span>
-</div>
-
-<ul className="hidden  group-hover:flex flex-col justify-start items-start gap-1 my-2 font-sans transition-all duration-300 w-full">
-  <li className="hover:text-[#95b1ee]">Productivity</li>
-  <li className="hover:text-[#95b1ee]">Leadership</li>
-  <li className="hover:text-[#95b1ee]">Communication Skills</li>
-  <li className="hover:text-[#95b1ee]">Time Management</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li className="group py-3 border-y border-[#364c84]  capitalize flex flex-col gap-2 cursor-pointer w-52"> 
-
-<div className="text-lg font-semibold flex justify-between items-center">
-Data Science
-  <span className="inline-block w-4">
-    <FaAngleDown className="ml-1 mt-1 transition-transform duration-300 group-hover:rotate-180" />
-  </span>
-</div>
-
-<ul className="hidden  group-hover:flex flex-col justify-start items-start gap-1 my-2 font-sans transition-all duration-300 w-full">
-  <li className="hover:text-[#95b1ee]">Machine Learning</li>
-  <li className="hover:text-[#95b1ee]">Data Analysis</li>
-  <li className="hover:text-[#95b1ee]">AI & Deep Learning</li>
-  <li className="hover:text-[#95b1ee]">Statistics</li>
-</ul>
-</li>
-<li className="group py-3 border-y border-[#364c84]  capitalize flex flex-col gap-2 cursor-pointer w-52"> 
-
-<div className="text-lg font-semibold flex justify-between items-center">
-Health & Fitness
-  <span className="inline-block w-4">
-    <FaAngleDown className="ml-1 mt-1 transition-transform duration-300 group-hover:rotate-180" />
-  </span>
-</div>
-
-<ul className="hidden  group-hover:flex flex-col justify-start items-start gap-1 my-2 font-sans transition-all duration-300 w-full">
-  <li className="hover:text-[#95b1ee]">Yoga</li>
-  <li className="hover:text-[#95b1ee]">Mental Health</li>
-  <li className="hover:text-[#95b1ee]">Nutrition</li>
-  <li className="hover:text-[#95b1ee]">Sports Training
-
-</li>
-</ul>
-</li>
-<li className="group py-3 border-y border-[#364c84]  capitalize flex flex-col gap-2 cursor-pointer w-52"> 
-
-<div className="text-lg font-semibold flex justify-between items-center">
-Language Learning
-  <span className="inline-block w-4">
-    <FaAngleDown className="ml-1 mt-1 transition-transform duration-300 group-hover:rotate-180" />
-  </span>
-</div>
-
-<ul className="hidden  group-hover:flex flex-col justify-start items-start gap-1 my-2 font-sans transition-all duration-300 w-full">
-  <li className="hover:text-[#95b1ee]">English</li>
-  <li className="hover:text-[#95b1ee]">Spanish</li>
-  <li className="hover:text-[#95b1ee]">Korean</li>
-  <li className="hover:text-[#95b1ee]">Hindi or regional languages</li>
-</ul>
-</li>
-<li className="group py-3 border-y border-[#364c84]  capitalize flex flex-col gap-2 cursor-pointer w-52"> 
-
-<div className="text-lg font-semibold flex justify-between items-center">
-Arts & Humanities
-  <span className="inline-block w-4">
-    <FaAngleDown className="ml-1 mt-1 transition-transform duration-300 group-hover:rotate-180" />
-  </span>
-</div>
-
-<ul className="hidden  group-hover:flex flex-col justify-start items-start gap-1 my-2 font-sans transition-all duration-300 w-full">
-  <li className="hover:text-[#95b1ee]">Music</li>
-  <li className="hover:text-[#95b1ee]">Drawing</li>
-  <li className="hover:text-[#95b1ee]">History</li>
-  <li className="hover:text-[#95b1ee]">Writing</li>
-</ul>
-</li>
-<li className="group py-3 border-y border-[#364c84]  capitalize flex flex-col gap-2 cursor-pointer w-52"> 
-
-<div className="text-lg font-semibold flex justify-between items-center">
-Test Preparation
-  <span className="inline-block w-4">
-    <FaAngleDown className="ml-1 mt-1 transition-transform duration-300 group-hover:rotate-180" />
-  </span>
-</div>
-
-<ul className="hidden  group-hover:flex flex-col justify-start items-start gap-1 my-2 font-sans transition-all duration-300 w-full">
-  <li className="hover:text-[#95b1ee]">UPSC / SSC / Government Exams</li>
-  <li className="hover:text-[#95b1ee]">IELTS / TOEFL</li>
-  <li className="hover:text-[#95b1ee]">SAT / GRE / GMAT</li>
-  <li className="hover:text-[#95b1ee]">NEET / JEE
-
-</li>
-</ul>
-</li>
-        </ul>
-   
-      </div> 
-      </div>
-          )}
-          </li>
-          </Link> 
-          <li className="cursor-pointer hover:bg-[#95b1ee] hover:rounded-full transition-all hover:text-[#fffdf5] py-2 px-5 ">About</li>
-          <li className="cursor-pointer hover:bg-[#95b1ee] hover:rounded-full transition-all hover:text-[#fffdf5] py-2 px-5 ">Teach</li>
+          <li className="cursor-pointer hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] rounded-full transition-all duration-300 hover:text-white hover:-translate-y-0.5 py-2 px-5 ">About</li>
+          <li className="cursor-pointer hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] rounded-full transition-all duration-300 hover:text-white hover:-translate-y-0.5 py-2 px-5 ">Teach</li>
         </ul>
 
-      {/* button  */}
+        {/* button  */}
         <div class="flex justify-center text-xl  capitalize   gap-5 items-center h-full">
-        <button className="relative inline-block px-6 py-1 font-medium text-[#364c84] group">
-  <span className="absolute inset-0 border border-[#364c84] rounded-md transition-all duration-300 group-hover:border-[3px]"></span>
-  <Link to="/login"><span className="relative z-10">Login</span></Link>
-</button>
+          
+          <Link to="/login"><button className='
+px-6 py-2 rounded-lg font-normal text-lg capitalize text-white border border-white hover:border-[#0e0929]
+hover:bg-gradient-to-tr hover:from-[#0e0929] hover:via-[#1c1450] hover:to-[#2a1f75] hover:opacity-90 shadow-lg shadow-black/10 transition-all duration-300 hover:scale-95  cursor-pointer'>Log In</button></Link>
+          <button className='
+px-6 py-2 rounded-lg font-normal text-lg capitalize text-white
+bg-gradient-to-tr from-[#0e0929] via-[#1c1450] to-[#2a1f75]
+hover:opacity-90
+shadow-lg shadow-black/10
+transition-all duration-300 hover:scale-95  cursor-pointer box'>sign up</button>
 
-          <button className='  scale-100 hover:scale-95 cursor-pointer bg-white hover:bg-[#95b1eee4] text-black rounded-lg py-1 px-5  capitalize font-medium'>sign up</button>
 
         </div>
       </div>
-</div>
+    </div>
+
   )
 }
 export default Navbar

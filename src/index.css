@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
-
+@theme{
+  --font-span:Merienda;
+  --font-heading:Outfit;
+--font-body:Roboto;
+--color-button:#0e0929;
+}
 .home-bg{
   background: linear-gradient(135deg, #0f172a, #1e3a8a);
   background: linear-gradient(135deg, #0f172a, #1e3a8a, #0f172a);

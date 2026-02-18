@@ -152,14 +152,14 @@ const Home = () => {
           <div className='flex flex-col justify-start items-start gap-4'>
             <h1 className='text-5xl font-[Merienda] font-bold text-white'>Learn. Create. Thrive.</h1>
             <p className='text-white mt-4'>Learn in-demand skills from top mentors across tech, design, business, and more — all in one place.</p>
-            <button className=' transition-all hover:border-2 border-blue-300 font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-2 px-2 text-xl  capitalize font-medium'>Explore courses</button>
+            <button className=' transition-all bg-gradient-to-tr from-[#95b1ee] to-[#728ccd] font-[Comic_Relief]  cursor-pointe text-white rounded-lg py-2 px-6 text-xl box capitalize font-medium'>Explore courses</button>
           </div>
           <div>
             <div>
-              <img className='relative rounded-4xl left-[2rem] z-30' src={hero} alt="" />
+              <img className='relative rounded-4xl left-[2rem] w-lg z-30' src={hero} alt="" />
             </div>
             {/* connected students */}
-            <div className="box w-[23vw] shadow-2xs shadow-black  absolute top-[7rem] right-[3rem] flex gap-3 flex-col px-4 py-5 rounded-2xl">
+            {/* <div className="box w-[23vw] shadow-2xs shadow-black  absolute top-[7rem] right-[3rem] flex gap-3 flex-col px-4 py-5 rounded-2xl">
               <h2 className='text-xl font-bold  capitalize text-gray-950'>2K+ connected students</h2>
               <div className='flex flex-col justify-start gap-4 items-start '>
                 <div className='flex justify-center items-center gap-2'>
@@ -185,7 +185,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             {/* successful growth */}
             <div className='flex shadow-lg shadow-black  w-[14vw] absolute z-10 top-[12rem] right-[25rem] px-2 py-1  gap-1 justify-start  rounded-2xl bg-[#fffdf5] opacity-85 backdrop-blur-md items-center '>
               <h2 className='text-sm font-semibold  capitalize '>successful growth</h2>

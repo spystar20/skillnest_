@@ -147,20 +147,21 @@ const Home = () => {
 
   return (
     <div >
-      <div className='w-full py-10 font-["Roboto"] home-bg h-screen'>
-        <div className=' grid grid-cols-2 px-20 justify-center items-center'>
-          <div className='flex flex-col justify-start items-start gap-4'>
+      <div className='w-full  py-10 font-["Roboto"] home-bg h-screen'>
+        <div className=' grid grid-cols-2 relative z-0 px-20 py-10 justify-between items-center'>
+          <div className='flex flex-col max-w-lg justify-center items-start gap-4'>
             <h1 className='text-5xl font-[Merienda] font-bold text-white'>Learn. Create. Thrive.</h1>
-            <p className='text-white mt-4'>Learn in-demand skills from top mentors across tech, design, business, and more — all in one place.</p>
+            <p className='text-white mt-4'>Learn in-demand skills from top mentors across tech, design, business, and more — all in one place. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem, magnam.</p>
+             
             <button className=' transition-all bg-gradient-to-tr from-[#95b1ee] to-[#728ccd] font-[Comic_Relief]  cursor-pointe text-white rounded-lg py-2 px-6 text-xl box capitalize font-medium'>Explore courses</button>
           </div>
           <div>
-            <div>
-              <img className='relative rounded-4xl left-[2rem] w-lg z-30' src={hero} alt="" />
+            <div className='flex '>
+              <img className='relative rounded-4xl left-[4rem] top-16 w-lg z-30' src={hero} alt="" />
             </div>
             {/* connected students */}
-            {/* <div className="box w-[23vw] shadow-2xs shadow-black  absolute top-[7rem] right-[3rem] flex gap-3 flex-col px-4 py-5 rounded-2xl">
-              <h2 className='text-xl font-bold  capitalize text-gray-950'>2K+ connected students</h2>
+            <div className="home-bg border-white border max-w-1/3 shadow-2xs shadow-black  absolute top-[7rem] right-[10rem] flex gap-3 flex-col px-4 py-5 rounded-2xl">
+              <h2 className='text-xl font-bold  capitalize text-gray-100'>2K+ connected students</h2>
               <div className='flex flex-col justify-start gap-4 items-start '>
                 <div className='flex justify-center items-center gap-2'>
                   <img className='w-14 rounded-2xl' src="https://i.pinimg.com/736x/49/69/ee/4969eedf929fec0fdd484ef1260bcb51.jpg" alt="" />
@@ -185,9 +186,9 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-            </div> */}
+            </div> 
             {/* successful growth */}
-            <div className='flex shadow-lg shadow-black  w-[14vw] absolute z-10 top-[12rem] right-[25rem] px-2 py-1  gap-1 justify-start  rounded-2xl bg-[#fffdf5] opacity-85 backdrop-blur-md items-center '>
+            <div className='flex shadow-lg shadow-black  w-[14vw] absolute z-10 top-[14rem] right-[30rem] px-2 py-1  gap-1 justify-start  rounded-2xl bg-[#fffdf5] opacity-85 backdrop-blur-md items-center '>
               <h2 className='text-sm font-semibold  capitalize '>successful growth</h2>
               <div>
                 <img className='w-14 rounded-2xl' src="https://i.pinimg.com/736x/d7/f2/c9/d7f2c9b7a05f1e67e863b26f4bd3a8aa.jpg" alt="" />
@@ -197,8 +198,8 @@ const Home = () => {
           </div>
         </div>
         {/* data */}
-        <div className='data  my-5 flex flex-row gap-6 justify-center items-center'>
-          <div className='flex border-2 opacity-95 hover:opacity-100  border-rose-200 inset-shadow-rose-300 inset-shadow-2xs  cursor-pointer shadow-md shadow-black hover:-translate-y-4 -translate-y-0 transition-all justify-start p-5 rounded-xl  items-center gap-2 bg-white capitalize '>
+        <div className='data  my-10 flex flex-row gap-6 justify-center items-center'>
+          <div className='flex border-2 opacity-95 hover:opacity-100  border-rose-200 inset-shadow-rose-300 inset-shadow-2xs  cursor-pointer shadow-md shadow-black hover:-translate-y-4 -translate-y-0 transition-all justify-start p-5 rounded-xl  items-center gap-2 bg-white capitalize duration-300 ease-in hover:scale-105'>
             <span>
               <TbBooks className='text-6xl  font-light icon' />
             </span>
@@ -207,7 +208,7 @@ const Home = () => {
               <span className='text-lg font-light'> online courses</span>
             </span>
           </div>
-          <div className='flex border-2 opacity-95 hover:opacity-100  border-rose-200 inset-shadow-rose-300 inset-shadow-2xs  cursor-pointer shadow-md shadow-black hover:-translate-y-4 -translate-y-0 transition-all justify-start p-5 rounded-xl  items-center gap-2 bg-white capitalize '>
+          <div className='flex border-2 opacity-95 hover:opacity-100  border-rose-200 inset-shadow-rose-300 inset-shadow-2xs  cursor-pointer shadow-md shadow-black hover:-translate-y-4 -translate-y-0 transition-all justify-start p-5 rounded-xl  items-center gap-2 bg-white capitalize duration-300 ease-in hover:scale-105 '>
             <span>
               <FaChalkboardTeacher className='text-6xl  font-light icon' />
             </span>
@@ -216,7 +217,7 @@ const Home = () => {
               <span className='text-lg font-light'> expert tutors</span>
             </span>
           </div>
-          <div className='flex border-2 opacity-95 hover:opacity-100  border-rose-200 inset-shadow-rose-300 inset-shadow-2xs  cursor-pointer shadow-md shadow-black hover:-translate-y-4 -translate-y-0 transition-all justify-start p-5 rounded-xl  items-center gap-2 bg-white capitalize '>
+          <div className='flex border-2 opacity-95 hover:opacity-100  border-rose-200 inset-shadow-rose-300 inset-shadow-2xs  cursor-pointer shadow-md shadow-black hover:-translate-y-4 -translate-y-0 transition-all justify-start p-5 rounded-xl  items-center gap-2 bg-white capitalize duration-300 ease-in hover:scale-105 '>
             <span>
               <PiStudentFill className='text-6xl  font-light icon' />
             </span>
@@ -225,7 +226,7 @@ const Home = () => {
               <span className='text-lg font-light'>online sudents </span>
             </span>
           </div>
-          <div className='flex border-2 opacity-95 hover:opacity-100  border-rose-200 inset-shadow-rose-300 inset-shadow-2xs  cursor-pointer shadow-md shadow-black hover:-translate-y-4 -translate-y-0 transition-all justify-start p-5 rounded-xl  items-center gap-2 bg-white capitalize '>
+          <div className='flex border-2 opacity-95 hover:opacity-100  border-rose-200 inset-shadow-rose-300 inset-shadow-2xs  cursor-pointer shadow-md shadow-black hover:-translate-y-4 -translate-y-0 transition-all justify-start p-5 rounded-xl  items-center gap-2 bg-white capitalize duration-300 ease-in hover:scale-105'>
             <span>
               <GrCertificate className='text-6xl  font-light icon' />
             </span>
@@ -242,7 +243,7 @@ const Home = () => {
         <div onClick={ShowFeature} className={`feature-box flex justify-center items-center font-[Outfit] w-1/2 h-1/2 shadow-2xs shadow-black text-4xl capitalize font-semibold  text-[#2a3f74]  gap-3 p-10 rounded-2xl ${show ? '-translate-y-0' : '-translate-y-2/3'}`}>
           <div className='flex flex-col  justify-center items-center gap-6'><div><h2>our <span className='font-[Merienda] italic lowercase  text-shadow-2xs  drop-shadow-2xl text-white' >features</span> specially for you</h2></div>
             <div className='flex justify-start flex-row items-center cursor-pointer '>
-              <div className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group   border-blue-300 font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-2 px-3 gap-1 text-xl  capitalize font-medium'><button  >see all features</button><span className='mt-1 group-hover:-translate-y-1 transition-all -translate-y-0'> <MdArrowOutward /></span></div>
+              <div className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group   border-blue-300 font-[Comic_Relief]  cursor-pointer box text-white rounded-lg py-2 px-3 gap-1 text-xl  capitalize font-medium'><button  >see all features</button><span className='mt-1 group-hover:-translate-y-1 transition-all -translate-y-0'> <MdArrowOutward /></span></div>
 
             </div>
           </div>
@@ -251,35 +252,36 @@ const Home = () => {
         {/* feature cards */}
         {show && (
           <div className='grid grid-cols-4 gap-4 px-5 py-10'>
-            <div className=' flex justify-start items-center shadow-2xl cursor-pointer hover:scale-105 transition-all hover:bg-pink-400 scale-100 border-2 border-pink-300 hover:text-white rounded-2xl py-6 px-3 gap-3  flex-col  capitalize font-[Comic_Relief]'>
-              <span><PiVideoFill className='text-6xl text-blue-300 ' /></span>
-              <h2 className='text-2xl  font-semibold'>
+            <div className=' group flex justify-start items-center shadow-2xl cursor-pointer hover:scale-105 transition-all  scale-100 border-2 border-[#95b1ee] hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] hover:text-white rounded-2xl py-6 px-3 gap-3  flex-col  capitalize '>
+              <span ><PiVideoFill className='text-6xl text-blue-300 group-hover:text-white' /></span>
+              <h2 className='text-2xl font-heading font-semibold'>
                 Video lesson</h2>
-              <p>
+              <p className='font-body text-center'>
                 recorded version of lectures from professional instructions to boost your growth
               </p>
             </div>
-            <div className=' flex justify-start items-center shadow-2xl cursor-pointer hover:scale-105 transition-all hover:bg-pink-400 scale-100 border-2 border-pink-300 hover:text-white rounded-2xl py-6 px-3 gap-3  flex-col  capitalize font-[Comic_Relief]'>
-              <span><LiaCertificateSolid className='text-6xl text-blue-300 ' /></span>
-              <h2 className='text-2xl  font-semibold'>
+            <div className=' group flex justify-start items-center shadow-2xl cursor-pointer hover:scale-105 transition-all  scale-100 border-2 border-[#95b1ee] hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] hover:text-white rounded-2xl py-6 px-3 gap-3  flex-col  capitalize'>
+            
+              <span><LiaCertificateSolid className='text-6xl text-blue-300 group-hover:text-white' /></span>
+              <h2 className='text-2xl font-heading font-semibold'>
                 get Certificate</h2>
-              <p className=''>
+              <p className='font-body text-center'>
                 add value to your Certificate and increase chance of getting hired in your dream job
               </p>
             </div>
-            <div className=' flex justify-start items-center shadow-2xl cursor-pointer hover:scale-105 transition-all hover:bg-pink-400 scale-100 border-2 border-pink-300 hover:text-white  rounded-2xl py-6 px-3 gap-3  flex-col  capitalize font-[Comic_Relief]'>
-              <span><MdSupportAgent className='text-6xl text-blue-300 ' /></span>
-              <h2 className='text-2xl  font-semibold'>
+            <div className=' group flex justify-start items-center shadow-2xl cursor-pointer hover:scale-105 transition-all  scale-100 border-2 border-[#95b1ee] hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] hover:text-white rounded-2xl py-6 px-3 gap-3  flex-col  capitalize'>
+              <span><MdSupportAgent className='text-6xl text-blue-300 group-hover:text-white'/></span>
+              <h2 className='text-2xl font-heading font-semibold'>
                 life time support</h2>
-              <p className=''>
+              <p className='font-body text-center'>
                 you will have lifetime access of the courses & resources. also contacting supporters any time
               </p>
             </div>
-            <div className=' flex justify-start items-center shadow-2xl cursor-pointer hover:scale-105 transition-all hover:bg-pink-400 scale-100 border-2 border-pink-300 hover:text-white rounded-2xl py-6 px-3 gap-3  flex-col  capitalize font-[Comic_Relief]'>
-              <span><GiTeacher className='text-6xl text-blue-300 ' /></span>
-              <h2 className='text-2xl  font-semibold'>
+            <div className=' group flex justify-start items-center shadow-2xl cursor-pointer hover:scale-105 transition-all  scale-100 border-2 border-[#95b1ee] hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] hover:text-white rounded-2xl py-6 px-3 gap-3  flex-col  capitalize'>
+              <span><GiTeacher className='text-6xl text-blue-300 group-hover:text-white' /></span>
+              <h2 className='text-2xl font-heading  font-semibold'>
                 Amazing instructor</h2>
-              <p className=''>
+              <p className='font-body text-center'>
                 our Amazing instructor bring experience , knowledge and fun on the table
               </p>
             </div>

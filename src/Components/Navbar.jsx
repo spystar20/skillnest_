@@ -9,7 +9,7 @@ const Navbar = () => {
 
   return (
 
-    <div className='font-["Roboto"]  bg-transparent shadow-2xl border-b border-b-white/10 shadow-black'>
+    <div className='font-["Roboto"] fixed top-0 left-0 w-full z-[9999]  bg-transparent shadow-2xs border-b border-b-white/10 shadow-black'>
       <div className="w-full py-6 font-heading flex justify-between px-12 items-cente text-white backdrop-blur-lg  bg-opacity-40 relative ">
         <div className="flex items-center gap-2">
           <GiNestBirds className="text-white text-4xl" />
@@ -28,7 +28,7 @@ const Navbar = () => {
             onMouseLeave={() => setopen(false)}
           >
             <Link to="/courses">
-              <li className="cursor-pointer px-5 py-2 rounded-full flex items-center gap-1 text-white/80 hover:text-white transition-all duration-300">
+              <li className="cursor-pointer px-5 py-2 rounded-full flex items-center gap-1 hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] text-white/80 hover:text-white transition-all duration-300">
                 Courses
                 <FaAngleDown
                   className={`transition-transform duration-300 mt-[2px] ${open ? "rotate-180" : ""
@@ -48,7 +48,7 @@ const Navbar = () => {
           shadow-2xl shadow-black/60
           p-10
           grid grid-cols-2 gap-12
-          z-[34444]
+          z-1000
           "
               >
                 {/* LEFT COLUMN */}

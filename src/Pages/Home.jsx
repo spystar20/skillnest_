@@ -251,7 +251,7 @@ const Home = () => {
 
         {/* feature cards */}
         {show && (
-          <div className='grid grid-cols-4 gap-4 px-5 py-10'>
+          <div className='grid grid-cols-4 gap-4 px-5 py-10 '>
             <div className=' group flex justify-start items-center shadow-2xl cursor-pointer hover:scale-105 transition-all  scale-100 border-2 border-[#95b1ee] hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] hover:text-white rounded-2xl py-6 px-3 gap-3  flex-col  capitalize '>
               <span ><PiVideoFill className='text-6xl text-blue-300 group-hover:text-white' /></span>
               <h2 className='text-2xl font-heading font-semibold'>
@@ -296,7 +296,10 @@ const Home = () => {
         {/* courses cards */}
         <div className='embla' ref={emblaRef}>
           <div className='embla__container  flex  gap-4 px-5 py-10'>
-            <div className='flex embla__slide flex-col cursor-pointer shadow-2xl bg-white w-full gap-3 rounded-2xl   h-full px-6 py-6'>
+            <div className='flex embla__slide flex-col cursor-pointer shadow-2x text-whit backdrop-blur-lg  border 
+rounded-2xl p-6 shadow-lg 
+hover:shadow-2xl hover:shadow-[#1e3a8a]/40 
+transition-all duration-300'>
               <div className='grid group'>
                 <div className='col-start-1 row-start-1 z-0'><img src="https://i.pinimg.com/736x/40/d0/21/40d021be8efd787a53076c457167e101.jpg" className=' col-span-1 rounded-2xl' alt="" /></div>
                 <div className='col-start-1 invisible group-hover:visible  px-3 py-3 flex  justify-between items-end row-start-1 z-10 bg-blue-300 opacity-85  rounded-2xl'>
@@ -310,13 +313,13 @@ const Home = () => {
               <div className='flex justify-start  items-center gap-3'>
                 <div><img src="https://i.pinimg.com/736x/26/f7/b9/26f7b9e4919314c77cf658313c59c0e8.jpg" className='w-16 rounded-full ' alt="" /></div>
                 <div className='flex flex-col justify-start items-start capitalize font-[outfit]'>
-                  <span className='text-lg font-medium'>cha eun woo </span>
-                  <span className='font-medium text-sm '>instructor</span>
+                  <span className='text-lg font-medium text-white font-heading'>cha eun woo </span>
+                  <span className='font-medium text-sm text-gray-300 font-body'>instructor</span>
                 </div>
               </div>
               <div className='flex flex-col text-left  flex-wrap'>
-                <h2 className='text-xl font-semibold'> Full-Stack Web Development</h2>
-                <p className='text-lg text-wrap'>Learn HTML, CSS, JavaScript, React & Node.js to build dynamic websites.</p>
+                <h2 className='text-xl font-semibold font-heading'> Full-Stack Web Development</h2>
+                <p className='text-base mt-2 text-wrap font-body text-gray-100'>Learn HTML, CSS, JavaScript, React & Node.js to build dynamic websites.</p>
               </div>
               <div className='flex  justify-between  items-center'>
                 <div className='flex border text-white bg-black capitalize text-sm font-medium  rounded-lg px-2 py-2 justify-start items-center gap-2'>

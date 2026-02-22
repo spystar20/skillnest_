@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import hero from '../assets/girl.png'
 import { TbBooks } from "react-icons/tb";
-import { FaChalkboardTeacher } from "react-icons/fa";
-import { GrCertificate, GrInstagram } from "react-icons/gr";
+import { FaCartArrowDown, FaChalkboardTeacher, FaHeart } from "react-icons/fa";
+import {  GrCertificate, GrInstagram } from "react-icons/gr";
 import { MdArrowOutward } from "react-icons/md";
 import { PiVideoFill } from "react-icons/pi";
 import { LiaCertificateSolid } from "react-icons/lia";
@@ -330,6 +330,22 @@ transition-all duration-300'>
                   12.9k rating
                 </div>
               </div>
+            </div>
+            <div className='embla__slide rounded-4xl p-5'>
+             
+              <div className='relative group cursor-pointer '>
+                <img src="https://i.pinimg.com/736x/40/d0/21/40d021be8efd787a53076c457167e101.jpg" className='aspect-square rounded-2xl shadow group-hover:brightness-50 transition-all ease-in duration-200' alt="" />
+                <div className=' gap-5 items-center justify-start absolute bottom-1 right-0 z-40 text-xl text-black p-5 hidden group-hover:flex '><span className=' bg-white p-2 rounded-full hover:scale-110 ease-in duration-200 transition-all'>
+                  <FaHeart/></span><span className=' bg-white p-2 rounded-full hover:scale-110 ease-in duration-200 transition-all'><FaCartArrowDown/></span></div>
+              </div>
+               <span className='p-2 bg-black/40 font-body rounded-lg'>Development</span>
+                <div>
+                    <div className='flex flex-col text-left  flex-wrap'>
+                <h2 className='text-xl font-semibold font-heading text-black'> Full-Stack Web Development</h2>
+                <p className='text-base mt-1 text-wrap font-body text-gray-900 line-clamp-2'>Learn HTML, CSS, JavaScript, React & Node.js to build dynamic websites.
+                </p>
+              </div>
+                </div>
             </div>
             <div className='flex embla__slide flex-col cursor-pointer shadow-2xl bg-white w-full gap-3 rounded-2xl   h-full px-6 py-6'>
               <div className='grid group '>

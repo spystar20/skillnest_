@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import hero from '../assets/girl.png'
 import { TbBooks } from "react-icons/tb";
-import { FaCartArrowDown, FaChalkboardTeacher, FaHeart } from "react-icons/fa";
+import { FaCartArrowDown, FaChalkboardTeacher, FaClock, FaHeart } from "react-icons/fa";
 import {  GrCertificate, GrInstagram } from "react-icons/gr";
 import { MdArrowOutward } from "react-icons/md";
 import { PiVideoFill } from "react-icons/pi";
@@ -296,7 +296,7 @@ const Home = () => {
         {/* courses cards */}
         <div className='embla' ref={emblaRef}>
           <div className='embla__container  flex  gap-4 px-5 py-10'>
-            <div className='flex embla__slide flex-col cursor-pointer shadow-2x text-whit backdrop-blur-lg  border 
+            <div className='flex embla__slide flex-col cursor-pointer shadow-2x text-white backdrop-blur-lg  border 
 rounded-2xl p-6 shadow-lg 
 hover:shadow-2xl hover:shadow-[#1e3a8a]/40 
 transition-all duration-300'>
@@ -331,20 +331,32 @@ transition-all duration-300'>
                 </div>
               </div>
             </div>
-            <div className='embla__slide rounded-4xl p-5'>
+            <div className='embla__slide  rounded-4xl p-5'>
              
               <div className='relative group cursor-pointer '>
                 <img src="https://i.pinimg.com/736x/40/d0/21/40d021be8efd787a53076c457167e101.jpg" className='aspect-square rounded-2xl shadow group-hover:brightness-50 transition-all ease-in duration-200' alt="" />
+              
+                   <span className='py-2 px-4 text-sm shadow-lg  bg-white font-body rounded-full absolute top-2 left-2.5 box text-white '>Development</span>
+
                 <div className=' gap-5 items-center justify-start absolute bottom-1 right-0 z-40 text-xl text-black p-5 hidden group-hover:flex '><span className=' bg-white p-2 rounded-full hover:scale-110 ease-in duration-200 transition-all'>
                   <FaHeart/></span><span className=' bg-white p-2 rounded-full hover:scale-110 ease-in duration-200 transition-all'><FaCartArrowDown/></span></div>
               </div>
-               <span className='p-2 bg-black/40 font-body rounded-lg'>Development</span>
-                <div>
-                    <div className='flex flex-col text-left  flex-wrap'>
-                <h2 className='text-xl font-semibold font-heading text-black'> Full-Stack Web Development</h2>
-                <p className='text-base mt-1 text-wrap font-body text-gray-900 line-clamp-2'>Learn HTML, CSS, JavaScript, React & Node.js to build dynamic websites.
+              
+                <div className='p-3'>
+                    <div className='flex flex-col text-left flex-wrap py-3.5'>
+                <h2 className='text-xl font-semibold font-heading text-gray-950'> Full-Stack Web Development</h2>
+                <p className='text-sm mt-1 text-wrap font-body text-gray-800 line-clamp-2'>Learn HTML, CSS, JavaScript, React & Node.js to build dynamic websites
                 </p>
               </div>
+<div className='flex justify-between items-center'>
+  <span className='flex items-center gap-2 text-lg font-light'>
+    <FaStar className='text-yellow-500'/> <span>4.9</span>
+  </span>
+  <span className='flex items-center gap-2 text-lg font-light'>
+    <FaClock/><span>12h</span>
+  </span>
+  <span>Beginner</span>
+</div>
                 </div>
             </div>
             <div className='flex embla__slide flex-col cursor-pointer shadow-2xl bg-white w-full gap-3 rounded-2xl   h-full px-6 py-6'>

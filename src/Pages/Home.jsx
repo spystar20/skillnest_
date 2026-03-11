@@ -348,14 +348,15 @@ transition-all duration-300'>
                 <p className='text-sm mt-1 text-wrap font-body text-gray-800 line-clamp-2'>Learn HTML, CSS, JavaScript, React & Node.js to build dynamic websites
                 </p>
               </div>
-<div className='flex justify-between items-center'>
+<div className='flex justify-start items-center gap-5 border-t border-t-gray-300 pt-4'>
   <span className='flex items-center gap-2 text-lg font-light'>
     <FaStar className='text-yellow-500'/> <span>4.9</span>
   </span>
   <span className='flex items-center gap-2 text-lg font-light'>
     <FaClock/><span>12h</span>
   </span>
-  <span>Beginner</span>
+  <span className='flex items-center gap-2 text-lg font-light'><PiStudentFill/>
+  <span>Beginner</span></span>
 </div>
                 </div>
             </div>

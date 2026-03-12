@@ -4,7 +4,7 @@ import { TbBooks } from "react-icons/tb";
 import { FaCartArrowDown, FaChalkboardTeacher, FaClock, FaHeart } from "react-icons/fa";
 import {  GrCertificate, GrInstagram } from "react-icons/gr";
 import { MdArrowOutward } from "react-icons/md";
-import { PiVideoFill } from "react-icons/pi";
+import { PiBookDuotone, PiVideoFill } from "react-icons/pi";
 import { LiaCertificateSolid } from "react-icons/lia";
 import { MdSupportAgent } from "react-icons/md";
 import { GiTeacher } from "react-icons/gi";
@@ -24,6 +24,8 @@ import { FaLinkedin } from "react-icons/fa6";
 import { TiVendorMicrosoft } from "react-icons/ti";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
+import { CiClock1 } from "react-icons/ci";
+
 const Home = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     AutoScroll({ speed: 0.3, startDelay: 1000 })],
@@ -342,22 +344,43 @@ transition-all duration-300'>
                   <FaHeart/></span><span className=' bg-white p-2 rounded-full hover:scale-110 ease-in duration-200 transition-all'><FaCartArrowDown/></span></div>
               </div>
               
-                <div className='p-3'>
-                    <div className='flex flex-col text-left flex-wrap py-3.5'>
+                <div className='p-3 flex flex-col gap-4'>
+                    <div className='flex flex-col text-left flex-wrap '>
                 <h2 className='text-xl font-semibold font-heading text-gray-950'> Full-Stack Web Development</h2>
                 <p className='text-sm mt-1 text-wrap font-body text-gray-800 line-clamp-2'>Learn HTML, CSS, JavaScript, React & Node.js to build dynamic websites
                 </p>
               </div>
-<div className='flex justify-start items-center gap-5 border-t border-t-gray-300 pt-4'>
-  <span className='flex items-center gap-2 text-lg font-light'>
-    <FaStar className='text-yellow-500'/> <span>4.9</span>
+               {/* <div className='flex justify-start items-center gap-3'>
+                <div><img src="https://i.pinimg.com/736x/26/f7/b9/26f7b9e4919314c77cf658313c59c0e8.jpg" className='w-12 rounded-full aspect-[1]' alt="" /></div>
+                <div className='flex flex-col justify-start items-start capitalize font-[outfit]'>
+                  <span className='text-lg font-medium'>cha eun woo </span>
+                  <span className='font-medium text-sm '>instructor</span>
+                </div>
+              </div> */}
+{/* <div className='flex justify-start items-center gap-4 '>
+  <span className='flex items-center gap-2 text-xl font-light group'>
+    <FaStar className='text-yellow-500 group-hover:scale-110 transition-all ease-in' /> <span>4.9</span>
   </span>
-  <span className='flex items-center gap-2 text-lg font-light'>
-    <FaClock/><span>12h</span>
+  <span className='flex items-center gap-2 text-xl font-light group'>
+    <FaClock className='group-hover:scale-110 transition-all ease-in'/><span>12h</span>
   </span>
-  <span className='flex items-center gap-2 text-lg font-light'><PiStudentFill/>
+  <span className='flex items-center gap-2 text-xl font-light group'><PiStudentFill className='group-hover:scale-110 transition-all ease-in'/>
   <span>Beginner</span></span>
+</div>  */}
+<div className='flex items-center justify-start flex-wrap gap-3'>
+    <span className='py-2 px-4 text-sm shadow-lg text-black font-body rounded-full capitalize   bg-blue-200 flex flex-row gap-2 items-center'><span><PiBookDuotone className='text-xl'/></span>21 Chapters</span>
+      <span className='py-2 px-4 text-sm shadow-lg text-black font-body rounded-full  bg-blue-200 flex flex-row gap-2 items-center'><span><CiClock1 className='text-xl'/></span>12hours</span>
 </div>
+ <div className='flex justify-start items-center gap-3'>
+                <div><img src="https://i.pinimg.com/736x/26/f7/b9/26f7b9e4919314c77cf658313c59c0e8.jpg" className='w-12 rounded-full aspect-[1]' alt="" /></div>
+                <div className='flex flex-col justify-start items-start capitalize font-[outfit]'>
+                  <span className='text-lg font-medium'>cha eun woo </span>
+                  <span className='font-medium text-sm '>instructor</span>
+                </div>
+              </div>
+              <div>
+                <span className='text-3xl decoration-slice font-body'>₹1000</span>
+              </div>
                 </div>
             </div>
             <div className='flex embla__slide flex-col cursor-pointer shadow-2xl bg-white w-full gap-3 rounded-2xl   h-full px-6 py-6'>

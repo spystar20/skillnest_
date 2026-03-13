@@ -3,6 +3,7 @@ import hero from '../assets/girl.png'
 import { TbBooks } from "react-icons/tb";
 import { FaCartArrowDown, FaChalkboardTeacher, FaClock, FaHeart } from "react-icons/fa";
 import {  GrCertificate, GrInstagram } from "react-icons/gr";
+import { FiTrendingUp } from "react-icons/fi";
 import { MdArrowOutward } from "react-icons/md";
 import { PiBookDuotone, PiVideoFill } from "react-icons/pi";
 import { LiaCertificateSolid } from "react-icons/lia";
@@ -25,7 +26,7 @@ import { TiVendorMicrosoft } from "react-icons/ti";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { CiClock1 } from "react-icons/ci";
-
+import { popularCourses } from '../Courses/popularCourse';
 const Home = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     AutoScroll({ speed: 0.3, startDelay: 1000 })],
@@ -298,47 +299,58 @@ const Home = () => {
         {/* courses cards */}
         <div className='embla' ref={emblaRef}>
           <div className='embla__container  flex  gap-4 px-5 py-10'>
-            <div className='flex embla__slide flex-col cursor-pointer shadow-2x text-white backdrop-blur-lg  border 
-rounded-2xl p-6 shadow-lg 
-hover:shadow-2xl hover:shadow-[#1e3a8a]/40 
-transition-all duration-300'>
-              <div className='grid group'>
-                <div className='col-start-1 row-start-1 z-0'><img src="https://i.pinimg.com/736x/40/d0/21/40d021be8efd787a53076c457167e101.jpg" className=' col-span-1 rounded-2xl' alt="" /></div>
-                <div className='col-start-1 invisible group-hover:visible  px-3 py-3 flex  justify-between items-end row-start-1 z-10 bg-blue-300 opacity-85  rounded-2xl'>
-                  <div >
-                    <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group   border-blue-300 font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'>view course</button></div>
-                  <div>
-                    <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group    font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'>Free</button></div>
-                </div>
-              </div>
+           {popularCourses.map((course,index)=>{return(
+<div key={index} className='embla__slide  rounded-4xl p-5'>
+             
+              <div className='relative group cursor-pointer '>
+                <img src={course.img} className='aspect-[1] rounded-2xl shadow group-hover:brightness-50 transition-all ease-in duration-200' alt="" />
+              <span className="py-2 px-4 text-sm shadow-lg bg-black/70 backdrop-blur rounded-full absolute top-3 left-3 text-white font-body">
+      {course.category}
+    </span>
 
-              <div className='flex justify-start  items-center gap-3'>
-                <div><img src="https://i.pinimg.com/736x/26/f7/b9/26f7b9e4919314c77cf658313c59c0e8.jpg" className='w-16 rounded-full ' alt="" /></div>
+                <div className=' gap-5 items-center justify-start absolute bottom-1 right-0 z-40 text-xl text-black p-5 hidden group-hover:flex '><span className=' bg-white p-2 rounded-full hover:scale-110 ease-in duration-200 transition-all'>
+                  <FaHeart/></span><span className=' bg-white p-2 rounded-full hover:scale-110 ease-in duration-200 transition-all'><FaCartArrowDown/></span></div>
+              </div>
+              
+                <div className='p-3 flex flex-col gap-4'>
+                    <div className='flex flex-col text-left flex-wrap '>
+                <h2 className='text-xl font-semibold font-heading text-gray-950'>{course.course_name}</h2>
+                <p className='text-sm mt-1 text-wrap font-body text-gray-800 line-clamp-2'>{course.course_desc}
+                </p>
+              </div>
+             
+<div className='flex items-center justify-start flex-wrap gap-3'>
+    <span className='py-2 px-4 text-sm shadow-sm  font-body rounded-full capitalize   bg-slate-100 text-slate-700 flex flex-row gap-2 items-center'><span><PiBookDuotone className='text-xl'/></span>{course.chapters} Chapters</span>
+      <span className='py-2 px-4 text-sm shadow-sm font-body rounded-full  bg-slate-100 text-slate-700 flex flex-row gap-2 items-center'><span><CiClock1 className='text-xl'/></span>{course.duration}</span>
+      <span className="py-2 px-4 text-sm shadow-sm rounded-full bg-indigo-300 text-white flex gap-2 items-center">
+        <FiTrendingUp className="text-lg" />
+        Beginner
+      </span>
+</div>
+ <div className='flex justify-start items-center gap-3'>
+                <div><img src={course.instructor_img} className='w-12 rounded-full aspect-[1]' alt="" /></div>
                 <div className='flex flex-col justify-start items-start capitalize font-[outfit]'>
-                  <span className='text-lg font-medium text-white font-heading'>cha eun woo </span>
-                  <span className='font-medium text-sm text-gray-300 font-body'>instructor</span>
+                  <span className='text-lg font-medium'>{course.instructor_name} </span>
+                  <span className='font-medium text-sm '>instructor</span>
                 </div>
               </div>
-              <div className='flex flex-col text-left  flex-wrap'>
-                <h2 className='text-xl font-semibold font-heading'> Full-Stack Web Development</h2>
-                <p className='text-base mt-2 text-wrap font-body text-gray-100'>Learn HTML, CSS, JavaScript, React & Node.js to build dynamic websites.</p>
-              </div>
-              <div className='flex  justify-between  items-center'>
-                <div className='flex border text-white bg-black capitalize text-sm font-medium  rounded-lg px-2 py-2 justify-start items-center gap-2'>
-                  <span className='flex justify-center text-yellow-500'><FaStar /></span>
-                  <h2 className=' font-medium'> 5</h2>
+              <div className='flex items-center justify-between'>
+              <div className="flex items-center gap-3">
+      <span className="text-sm line-through text-gray-400">₹2000</span>
+      <span className="text-3xl font-semibold text-indigo-900">₹959</span>
+    </div>
+    <div>
+        <button className=' transition-all bg-gradient-to-tr from-[#95b1ee] to-[#728ccd] font-[Comic_Relief]  cursor-pointer text-white rounded-full py-1.5 px-5 text-lg box capitalize font-medium hover:scale-95'>buy now</button></div></div>
                 </div>
-                <div className='flex border capitalize text-white bg-black text-sm font-medium  rounded-lg px-2 py-2 justify-start items-center gap-3'>
-                  12.9k rating
-                </div>
-              </div>
             </div>
+           )})}
             <div className='embla__slide  rounded-4xl p-5'>
              
               <div className='relative group cursor-pointer '>
                 <img src="https://i.pinimg.com/736x/40/d0/21/40d021be8efd787a53076c457167e101.jpg" className='aspect-square rounded-2xl shadow group-hover:brightness-50 transition-all ease-in duration-200' alt="" />
-              
-                   <span className='py-2 px-4 text-sm shadow-lg  bg-white font-body rounded-full absolute top-2 left-2.5 box text-white '>Development</span>
+              <span className="py-2 px-4 text-sm shadow-lg bg-black/70 backdrop-blur rounded-full absolute top-3 left-3 text-white font-body">
+      Development
+    </span>
 
                 <div className=' gap-5 items-center justify-start absolute bottom-1 right-0 z-40 text-xl text-black p-5 hidden group-hover:flex '><span className=' bg-white p-2 rounded-full hover:scale-110 ease-in duration-200 transition-all'>
                   <FaHeart/></span><span className=' bg-white p-2 rounded-full hover:scale-110 ease-in duration-200 transition-all'><FaCartArrowDown/></span></div>
@@ -350,26 +362,14 @@ transition-all duration-300'>
                 <p className='text-sm mt-1 text-wrap font-body text-gray-800 line-clamp-2'>Learn HTML, CSS, JavaScript, React & Node.js to build dynamic websites
                 </p>
               </div>
-               {/* <div className='flex justify-start items-center gap-3'>
-                <div><img src="https://i.pinimg.com/736x/26/f7/b9/26f7b9e4919314c77cf658313c59c0e8.jpg" className='w-12 rounded-full aspect-[1]' alt="" /></div>
-                <div className='flex flex-col justify-start items-start capitalize font-[outfit]'>
-                  <span className='text-lg font-medium'>cha eun woo </span>
-                  <span className='font-medium text-sm '>instructor</span>
-                </div>
-              </div> */}
-{/* <div className='flex justify-start items-center gap-4 '>
-  <span className='flex items-center gap-2 text-xl font-light group'>
-    <FaStar className='text-yellow-500 group-hover:scale-110 transition-all ease-in' /> <span>4.9</span>
-  </span>
-  <span className='flex items-center gap-2 text-xl font-light group'>
-    <FaClock className='group-hover:scale-110 transition-all ease-in'/><span>12h</span>
-  </span>
-  <span className='flex items-center gap-2 text-xl font-light group'><PiStudentFill className='group-hover:scale-110 transition-all ease-in'/>
-  <span>Beginner</span></span>
-</div>  */}
+             
 <div className='flex items-center justify-start flex-wrap gap-3'>
-    <span className='py-2 px-4 text-sm shadow-lg text-black font-body rounded-full capitalize   bg-blue-200 flex flex-row gap-2 items-center'><span><PiBookDuotone className='text-xl'/></span>21 Chapters</span>
-      <span className='py-2 px-4 text-sm shadow-lg text-black font-body rounded-full  bg-blue-200 flex flex-row gap-2 items-center'><span><CiClock1 className='text-xl'/></span>12hours</span>
+    <span className='py-2 px-4 text-sm shadow-sm  font-body rounded-full capitalize   bg-slate-100 text-slate-700 flex flex-row gap-2 items-center'><span><PiBookDuotone className='text-xl'/></span>21 Chapters</span>
+      <span className='py-2 px-4 text-sm shadow-sm font-body rounded-full  bg-slate-100 text-slate-700 flex flex-row gap-2 items-center'><span><CiClock1 className='text-xl'/></span>12hours</span>
+      <span className="py-2 px-4 text-sm shadow-sm rounded-full bg-indigo-300 text-white flex gap-2 items-center">
+        <FiTrendingUp className="text-lg" />
+        Beginner
+      </span>
 </div>
  <div className='flex justify-start items-center gap-3'>
                 <div><img src="https://i.pinimg.com/736x/26/f7/b9/26f7b9e4919314c77cf658313c59c0e8.jpg" className='w-12 rounded-full aspect-[1]' alt="" /></div>
@@ -378,166 +378,18 @@ transition-all duration-300'>
                   <span className='font-medium text-sm '>instructor</span>
                 </div>
               </div>
-              <div>
-                <span className='text-3xl decoration-slice font-body'>₹1000</span>
-              </div>
+              <div className='flex items-center justify-between'>
+              <div className="flex items-center gap-3">
+      <span className="text-sm line-through text-gray-400">₹2000</span>
+      <span className="text-3xl font-semibold text-indigo-900">₹959</span>
+    </div>
+    <div>
+        <button className=' transition-all bg-gradient-to-tr from-[#95b1ee] to-[#728ccd] font-[Comic_Relief]  cursor-pointer text-white rounded-full py-1.5 px-5 text-lg box capitalize font-medium hover:scale-95'>buy now</button></div></div>
                 </div>
             </div>
-            <div className='flex embla__slide flex-col cursor-pointer shadow-2xl bg-white w-full gap-3 rounded-2xl   h-full px-6 py-6'>
-              <div className='grid group '>
-                <div className='col-start-1 row-start-1 z-0'><img src="https://i.pinimg.com/736x/42/da/db/42dadbfe747110c544fab569d954869c.jpg" className=' col-span-1 rounded-2xl' alt="" /></div>
-                <div className='col-start-1 invisible group-hover:visible  px-3 py-3 flex  justify-between items-end row-start-1 z-10 bg-blue-300 opacity-85  rounded-2xl'>
-                  <div >
-                    <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group   border-blue-300 font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'>view course</button></div>
-                  <div>
-                    <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group    font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'>Free</button></div>
-                </div>
-              </div>
-              <div className='flex justify-start items-center gap-3'>
-                <div><img src="https://i.pinimg.com/736x/26/f7/b9/26f7b9e4919314c77cf658313c59c0e8.jpg" className='w-16 rounded-full ' alt="" /></div>
-                <div className='flex flex-col justify-start items-start capitalize font-[outfit]'>
-                  <span className='text-lg font-medium'>cha eun woo </span>
-                  <span className='font-medium text-sm '>instructor</span>
-                </div>
-              </div>
-              <div className='flex flex-col text-left  flex-wrap'>
-                <h2 className='text-xl font-semibold'>UI/UX Design Masterclass </h2>
-                <p className='text-lg text-wrap'> Master design Lorem ipsum dolor sit. tools & principles to craft stunning user experiences..</p>
-              </div>
-              <div className='flex  justify-between  items-center'>
-                <div className='flex border capitalize bg-black text-white text-sm font-medium  rounded-lg px-2 py-2 justify-start items-center gap-2'>
-                  <span className='flex justify-center text-yellow-500'><FaStar /></span>
-                  <h2 className=' font-medium'> 4.8</h2>
-                </div>
-                <div className='flex border capitalize bg-black text-white text-sm font-medium  rounded-lg px-2 py-2 justify-start items-center gap-3'>
-                  12.9k rating
-                </div>
-              </div>
-            </div>
-            <div className='flex embla__slide flex-col cursor-pointer shadow-2xl bg-white w-full gap-3 rounded-2xl   h-full px-6 py-6'>
-              <div className='grid group '>
-                <div className='col-start-1 row-start-1 z-0'><img src="https://i.pinimg.com/736x/1b/93/36/1b9336a73cb9d8f8e9aab83ab7c64907.jpg" className=' col-span-1 rounded-2xl' alt="" /></div>
-                <div className='col-start-1 invisible group-hover:visible  px-3 py-3 flex  justify-between items-end row-start-1 z-10 bg-blue-300 opacity-85 rounded-2xl'>
-                  <div >
-                    <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group   border-blue-300 font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'>view course</button></div>
-                  <div>
-                    <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group    font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'>Free</button></div>
-                </div>
-              </div>
-              <div className='flex justify-start items-center gap-3'>
-                <div><img src="https://i.pinimg.com/736x/26/f7/b9/26f7b9e4919314c77cf658313c59c0e8.jpg" className='w-16 rounded-full ' alt="" /></div>
-                <div className='flex flex-col justify-start items-start capitalize font-[outfit]'>
-                  <span className='text-lg font-medium'>cha eun woo </span>
-                  <span className='font-medium text-sm '>instructor</span>
-                </div>
-              </div>
-              <div className='flex flex-col text-left  flex-wrap'>
-                <h2 className='text-xl font-semibold'> Digital Marketing Bootcamp </h2>
-                <p className='text-lg text-wrap'> SEO, social media, and strategy — all in one power-packed course..</p>
-              </div>
-              <div className='flex  justify-between  items-center'>
-                <div className='flex bg-black text-white border capitalize text-sm font-medium  rounded-lg px-2 py-2 justify-start items-center gap-2'>
-                  <span className='flex justify-center text-yellow-500'><FaStar /></span>
-                  <h2 className=' font-medium'> 4.8</h2>
-                </div>
-                <div className='flex border capitalize bg-black text-white text-sm font-medium  rounded-lg px-2 py-2 justify-start items-center gap-3'>
-                  12.9k rating
-                </div>
-              </div>
-            </div>
-            <div className='flex embla__slide flex-col cursor-pointer shadow-2xl bg-white w-full gap-3 rounded-2xl   h-full px-6 py-6'>
-              <div className='grid group '>
-                <div className='col-start-1 row-start-1 z-0'><img src="https://i.pinimg.com/736x/93/01/e8/9301e8a46ad56d6b60d70562df8b802b.jpg" className=' col-span-1 rounded-2xl' alt="" /></div>
-                <div className='col-start-1 invisible group-hover:visible  px-3 py-3 flex  justify-between items-end row-start-1 z-10 bg-blue-300 opacity-85  rounded-2xl'>
-                  <div >
-                    <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group   border-blue-300 font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'>view course</button></div>
-                  <div>
-                    <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group    font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'>Free</button></div>
-                </div>
-              </div>
-              <div className='flex justify-start items-center gap-3'>
-                <div><img src="https://i.pinimg.com/736x/26/f7/b9/26f7b9e4919314c77cf658313c59c0e8.jpg" className='w-16 rounded-full ' alt="" /></div>
-                <div className='flex flex-col justify-start items-start capitalize font-[outfit]'>
-                  <span className='text-lg font-medium'>cha eun woo </span>
-                  <span className='font-medium text-sm '>instructor</span>
-                </div>
-              </div>
-              <div className='flex flex-col text-left  flex-wrap'>
-                <h2 className='text-xl font-semibold'> AI & Machine Learning</h2>
-                <p className='text-lg text-wrap'>Dive into neural networks, deep learning, and AI concepts from Lorem ipsum dolor sit amet, consectetur  </p>
-              </div>
-              <div className='flex  justify-between  items-center'>
-                <div className='flex border capitalize bg-black text-white text-sm font-medium  rounded-lg px-2 py-2 justify-start items-center gap-2'>
-                  <span className='flex justify-center text-yellow-500'><FaStar /></span>
-                  <h2 className=' font-medium'> 5</h2>
-                </div>
-                <div className='flex border capitalize bg-black text-white text-sm font-medium  rounded-lg px-2 py-2 justify-start items-center gap-3'>
-                  12.9k rating
-                </div>
-              </div>
-            </div>
-            <div className='flex embla__slide flex-col cursor-pointer shadow-2xl bg-white w-full gap-3 rounded-2xl   h-full px-6 py-6'>
-              <div className='grid group '>
-                <div className='col-start-1 row-start-1 z-0'><img src="https://i.pinimg.com/736x/1b/93/36/1b9336a73cb9d8f8e9aab83ab7c64907.jpg" className=' col-span-1 rounded-2xl' alt="" /></div>
-                <div className='col-start-1 invisible group-hover:visible  px-3 py-3 flex  justify-between items-end row-start-1 z-10 bg-blue-300 opacity-85 rounded-2xl'>
-                  <div >
-                    <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group   border-blue-300 font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'>view course</button></div>
-                  <div>
-                    <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group    font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'>Free</button></div>
-                </div>
-              </div>
-              <div className='flex justify-start items-center gap-3'>
-                <div><img src="https://i.pinimg.com/736x/26/f7/b9/26f7b9e4919314c77cf658313c59c0e8.jpg" className='w-16 rounded-full ' alt="" /></div>
-                <div className='flex flex-col justify-start items-start capitalize font-[outfit]'>
-                  <span className='text-lg font-medium'>cha eun woo </span>
-                  <span className='font-medium text-sm '>instructor</span>
-                </div>
-              </div>
-              <div className='flex flex-col text-left  flex-wrap'>
-                <h2 className='text-xl font-semibold'> Digital Marketing Bootcamp </h2>
-                <p className='text-lg text-wrap'> SEO, social media, and strategy — all in one power-packed course..</p>
-              </div>
-              <div className='flex  justify-between  items-center'>
-                <div className='flex bg-black text-white border capitalize text-sm font-medium  rounded-lg px-2 py-2 justify-start items-center gap-2'>
-                  <span className='flex justify-center text-yellow-500'><FaStar /></span>
-                  <h2 className=' font-medium'> 4.8</h2>
-                </div>
-                <div className='flex border capitalize bg-black text-white text-sm font-medium  rounded-lg px-2 py-2 justify-start items-center gap-3'>
-                  12.9k rating
-                </div>
-              </div>
-            </div>
-            <div className='flex embla__slide flex-col cursor-pointer shadow-2xl bg-white w-full gap-3 rounded-2xl   h-full px-6 py-6'>
-              <div className='grid group '>
-                <div className='col-start-1 row-start-1 z-0'><img src="https://i.pinimg.com/736x/93/01/e8/9301e8a46ad56d6b60d70562df8b802b.jpg" className=' col-span-1 rounded-2xl' alt="" /></div>
-                <div className='col-start-1 invisible group-hover:visible  px-3 py-3 flex  justify-between items-end row-start-1 z-10 bg-blue-300 opacity-85  rounded-2xl'>
-                  <div >
-                    <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group   border-blue-300 font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'>view course</button></div>
-                  <div>
-                    <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group    font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'>Free</button></div>
-                </div>
-              </div>
-              <div className='flex justify-start items-center gap-3'>
-                <div><img src="https://i.pinimg.com/736x/26/f7/b9/26f7b9e4919314c77cf658313c59c0e8.jpg" className='w-16 rounded-full ' alt="" /></div>
-                <div className='flex flex-col justify-start items-start capitalize font-[outfit]'>
-                  <span className='text-lg font-medium'>cha eun woo </span>
-                  <span className='font-medium text-sm '>instructor</span>
-                </div>
-              </div>
-              <div className='flex flex-col text-left  flex-wrap'>
-                <h2 className='text-xl font-semibold'> AI & Machine Learning</h2>
-                <p className='text-lg text-wrap'>Dive into neural networks, deep learning, and AI concepts from Lorem ipsum dolor sit amet, consectetur  </p>
-              </div>
-              <div className='flex  justify-between  items-center'>
-                <div className='flex border capitalize bg-black text-white text-sm font-medium  rounded-lg px-2 py-2 justify-start items-center gap-2'>
-                  <span className='flex justify-center text-yellow-500'><FaStar /></span>
-                  <h2 className=' font-medium'> 5</h2>
-                </div>
-                <div className='flex border capitalize bg-black text-white text-sm font-medium  rounded-lg px-2 py-2 justify-start items-center gap-3'>
-                  12.9k rating
-                </div>
-              </div>
-            </div>
+  
+             
+        
           </div>
           <div className="relative  flex justify-center items-center gap-3 mt-3">
             {scrollSnaps.map((_, index) => (

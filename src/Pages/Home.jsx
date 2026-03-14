@@ -26,7 +26,10 @@ import { TiVendorMicrosoft } from "react-icons/ti";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { CiClock1 } from "react-icons/ci";
-import { popularCourses } from '../Courses/popularCourse';
+import { popularCourses  } from '../Courses/popularCourse';
+import { featureCourses } from '../Courses/featuredCourse';
+import { teachers } from '../Courses/teachers';
+import { testimonials } from '../Courses/testimonials';
 const Home = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     AutoScroll({ speed: 0.3, startDelay: 1000 })],
@@ -44,109 +47,22 @@ const Home = () => {
     if (!emblaApi) return;
 
     setScrollSnaps(emblaApi.scrollSnapList());
-    emblaApi.on('select', () => setSelectedIndex(emblaApi1.selectedScrollSnap()));
+    emblaApi.on('select', () => setSelectedIndex(emblaApi.selectedScrollSnap()));
   }, [emblaApi]);
 
-    const [emblaRef1, emblaApi1] = useEmblaCarousel({ loop: true })
+    const [emblaRef1, emblaApi1] = useEmblaCarousel({ loop: true },[AutoScroll({speed:0.3,startDelay:1000})])
       const [selectedIndex1, setSelectedIndex1] = useState(0);
   const [scrollSnaps1, setScrollSnaps1] = useState([]);
 
-  const scrollTo1 = useCallback((index) => emblaApi1 && emblaApi1.scrollTo1(index), [emblaApi1]);
+  const scrollTo1 = useCallback((index) => emblaApi1 && emblaApi1.scrollTo(index), [emblaApi1]);
 
   useEffect(() => {
-    if (!emblaApi) return;
+    if (!emblaApi1) return;
 
-    setScrollSnaps(emblaApi.scrollSnapList());
-    emblaApi.on('select', () => setSelectedIndex(emblaApi.selectedScrollSnap()));
-  }, [emblaApi]);
-  // courses array
-  const featureCourses = [
-    {
-      img: 'https://i.pinimg.com/736x/eb/e8/f2/ebe8f272e71472bca58429b5a578c01d.jpg',
-      instructor_name: 'choi woo shik',
-      instructor_img: "https://i.pinimg.com/736x/28/cc/05/28cc0589ea825e42cc56945e5cc40ad9.jpg",
-      course_name: 'Resume Building & LinkedIn Optimization',
-      course_desc: '  Learn how to craft a professional resume and  LinkedIn profile for  NGOs, and the private sector.',
-      rating: '4.8',
-      view: '9k rating',
-    }
-    ,
+    setScrollSnaps1(emblaApi1.scrollSnapList());
+    emblaApi1.on('select', () => setSelectedIndex1(emblaApi1.selectedScrollSnap()));
+  }, [emblaApi1]);
 
-    {
-      img: 'https://i.pinimg.com/736x/1a/52/68/1a52684e39935324d102eb11e03eb3cb.jpg',
-      instructor_name: 'seo ye ji',
-      instructor_img: "https://i.pinimg.com/736x/fa/6f/b1/fa6fb1633beb5f62bd496b8161e5f1e0.jpg",
-      course_name: 'Crypto, Blockchain & the Future of the Interne',
-      course_desc: 'Understand the evolving world of cryptocurrencies, blockchain technology,  and global finance',
-      rating: '4.9',
-      view: '13k rating'
-    },
-    {
-      img: 'https://i.pinimg.com/736x/4c/1d/08/4c1d08a4944075a883c31a0eec66fc5e.jpg',
-      instructor_name: 'kim seon ho',
-      instructor_img: "https://i.pinimg.com/736x/99/ff/30/99ff30b1f4549a457412ecfbe14a4baa.jpg",
-      course_name: 'Focus, Habits & Time Management for Students',
-      course_desc: 'High emotional hook — improves study skills and life skills.',
-      rating: '4.3',
-      view: '10k rating'
-    },
-    {
-      img: 'https://i.pinimg.com/736x/04/be/d3/04bed3b5e20f285abe7ee410d7ec0b4e.jpg',
-      instructor_name: 'henry golding',
-      instructor_img: "https://i.pinimg.com/736x/7c/29/9a/7c299a9abf064b2178e019e4eeadf733.jpg",
-      course_name: 'Interview Preparation & DAF Handling',
-      course_desc: 'The UPSC Personality Test is not just a Q&A round—its an evaluation of your personality, presence, and purpose.',
-      rating: '4.9',
-      view: '13k rating'
-    }
-
-  ]
-  //  teacher array
-  const teachers = [
-    {
-      name: 'ana paula',
-      title: 'Economics Mentor',
-      img: 'https://i.pinimg.com/736x/b4/f2/a3/b4f2a3e6e84314b8dd922cd7c3df0b07.jpg'
-
-    },
-    {
-      name: 'Ricardo Soriia',
-      title: 'Web3  Instructor',
-      img: 'https://i.pinimg.com/736x/52/09/f6/5209f6863f1e5a4e552bdbbc30bf20fb.jpg'
-    },
-    {
-      name: 'shilvia ',
-      title: 'UI/UX Designer Mentor',
-      img: 'https://i.pinimg.com/736x/75/c2/e1/75c2e19786dbf383db8cec3aa2f02ea1.jpg'
-    }, {
-      name: 'sara',
-      title: 'Data Science Mentor',
-      img: 'https://i.pinimg.com/736x/8c/fa/5a/8cfa5a9f5f6e1d6aae9c6d5973a66bb1.jpg'
-    }
-  ]
- const  testimonials =[
-    {
-      name:'kim min jae',
-      title:'MBA Graduate',
-      img:'https://i.pinimg.com/736x/45/ab/d1/45abd11b681fa6b4e284321b55c8ecc5.jpg',
-      desc:'“Learning here didn’t feel like a chore. The teachers genuinely care, and the course structure is intuitive. Especially loved the one-on-one resume review!”'
-    },{
-      name: 'jung hae in ',
-      title:'B.Tech Student',
-      img:'https://i.pinimg.com/736x/af/a0/ab/afa0abbec2dd14dc9f321de223f94c9d.jpg',
-      desc:'“The Web Dev Bootcamp was game-changing. Real projects, instant feedback, and resume help — landed an internship in just 2 months!”'
-    },{
-      name:'jung da bin',
-      title:' UPSC Aspirant',
-      img:'https://i.pinimg.com/736x/63/a6/19/63a61984b341c3e69ae521d44a1dc607.jpg',
-      desc:'“I cracked my prelims on the second attempt, and the daily current affairs + live answer writing sessions made a huge difference. The mentorship here feels personal and focused.”'
-    },{
-      name:'kim ji won',
-      title:'First-time UPSC Qualifier',
-      img:'https://i.pinimg.com/736x/c9/57/11/c957119cea8216a963809cfffbe04537.jpg',
-      desc:'“I was overwhelmed by the syllabus at first, but this platform broke it into daily targets with mentorship. Cleared Prelims this year!”'
-    }
-  ]
 
   return (
     <div >
@@ -300,7 +216,7 @@ const Home = () => {
         <div className='embla' ref={emblaRef}>
           <div className='embla__container  flex  gap-4 px-5 py-10'>
            {popularCourses.map((course,index)=>{return(
-<div key={index} className='embla__slide  rounded-4xl p-5'>
+<div key={index} className='embla_slide cards rounded-4xl p-5'>
              
               <div className='relative group cursor-pointer '>
                 <img src={course.img} className='aspect-[1] rounded-2xl shadow group-hover:brightness-50 transition-all ease-in duration-200' alt="" />
@@ -344,52 +260,8 @@ const Home = () => {
                 </div>
             </div>
            )})}
-            <div className='embla__slide  rounded-4xl p-5'>
-             
-              <div className='relative group cursor-pointer '>
-                <img src="https://i.pinimg.com/736x/40/d0/21/40d021be8efd787a53076c457167e101.jpg" className='aspect-square rounded-2xl shadow group-hover:brightness-50 transition-all ease-in duration-200' alt="" />
-              <span className="py-2 px-4 text-sm shadow-lg bg-black/70 backdrop-blur rounded-full absolute top-3 left-3 text-white font-body">
-      Development
-    </span>
-
-                <div className=' gap-5 items-center justify-start absolute bottom-1 right-0 z-40 text-xl text-black p-5 hidden group-hover:flex '><span className=' bg-white p-2 rounded-full hover:scale-110 ease-in duration-200 transition-all'>
-                  <FaHeart/></span><span className=' bg-white p-2 rounded-full hover:scale-110 ease-in duration-200 transition-all'><FaCartArrowDown/></span></div>
-              </div>
-              
-                <div className='p-3 flex flex-col gap-4'>
-                    <div className='flex flex-col text-left flex-wrap '>
-                <h2 className='text-xl font-semibold font-heading text-gray-950'> Full-Stack Web Development</h2>
-                <p className='text-sm mt-1 text-wrap font-body text-gray-800 line-clamp-2'>Learn HTML, CSS, JavaScript, React & Node.js to build dynamic websites
-                </p>
-              </div>
-             
-<div className='flex items-center justify-start flex-wrap gap-3'>
-    <span className='py-2 px-4 text-sm shadow-sm  font-body rounded-full capitalize   bg-slate-100 text-slate-700 flex flex-row gap-2 items-center'><span><PiBookDuotone className='text-xl'/></span>21 Chapters</span>
-      <span className='py-2 px-4 text-sm shadow-sm font-body rounded-full  bg-slate-100 text-slate-700 flex flex-row gap-2 items-center'><span><CiClock1 className='text-xl'/></span>12hours</span>
-      <span className="py-2 px-4 text-sm shadow-sm rounded-full bg-indigo-300 text-white flex gap-2 items-center">
-        <FiTrendingUp className="text-lg" />
-        Beginner
-      </span>
-</div>
- <div className='flex justify-start items-center gap-3'>
-                <div><img src="https://i.pinimg.com/736x/26/f7/b9/26f7b9e4919314c77cf658313c59c0e8.jpg" className='w-12 rounded-full aspect-[1]' alt="" /></div>
-                <div className='flex flex-col justify-start items-start capitalize font-[outfit]'>
-                  <span className='text-lg font-medium'>cha eun woo </span>
-                  <span className='font-medium text-sm '>instructor</span>
-                </div>
-              </div>
-              <div className='flex items-center justify-between'>
-              <div className="flex items-center gap-3">
-      <span className="text-sm line-through text-gray-400">₹2000</span>
-      <span className="text-3xl font-semibold text-indigo-900">₹959</span>
-    </div>
-    <div>
-        <button className=' transition-all bg-gradient-to-tr from-[#95b1ee] to-[#728ccd] font-[Comic_Relief]  cursor-pointer text-white rounded-full py-1.5 px-5 text-lg box capitalize font-medium hover:scale-95'>buy now</button></div></div>
-                </div>
-            </div>
+         
   
-             
-        
           </div>
           <div className="relative  flex justify-center items-center gap-3 mt-3">
             {scrollSnaps.map((_, index) => (
@@ -397,18 +269,12 @@ const Home = () => {
                 key={index}
                 onClick={() => scrollTo(index)}
                 className={`h-1 w-6 rounded-full cursor-pointer transition-all duration-500 ${index === selectedIndex
-                    ? 'bg-gradient-to-r from-rose-400 to-pink-500 w-8 shadow-md shadow-pink-300/40'
-                    : 'bg-pink-200'
+                    ? 'bg-gradient-to-r from-rose-400 to-pink-300 w-8 shadow-md shadow-blue-300/40'
+                    : 'bg-blue-200'
                   }`}
               />
             ))}
           </div>
-
-
-
-
-
-
         </div>
       </div>
       {/* trusted by */}
@@ -426,49 +292,60 @@ const Home = () => {
         </div>
       </div>
       {/* featured courses and teachers */}
-      <div className={`box  grid grid-cols-1 gap-10  w-full h-full px-10 py-20 mt-12  ${show ? 'translate-y-0' : '-translate-y-[15rem]'}`}>
+      <div className={`box  grid grid-cols-1 gap-10  w-full h-full px-10 py-20 mt-12 ${show ? 'translate-y-0' : '-translate-y-[15rem]'}`} >
         {/* featured courses */}
         <div>
           <div className=' flex flex-col  justify-start  items-start gap-3 mt-10'>
-            <h4 className=' text-lg text-pink-300 text-left capitalize font-[Merienda]'> “Editor’s Picks” </h4>
+            <h4 className=' text-xl bg-linear-120 to-blue-200 from-white text-transparent  bg-clip-text text-left capitalize font-[Merienda] text-shadow-2xs'> “Editor’s Picks” </h4>
             <h2 className='text-5xl text-white drop-shadow-lg  font-medium font-[outfit] capitalize text-center '>featured <span className='text-4xl border-b-2 font-[Merienda]  italic'>courses</span></h2>
             <p className='text-white text-lg'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, nostrum!</p>
           </div>
           <div className='grid grid-cols-4 gap-4 px-5 py-10'>
-            {featureCourses.map((courses, index) => (
-              <div className='flex cards flex-col cursor-pointer shadow-2xl bg-white w-full gap-3 rounded-2xl   h-full px-6 py-6'>
-                <div className='grid group'>
-                  <div className='col-start-1 row-start-1 z-0'><img src={courses.img} className=' col-span-1 rounded-2xl' alt="" /></div>
-                  <div className='col-start-1 invisible group-hover:visible  px-3 py-3 flex  justify-between items-end row-start-1 z-10 bg-blue-300 opacity-85  rounded-2xl'>
-                    <div >
-                      <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group   border-blue-300 font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'>view course</button></div>
-                    <div>
-                      <button className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group    font-[Comic_Relief]  cursor-pointer bg-pink-400 text-white rounded-lg py-1 px-2 gap-1 text-lg  capitalize font-medium'>Free</button></div>
-                  </div>
-                </div>
+           
+            {featureCourses.map((course,index)=>{return(
+              <div key={index} className='cards  rounded-4xl p-5'>
+             
+              <div className='relative group cursor-pointer '>
+                <img src={course.img} className='aspect-square rounded-2xl shadow group-hover:brightness-50 transition-all ease-in duration-200' alt="" />
+              <span className="py-2 px-4 text-sm shadow-lg bg-black/70 backdrop-blur rounded-full absolute top-3 left-3 text-white font-body">
+      {course.category}
+    </span>
 
-                <div className='flex justify-start  items-center gap-3'>
-                  <div><img src={courses.instructor_img} className='w-16 rounded-full ' alt="" /></div>
-                  <div className='flex flex-col justify-start items-start capitalize font-[outfit]'>
-                    <span className='text-lg font-medium'>{courses.instructor_name} </span>
-                    <span className='font-medium text-sm '>instructor</span>
-                  </div>
-                </div>
-                <div className='flex flex-col text-left  flex-wrap'>
-                  <h2 className='text-xl font-semibold'> {courses.course_name}</h2>
-                  <p className='text-lg text-wrap'>{courses.course_desc} </p>
-                </div>
-                <div className='flex  justify-between  items-center'>
-                  <div className='flex border text-white bg-black capitalize text-sm font-medium  rounded-lg px-2 py-2 justify-start items-center gap-2'>
-                    <span className='flex justify-center text-yellow-500'><FaStar /></span>
-                    <h2 className=' font-medium'> {courses.rating} </h2>
-                  </div>
-                  <div className='flex border capitalize text-white bg-black text-sm font-medium  rounded-lg px-2 py-2 justify-start items-center gap-3'>
-                    {courses.view}
-                  </div>
+                <div className=' gap-5 items-center justify-start absolute bottom-1 right-0 z-40 text-xl text-black p-5 hidden group-hover:flex '><span className=' bg-white p-2 rounded-full hover:scale-110 ease-in duration-200 transition-all'>
+                  <FaHeart/></span><span className=' bg-white p-2 rounded-full hover:scale-110 ease-in duration-200 transition-all'><FaCartArrowDown/></span></div>
+              </div>
+              
+                <div className='p-3 flex flex-col gap-4'>
+                    <div className='flex flex-col text-left flex-wrap '>
+                <h2 className='text-xl font-semibold font-heading text-gray-950'>{course.course_name}</h2>
+                <p className='text-sm mt-1 text-wrap font-body text-gray-800 line-clamp-2'>{course.course_desc}
+                </p>
+              </div>
+             
+<div className='flex items-center justify-start flex-wrap gap-3'>
+    <span className='py-2 px-4 text-sm shadow-sm  font-body rounded-full capitalize   bg-slate-100 text-slate-700 flex flex-row gap-2 items-center'><span><PiBookDuotone className='text-xl'/></span>{course.chapters}</span>
+      <span className='py-2 px-4 text-sm shadow-sm font-body rounded-full  bg-slate-100 text-slate-700 flex flex-row gap-2 items-center'><span><CiClock1 className='text-xl'/></span>{course.duration}</span>
+      <span className="py-2 px-4 text-sm shadow-sm rounded-full bg-indigo-300 text-white flex gap-2 items-center">
+        <FiTrendingUp className="text-lg" />
+{course.level}      </span>
+</div>
+ <div className='flex justify-start items-center gap-3'>
+                <div><img src={course.instructor_img} className='w-12 rounded-full aspect-[1]' alt="" /></div>
+                <div className='flex flex-col justify-start items-start capitalize font-[outfit]'>
+                  <span className='text-lg font-medium'>{course.instructor_name}</span>
+                  <span className='font-medium text-sm '>instructor</span>
                 </div>
               </div>
-            ))}
+              <div className='flex items-center justify-between'>
+              <div className="flex items-center gap-3">
+      <span className="text-sm line-through text-gray-400">₹2000</span>
+      <span className="text-3xl font-semibold text-indigo-900">₹{course.price}</span>
+    </div>
+    <div>
+        <button className=' transition-all bg-gradient-to-tr from-[#95b1ee] to-[#728ccd] font-[Comic_Relief]  cursor-pointer text-white rounded-full py-1.5 px-5 text-lg box capitalize font-medium hover:scale-95'>buy now</button></div></div>
+                </div>
+            </div>
+            )})}
           </div>
         </div>
         {/* featured teachers */}
@@ -479,14 +356,14 @@ const Home = () => {
           </div>
           <div className='grid grid-cols-4 gap-4 px-5 py-10'>
             {teachers.map((teacher, index) => (
-              <div className='flex cards ease-in-out  flex-col cursor-pointer shadow-2xl bg-white w-full gap-3 rounded-2xl   h-full px-6 py-6'>
-                <div className='text-2xl flex   flex-col font-[Roboto] capitalize '>
-                  <span className='font-semibold'>{teacher.name}</span>
-                  <span className='text-lg italic'>{teacher.title}</span>
+              <div className='flex bg-gradient-to-b from-blue-200 to-[#364c84] ease-in-out  flex-col cursor-pointer shadow-2xl bg-white  w-full gap-3 rounded-2xl   h-full px-6 py-6'>
+                <div className='text-2xl flex   flex-col font-[Roboto] capitalize text-slate-950 '>
+                  <span className='font-semibold font-heading'>{teacher.name}</span>
+                  <span className='text-lg italic text-slate-800 font-body'>{teacher.title}</span>
                 </div>
                 <div className=' ease-in-out '><img className='rounded-2xl  ' src={teacher.img} alt="" />
                 </div>
-                <div className='text-4xl flex justify-center  rounded-4xl cards shadow-2xl  items-center gap-5 text-gray-800 '>
+                <div className='text-4xl flex justify-center  rounded-4xl bg-[#364c84] basis-1/4 shrink-0 grow-0 shadow-2xl  items-center gap-5 text-gray-300 '>
                   <span className='hover:text-black scale-100 hover:scale-110 transition-all'>
                     <a href="/home"><FaLinkedin /></a>
                   </span>
@@ -508,10 +385,9 @@ const Home = () => {
         <h2 className='text-4xl capitalize  text-center  font-[outfit]'>what our students say about us ?</h2>
         <p>Lorem ipsum dolor sit amet, . Labore, libero!</p>
       </div>
-      <div className='embla1' ref={emblaRef1}>
-      <div className='flex flex-col gap-5 justify-center items-center'>
-      {testimonials.map((testimonials, index) => (
-      <div key={index} className='flex flex-col justify-center items-center'>
+      <div className='embla1 ' ref={emblaRef1}>
+<div className='embla__container flex  gap-4 px-5 py-10 '>      {testimonials.map((testimonials, index) => (
+      <div key={index} className='embla__slide  flex flex-col justify-center items-center'>
       <div className='flex p-7 bg-white rounded-4xl w-[50vw] justify-center item-center'>
         <div className=' grid  shadow-2xl testimonials grid-cols-2  rounded-4xl justify-center p-5 items-center gap-3 '>
           <div className='flex flex-col  text-center justify-center items-center gap-3'>

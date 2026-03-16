@@ -30,6 +30,7 @@ import { popularCourses  } from '../Courses/popularCourse';
 import { featureCourses } from '../Courses/featuredCourse';
 import { teachers } from '../Courses/teachers';
 import { testimonials } from '../Courses/testimonials';
+import Fade from "embla-carousel-fade";
 const Home = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     AutoScroll({ speed: 0.3, startDelay: 1000 })],
@@ -50,7 +51,12 @@ const Home = () => {
     emblaApi.on('select', () => setSelectedIndex(emblaApi.selectedScrollSnap()));
   }, [emblaApi]);
 
-    const [emblaRef1, emblaApi1] = useEmblaCarousel({ loop: true },[AutoScroll({speed:0.3,startDelay:1000})])
+//     const [emblaRef1, emblaApi1] = useEmblaCarousel({ loop: true,    slidesToScroll: 1
+//  },[AutoScroll({speed:0.3,startDelay:1000}),Fade()])
+ const [emblaRef1, emblaApi1] = useEmblaCarousel(
+  { loop: true },
+  [Fade(), AutoScroll({ speed: 0.3, startDelay: 1000 })]
+);
       const [selectedIndex1, setSelectedIndex1] = useState(0);
   const [scrollSnaps1, setScrollSnaps1] = useState([]);
 
@@ -216,7 +222,7 @@ const Home = () => {
         <div className='embla' ref={emblaRef}>
           <div className='embla__container  flex  gap-4 px-5 py-10'>
            {popularCourses.map((course,index)=>{return(
-<div key={index} className='embla_slide cards rounded-4xl p-5'>
+<div key={index} className='embla_slide cards rounded-4xl p-5 basis-full md:basis-1/2 lg:basis-1/4 shrink-0'>
              
               <div className='relative group cursor-pointer '>
                 <img src={course.img} className='aspect-[1] rounded-2xl shadow group-hover:brightness-50 transition-all ease-in duration-200' alt="" />
@@ -380,15 +386,17 @@ const Home = () => {
         </div>
       </div>
       {/* testimonials */}
-      <div className={`bg-black text-white  grid  grid-cols-1 gap-10  w-full h-full px-10 py-20   ${show ? 'translate-y-0' : '-translate-y-[15rem]'}`}>
+      <div className={`bg-black text-white  flex flex-col items-center justify-center gap-10  w-full h-full px-10 py-20   ${show ? 'translate-y-0' : '-translate-y-[15rem]'}`}>
       <div className='flex flex-col gap-2 text-center items-center justify-center'>
         <h2 className='text-4xl capitalize  text-center  font-[outfit]'>what our students say about us ?</h2>
         <p>Lorem ipsum dolor sit amet, . Labore, libero!</p>
       </div>
-      <div className='embla1 ' ref={emblaRef1}>
-<div className='embla__container flex  gap-4 px-5 py-10 '>      {testimonials.map((testimonials, index) => (
-      <div key={index} className='embla__slide  flex flex-col justify-center items-center'>
-      <div className='flex p-7 bg-white rounded-4xl w-[50vw] justify-center item-center'>
+      < div className=' flex items-center justify-center'>
+<div className='embla1 overflow-hidden max-w-7xl mx-auto ' ref={emblaRef1}><div className='embla__container  flex  gap-4 px-5 py-10 '>      {testimonials.map((testimonials, index) => (
+<div
+  key={index}
+  className="embla__slide  inset-0 rounded-4xl p- flex-none basis-full md:basis-1/2 lg:basis-1/4 min-w-0"
+>     <div className='flex p-7 bg-white rounded-4xl w-full max-w-4xl justify-center item-center'>
         <div className=' grid  shadow-2xl testimonials grid-cols-2  rounded-4xl justify-center p-5 items-center gap-3 '>
           <div className='flex flex-col  text-center justify-center items-center gap-3'>
             <div className=' border-2 p-3 rounded-br-3xl rounded-tl-3xl'><img className='w-[10rem] rounded-tl-3xl rounded-br-3xl' src={testimonials.img} alt="" /></div>
@@ -401,6 +409,7 @@ const Home = () => {
       </div>
       </div>
       ))}
+      </div>
       </div>
       </div>
 </div>

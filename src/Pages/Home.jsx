@@ -31,6 +31,8 @@ import { featureCourses } from '../Courses/featuredCourse';
 import { teachers } from '../Courses/teachers';
 import { testimonials } from '../Courses/testimonials';
 import Fade from "embla-carousel-fade";
+import Autoplay from "embla-carousel-autoplay";
+
 const Home = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     AutoScroll({ speed: 0.3, startDelay: 1000 })],
@@ -55,7 +57,7 @@ const Home = () => {
 //  },[AutoScroll({speed:0.3,startDelay:1000}),Fade()])
  const [emblaRef1, emblaApi1] = useEmblaCarousel(
   { loop: true },
-  [Fade(), AutoScroll({ speed: 0.3, startDelay: 1000 })]
+  [Fade(), Autoplay({ delay: 1000 })]
 );
       const [selectedIndex1, setSelectedIndex1] = useState(0);
   const [scrollSnaps1, setScrollSnaps1] = useState([]);
@@ -392,10 +394,10 @@ const Home = () => {
         <p>Lorem ipsum dolor sit amet, . Labore, libero!</p>
       </div>
       < div className=' flex items-center justify-center'>
-<div className='embla1 overflow-hidden max-w-7xl mx-auto ' ref={emblaRef1}><div className='embla__container  flex  gap-4 px-5 py-10 '>      {testimonials.map((testimonials, index) => (
+<div className='embla1 overflow-hidden max-w-7xl mx-auto h-[300px] ' ref={emblaRef1}><div className='embla__container  relative '>      {testimonials.map((testimonials, index) => (
 <div
   key={index}
-  className="embla__slide  inset-0 rounded-4xl p- flex-none basis-full md:basis-1/2 lg:basis-1/4 min-w-0"
+  className="embla__slide1 absolute inset-0 w-full"
 >     <div className='flex p-7 bg-white rounded-4xl w-full max-w-4xl justify-center item-center'>
         <div className=' grid  shadow-2xl testimonials grid-cols-2  rounded-4xl justify-center p-5 items-center gap-3 '>
           <div className='flex flex-col  text-center justify-center items-center gap-3'>

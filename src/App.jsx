@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from './Components/Navbar'
+import Footer from './Components/Footer'
 import Home from './Pages/Home'
 import About from './Pages/About'
 import { BrowserRouter , Route ,Router, Routes } from 'react-router-dom'
@@ -21,6 +22,7 @@ const App = () => {
      <Route path='/courses/lecture/:course_name' element={<CoursePlayer/>}/>
      <Route path='/login' element={<Login/>}/>
  </Routes>
+ <Footer/>
     </BrowserRouter>
     </div>
   )

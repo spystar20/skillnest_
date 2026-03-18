@@ -80,12 +80,13 @@
 .embla__slide  {
   flex: 0 0 auto;
 }
-  .embla__slide1 {
+  .test {
+ 
   opacity: 0;
   transition: opacity 0.8s ease;
 }
 
-.embla__slide1.is-selected {
+.test.is-selected {
   opacity: 1;
   z-index: 1;
 }

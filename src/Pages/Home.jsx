@@ -57,7 +57,7 @@ const Home = () => {
 //  },[AutoScroll({speed:0.3,startDelay:1000}),Fade()])
  const [emblaRef1, emblaApi1] = useEmblaCarousel(
   { loop: true },
-  [Fade(), Autoplay({ delay: 1000 })]
+  [Fade(), Autoplay({ delay: 4000 })]
 );
       const [selectedIndex1, setSelectedIndex1] = useState(0);
   const [scrollSnaps1, setScrollSnaps1] = useState([]);
@@ -164,59 +164,67 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/* features */}
-      <div className='w-full flex flex-col gap-6 justify-center items-center  h-screen py-20 my-28 px-10 font-["Roboto"]  '>
-        {/* feature header */}
-        <div onClick={ShowFeature} className={`feature-box flex justify-center items-center font-[Outfit] w-1/2 h-1/2 shadow-2xs shadow-black text-4xl capitalize font-semibold  text-[#2a3f74]  gap-3 p-10 rounded-2xl ${show ? '-translate-y-0' : '-translate-y-2/3'}`}>
-          <div className='flex flex-col  justify-center items-center gap-6'><div><h2>our <span className='font-[Merienda] italic lowercase  text-shadow-2xs  drop-shadow-2xl text-white' >features</span> specially for you</h2></div>
-            <div className='flex justify-start flex-row items-center cursor-pointer '>
-              <div className='flex justify-center items-center  transition-all hover:scale-95 scale-100 group   border-blue-300 font-[Comic_Relief]  cursor-pointer box text-white rounded-lg py-2 px-3 gap-1 text-xl  capitalize font-medium'><button  >see all features</button><span className='mt-1 group-hover:-translate-y-1 transition-all -translate-y-0'> <MdArrowOutward /></span></div>
+  <div className='w-full flex flex-col gap-10 justify-center items-center min-h-screen py-20 px-10 font-["Roboto"]'>
 
-            </div>
-          </div>
+  {/* feature header */}
+  <div
+    onClick={ShowFeature}
+    className='feature-box flex justify-center items-center font-[Outfit] w-full max-w-3xl shadow-md text-4xl capitalize font-semibold text-[#2a3f74] gap-3 p-10 rounded-2xl cursor-pointer transition-all hover:scale-[1.02]'
+  >
+    <div className='flex flex-col justify-center items-center gap-6 text-center'>
+      
+      <h2>
+        our <span className='font-[Merienda] italic lowercase text-white'>features</span> specially for you
+      </h2>
+
+      <div className='flex items-center cursor-pointer'>
+        <div className='flex items-center transition-all hover:scale-95 group text-white rounded-lg py-2 px-3 gap-1 text-xl capitalize font-medium'>
+         <div className='flex justify-center items-center transition-all hover:scale-95 scale-100 group border-blue-300 font-[Comic_Relief] cursor-pointer box text-white rounded-lg py-2 px-3 gap-1 text-xl capitalize font-medium'><button >see all features</button><span className='mt-1 group-hover:-translate-y-1 transition-all -translate-y-0'> <MdArrowOutward /></span></div>
+       
         </div>
-
-        {/* feature cards */}
-        {show && (
-          <div className='grid grid-cols-4 gap-4 px-5 py-10 '>
-            <div className=' group flex justify-start items-center shadow-2xl cursor-pointer hover:scale-105 transition-all  scale-100 border-2 border-[#95b1ee] hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] hover:text-white rounded-2xl py-6 px-3 gap-3  flex-col  capitalize '>
-              <span ><PiVideoFill className='text-6xl text-blue-300 group-hover:text-white' /></span>
-              <h2 className='text-2xl font-heading font-semibold'>
-                Video lesson</h2>
-              <p className='font-body text-center'>
-                recorded version of lectures from professional instructions to boost your growth
-              </p>
-            </div>
-            <div className=' group flex justify-start items-center shadow-2xl cursor-pointer hover:scale-105 transition-all  scale-100 border-2 border-[#95b1ee] hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] hover:text-white rounded-2xl py-6 px-3 gap-3  flex-col  capitalize'>
-            
-              <span><LiaCertificateSolid className='text-6xl text-blue-300 group-hover:text-white' /></span>
-              <h2 className='text-2xl font-heading font-semibold'>
-                get Certificate</h2>
-              <p className='font-body text-center'>
-                add value to your Certificate and increase chance of getting hired in your dream job
-              </p>
-            </div>
-            <div className=' group flex justify-start items-center shadow-2xl cursor-pointer hover:scale-105 transition-all  scale-100 border-2 border-[#95b1ee] hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] hover:text-white rounded-2xl py-6 px-3 gap-3  flex-col  capitalize'>
-              <span><MdSupportAgent className='text-6xl text-blue-300 group-hover:text-white'/></span>
-              <h2 className='text-2xl font-heading font-semibold'>
-                life time support</h2>
-              <p className='font-body text-center'>
-                you will have lifetime access of the courses & resources. also contacting supporters any time
-              </p>
-            </div>
-            <div className=' group flex justify-start items-center shadow-2xl cursor-pointer hover:scale-105 transition-all  scale-100 border-2 border-[#95b1ee] hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] hover:text-white rounded-2xl py-6 px-3 gap-3  flex-col  capitalize'>
-              <span><GiTeacher className='text-6xl text-blue-300 group-hover:text-white' /></span>
-              <h2 className='text-2xl font-heading  font-semibold'>
-                Amazing instructor</h2>
-              <p className='font-body text-center'>
-                our Amazing instructor bring experience , knowledge and fun on the table
-              </p>
-            </div>
-          </div>
-        )}
       </div>
-      {/* popular courses */}
-      <div className={`box p-10 font-[outfit] w-full h-full ${show ? 'translate-y-0' : '-translate-y-1/3'}`}>
+
+    </div>
+  </div>
+
+  {/* feature cards (SMOOTH ANIMATION FIX) */}
+  <div
+    className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-7xl transition-all duration-500 ease-in-out overflow-hidden ${
+      show ? 'max-h-[1000px] opacity-100 mt-10' : 'max-h-0 opacity-0'
+    }`}
+  >
+
+    {/* card 1 */}
+    <div className='group flex items-center shadow-xl cursor-pointer hover:scale-105 transition-all border-2 border-[#95b1ee] hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] hover:text-white rounded-2xl py-6 px-4 gap-3 flex-col text-center'>
+      <PiVideoFill className='text-6xl text-blue-300 group-hover:text-white' />
+      <h2 className='text-2xl font-semibold'>Video lesson</h2>
+      <p>Recorded lectures from professional instructors to boost your growth</p>
+    </div>
+
+    {/* card 2 */}
+    <div className='group flex items-center shadow-xl cursor-pointer hover:scale-105 transition-all border-2 border-[#95b1ee] hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] hover:text-white rounded-2xl py-6 px-4 gap-3 flex-col text-center'>
+      <LiaCertificateSolid className='text-6xl text-blue-300 group-hover:text-white' />
+      <h2 className='text-2xl font-semibold'>Get Certificate</h2>
+      <p>Add value to your profile and increase your hiring chances</p>
+    </div>
+
+    {/* card 3 */}
+    <div className='group flex items-center shadow-xl cursor-pointer hover:scale-105 transition-all border-2 border-[#95b1ee] hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] hover:text-white rounded-2xl py-6 px-4 gap-3 flex-col text-center'>
+      <MdSupportAgent className='text-6xl text-blue-300 group-hover:text-white' />
+      <h2 className='text-2xl font-semibold'>Lifetime Support</h2>
+      <p>Get lifetime access and support anytime you need</p>
+    </div>
+
+    {/* card 4 */}
+    <div className='group flex items-center shadow-xl cursor-pointer hover:scale-105 transition-all border-2 border-[#95b1ee] hover:bg-gradient-to-tr hover:from-[#95b1ee] hover:to-[#728ccd] hover:text-white rounded-2xl py-6 px-4 gap-3 flex-col text-center'>
+      <GiTeacher className='text-6xl text-blue-300 group-hover:text-white' />
+      <h2 className='text-2xl font-semibold'>Amazing Instructor</h2>
+      <p>Learn from experienced mentors with real-world expertise</p>
+    </div>
+
+  </div>
+</div>{/* popular courses */}
+      <div className='box p-10 font-[outfit] w-full h-full'>
         <div>
           <h2 className='text-5xl text-white drop-shadow-lg py-10 font-medium font-[outfit] capitalize text-center '>popular <span className='text-4xl border-b-2 font-[Merienda]  italic'>courses</span></h2>
         </div>
@@ -286,7 +294,7 @@ const Home = () => {
         </div>
       </div>
       {/* trusted by */}
-      <div className={`text-center w-full h-full px-10 py-5  ${show ? 'translate-y-0' : '-translate-y-[15rem]'}`}>
+      <div className='text-center w-full h-full px-10 py-5  '>
         <h2 className='text-xl font-light font-[Outfit]'>Trusted by over 16,000 companies and millions of learners around the world  </h2>
         <div className='text-6xl logo font-light opacity-80 font-[Outfit] flex flex-row  justify-center gap-24 items-center mt-11'>
           <span><FaAws /></span>
@@ -300,7 +308,7 @@ const Home = () => {
         </div>
       </div>
       {/* featured courses and teachers */}
-      <div className={`box  grid grid-cols-1 gap-10  w-full h-full px-10 py-20 mt-12 ${show ? 'translate-y-0' : '-translate-y-[15rem]'}`} >
+      <div className= 'box  grid grid-cols-1 gap-10  w-full h-full px-10 py-20 mt-12 '>
         {/* featured courses */}
         <div>
           <div className=' flex flex-col  justify-start  items-start gap-3 mt-10'>
@@ -388,16 +396,16 @@ const Home = () => {
         </div>
       </div>
       {/* testimonials */}
-      <div className={`bg-black text-white  flex flex-col items-center justify-center gap-10  w-full h-full px-10 py-20   ${show ? 'translate-y-0' : '-translate-y-[15rem]'}`}>
+      <div className='bg-black text-white  flex flex-col items-center justify-center gap-10  w-full h-full px-10 py-20'>
       <div className='flex flex-col gap-2 text-center items-center justify-center'>
         <h2 className='text-4xl capitalize  text-center  font-[outfit]'>what our students say about us ?</h2>
         <p>Lorem ipsum dolor sit amet, . Labore, libero!</p>
       </div>
-      < div className=' flex items-center justify-center'>
-<div className='embla1 overflow-hidden max-w-7xl mx-auto h-[300px] ' ref={emblaRef1}><div className='embla__container  relative '>      {testimonials.map((testimonials, index) => (
+      < div className=' flex flex-col items-center justify-center'>
+<div className='embla1  overflow-hidden max-w-5xl mx-auto ' ref={emblaRef1}><div className='embla__container   '>      {testimonials.map((testimonials, index) => (
 <div
   key={index}
-  className="embla__slide1 absolute inset-0 w-full"
+  className="embla__slide transition-opacity duration-700 ease-in-out w-[70%] test   inset-0  flex items-center justify-center"
 >     <div className='flex p-7 bg-white rounded-4xl w-full max-w-4xl justify-center item-center'>
         <div className=' grid  shadow-2xl testimonials grid-cols-2  rounded-4xl justify-center p-5 items-center gap-3 '>
           <div className='flex flex-col  text-center justify-center items-center gap-3'>
@@ -413,6 +421,19 @@ const Home = () => {
       ))}
       </div>
       </div>
+      <div className="flex justify-center items-center gap-3 mt-6">
+  {scrollSnaps1.map((_, index) => (
+    <button
+      key={index}
+      onClick={() => scrollTo1(index)}
+      className={`h-2 rounded-full transition-all duration-300 hover:scale-125 ${
+  index === selectedIndex1
+    ? "w-6 bg-white"
+    : "w-2 bg-gray-400"
+}`}
+    />
+  ))}
+</div>
       </div>
 </div>
 

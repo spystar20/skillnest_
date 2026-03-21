@@ -152,3 +152,16 @@ box-shadow:
   color: #fff;
 }
 
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.login {
+  animation: float 3s ease-in-out infinite;
+}

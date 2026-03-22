@@ -151,12 +151,12 @@ const Navbar = () => {
           <Link to="/login"><button className='
 px-6 py-2 rounded-lg font-normal text-lg capitalize text-white border border-white hover:border-[#0e0929]
 hover:bg-gradient-to-tr hover:from-[#0e0929] hover:via-[#1c1450] hover:to-[#2a1f75] hover:opacity-90 shadow-lg shadow-black/10 transition-all duration-300 hover:scale-95  cursor-pointer'>Log In</button></Link>
-          <button className='
+         <Link to="/signup" ><button className='
 px-6 py-2 rounded-lg font-normal text-lg capitalize text-white
 bg-gradient-to-tr from-[#0e0929] via-[#1c1450] to-[#2a1f75]
 hover:opacity-90
 shadow-lg shadow-black/10
-transition-all duration-300 hover:scale-95  cursor-pointer box'>sign up</button>
+transition-all duration-300 hover:scale-95  cursor-pointer box'>sign up</button></Link>
 
 
         </div>

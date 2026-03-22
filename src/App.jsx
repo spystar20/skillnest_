@@ -8,6 +8,7 @@ import Courses from './Pages/Courses'
 import CourseDetails from './Pages/CourseDetails'
 import CoursePlayer from './Pages/CoursePlayer'
 import Login from './AuthPages/Login'
+import SignUp from './AuthPages/SignUp'
 const App = () => {
   return (
     <div className='home-bg w-full h-screen'>
@@ -21,6 +22,7 @@ const App = () => {
    <Route path='/courses/:course_name' element={<CourseDetails/>}/>
      <Route path='/courses/lecture/:course_name' element={<CoursePlayer/>}/>
      <Route path='/login' element={<Login/>}/>
+     <Route path='/signup' element={<SignUp/>}/>
  </Routes>
  <Footer/>
     </BrowserRouter>
